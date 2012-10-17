@@ -324,5 +324,27 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 	         .A0(1'b1), .A1(1'b1), .A2(1'b1), .A3(1'b1));
   defparam reset_sr.INIT = 16'hFFFF;
 
-
+  assign noisy_hidden=~button0;
+  assign noisy_brake=~button1;
+  assign noisy_driver=~button2;
+  assign noisy_passenger=~button3;
+  assign ignit=switch[7];
+  assign Time_parameter_selector=swith[5:4];
+  assign Time_value=switch[3:0];
+  assign noisy_reprogram=~button_enter;
+  assign status=led[0];
+  assign fuelPower=led[1];
+  assign siren=user1[0];
+  assign noisy_reset=~button_down;
+  
+  parameter hidden, brake, driver, passenger, reprogram, reset;
+  assign clk = clock_27mhz;
+  
+  full_deboune db (reset, clk, noisy_brake, brake, noisy_hidden, hidden, noisy_driver, driver,
+                   noisy_passenger, passenger, noisy_reprogram, reprogram,m noisy_reset, reset);
+                   
+  FuelLogic (brake, hidden, ignit, fuelPower);
+  
+  
+  
 endmodule
