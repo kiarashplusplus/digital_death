@@ -41,19 +41,24 @@ module timerTest;
 		.reset(reset), 
 		.expired(expired)
 	);
+	always #2 clk= !clk;
 
 	initial begin
 		// Initialize Inputs
 		clk = 0;
 		start_timer = 0;
-		value = 0;
+		value = 4'd7;
 		reset = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-        
+      start_timer=1;
+		#40;
+      start_timer=0;
+				
+		
 		// Add stimulus here
-
+		
 	end
       
 endmodule

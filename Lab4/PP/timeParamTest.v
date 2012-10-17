@@ -46,7 +46,7 @@ module timeParamTest;
 		.value(value)
 	);
 	
-	always #1 clk= !clk;
+	always #10 clk= !clk;
 
 	initial begin
 		// Initialize Inputs
@@ -61,17 +61,21 @@ module timeParamTest;
 		#100;
         
 		// Add stimulus here
+		Time_Parameter_Selector=2'b11;
+		Reprogram=0;
+		Time_Value=4'b1111;	
+		#100
 		Time_Parameter_Selector=2'b10;
 		Reprogram=1;
-		Time_Value=0000;
+		Time_Value=4'b0000;
 		#100;
 		Time_Parameter_Selector=2'b00;
 		Reprogram=0;
-		Time_Value=0001;	
+		Time_Value=4'b0001;	
 		#100;
 		Time_Parameter_Selector=2'b00;
 		Reprogram=1;
-		Time_Value=0001;	
+		Time_Value=4'b0001;	
 		#100;
 		reset=1;
 		

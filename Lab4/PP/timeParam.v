@@ -51,15 +51,16 @@ module timeParam(
 				2'b10: PASSENGER_DELAY<=Time_Value;
 				2'b11: ALARM_ON<=Time_Value;		
 			endcase
-		end
+		end else begin
 
-		case (interval)
-			2'b00: value<=ARM_DELAY;
-			2'b01: value<=DRIVER_DELAY;
-			2'b10: value<=PASSENGER_DELAY;
-			2'b11: value<=ALARM_ON;
-		endcase
-			
+			case (interval)
+				2'b00: value<=ARM_DELAY;
+				2'b01: value<=DRIVER_DELAY;
+				2'b10: value<=PASSENGER_DELAY;
+				2'b11: value<=ALARM_ON;
+			endcase
+		end
+		
 	end
 	
 	

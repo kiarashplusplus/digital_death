@@ -1,5 +1,5 @@
 NUM_USER_FILES
-15
+18
 s
 user_file_1
 debounce.v
@@ -21,6 +21,15 @@ timeParamTest.v
 s
 user_file_15
 timerTest.v
+s
+user_file_16
+../FSM.v
+s
+user_file_17
+../full_debounce.v
+s
+user_file_18
+debounceTester.v
 s
 user_file_2
 display_16hex.v

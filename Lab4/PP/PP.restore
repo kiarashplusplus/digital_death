@@ -838,9 +838,12 @@ proc restore { { project_dir "" } } {
   set user_files { 
       "../Divider.v" 
       "../DividerTest.v" 
+      "../FSM.v" 
+      "../full_debounce.v" 
       "Divider.v" 
       "FuelLogic.v" 
       "debounce.v" 
+      "debounceTester.v" 
       "display_16hex.v" 
       "labkit.ucf" 
       "labkit.v" 
