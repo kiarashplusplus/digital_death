@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab4/PP/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: labkit.prj
@@ -482,7 +482,6 @@ WARNING:Xst:2565 - Inout <user3<22>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<17>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<23>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<18>> is never assigned.
-WARNING:Xst:1305 - Output <led<1:0>> is never assigned. Tied to value 00.
 WARNING:Xst:2565 - Inout <user3<24>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<19>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<0>> is never assigned.
@@ -495,19 +494,16 @@ WARNING:Xst:2565 - Inout <user3<31>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<2>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<27>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<3>> is never assigned.
-WARNING:Xst:646 - Signal <status> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <status> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:646 - Signal <siren> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <rst> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <reprogram> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <passenger> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <fuelPower> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <driver> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <Time_value> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <Time_parameter_selector> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <labkit> synthesized.
 
-WARNING:Xst:524 - All outputs of the instance <f1> of the block <FuelLogic> are unconnected in block <labkit>.
-   This instance will be removed from the design along with all underlying logic
 
 =========================================================================
 HDL Synthesis Report
@@ -527,8 +523,6 @@ Macro Statistics
 =========================================================================
 
 Loading device for application Rf_Device from file '2v6000.nph' in environment /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE.
-WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_brake>.
-WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_hidden>.
 WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_ignit>.
 WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_driver>.
 WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_passenger>.
@@ -550,10 +544,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:2677 - Node <db/d_brake/new> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db/d_brake/clean> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db/d_hidden/new> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <db/d_hidden/clean> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db/d_ignit/new> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db/d_ignit/clean> of sequential type is unconnected in block <labkit>.
 WARNING:Xst:2677 - Node <db/d_driver/new> of sequential type is unconnected in block <labkit>.
@@ -574,7 +564,10 @@ Final Macro Processing ...
 =========================================================================
 Final Register Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 42
+ Flip-Flops                                            : 42
+
 =========================================================================
 
 =========================================================================
@@ -602,14 +595,24 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 2
+# BELS                             : 147
 #      GND                         : 1
+#      INV                         : 6
+#      LUT1                        : 36
+#      LUT3                        : 9
+#      LUT4                        : 10
+#      MUXCY                       : 46
 #      VCC                         : 1
+#      XORCY                       : 38
+# FlipFlops/Latches                : 42
+#      FDE                         : 4
+#      FDRE                        : 38
 # Shift Registers                  : 1
 #      SRL16                       : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 240
+# IO Buffers                       : 243
+#      IBUF                        : 3
 #      OBUF                        : 240
 =========================================================================
 
@@ -618,12 +621,13 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                        1  out of  33792     0%  
- Number of 4 input LUTs:                  1  out of  67584     0%  
-    Number used as logic:                 0
+ Number of Slices:                       31  out of  33792     0%  
+ Number of Slice Flip Flops:             42  out of  67584     0%  
+ Number of 4 input LUTs:                 62  out of  67584     0%  
+    Number used as logic:                61
     Number used as Shift registers:       1
  Number of IOs:                         576
- Number of bonded IOBs:                 241  out of    684    35%  
+ Number of bonded IOBs:                 244  out of    684    35%  
  Number of GCLKs:                         1  out of     16     6%  
 
 ---------------------------
@@ -647,7 +651,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clock_27mhz                        | BUFGP                  | 1     |
+clock_27mhz                        | BUFGP                  | 43    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -658,27 +662,114 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: No path found
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
-   Maximum combinational path delay: No path found
+   Minimum period: 5.808ns (Maximum Frequency: 172.176MHz)
+   Minimum input arrival time before clock: 3.557ns
+   Maximum output required time after clock: 6.688ns
+   Maximum combinational path delay: 6.694ns
 
 Timing Detail:
 --------------
 All values displayed in nanoseconds (ns)
 
 =========================================================================
+Timing constraint: Default period analysis for Clock 'clock_27mhz'
+  Clock period: 5.808ns (frequency: 172.176MHz)
+  Total number of paths / destination ports: 1228 / 120
+-------------------------------------------------------------------------
+Delay:               5.808ns (Levels of Logic = 7)
+  Source:            db/d_hidden/count_7 (FF)
+  Destination:       db/d_hidden/count_0 (FF)
+  Source Clock:      clock_27mhz rising
+  Destination Clock: clock_27mhz rising
+
+  Data Path: db/d_hidden/count_7 to db/d_hidden/count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.568   0.986  db/d_hidden/count_7 (db/d_hidden/count_7)
+     LUT3:I0->O            1   0.439   0.000  db/d_hidden/count_cmp_eq0000_wg_lut<0> (db/d_hidden/count_cmp_eq0000_wg_lut<0>)
+     MUXCY:S->O            1   0.298   0.000  db/d_hidden/count_cmp_eq0000_wg_cy<0> (db/d_hidden/count_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.053   0.000  db/d_hidden/count_cmp_eq0000_wg_cy<1> (db/d_hidden/count_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.053   0.000  db/d_hidden/count_cmp_eq0000_wg_cy<2> (db/d_hidden/count_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.053   0.000  db/d_hidden/count_cmp_eq0000_wg_cy<3> (db/d_hidden/count_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           2   0.942   0.701  db/d_hidden/count_cmp_eq0000_wg_cy<4> (db/d_hidden/count_cmp_eq0000)
+     INV:I->O             19   0.439   1.035  db/d_hidden/count_not00011_INV_0 (db/d_hidden/count_not0001)
+     FDRE:CE                   0.240          db/d_hidden/count_0
+    ----------------------------------------
+    Total                      5.808ns (3.085ns logic, 2.723ns route)
+                                       (53.1% logic, 46.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
+  Total number of paths / destination ports: 46 / 46
+-------------------------------------------------------------------------
+Offset:              3.557ns (Levels of Logic = 2)
+  Source:            button0 (PAD)
+  Destination:       db/d_hidden/count_0 (FF)
+  Destination Clock: clock_27mhz rising
+
+  Data Path: button0 to db/d_hidden/count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             5   0.825   0.979  button0_IBUF (button0_IBUF)
+     LUT3:I1->O           19   0.439   1.035  db/d_hidden/count_or00001 (db/d_hidden/count_or0000)
+     FDRE:R                    0.280          db/d_hidden/count_0
+    ----------------------------------------
+    Total                      3.557ns (1.544ns logic, 2.014ns route)
+                                       (43.4% logic, 56.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              6.688ns (Levels of Logic = 2)
+  Source:            db/d_hidden/clean (FF)
+  Destination:       led<1> (PAD)
+  Source Clock:      clock_27mhz rising
+
+  Data Path: db/d_hidden/clean to led<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.568   0.802  db/d_hidden/clean (db/d_hidden/clean)
+     LUT3:I0->O            1   0.439   0.517  led_1_not00001 (led_1_OBUF)
+     OBUF:I->O                 4.361          led_1_OBUF (led<1>)
+    ----------------------------------------
+    Total                      6.688ns (5.368ns logic, 1.320ns route)
+                                       (80.3% logic, 19.7% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               6.694ns (Levels of Logic = 3)
+  Source:            switch<7> (PAD)
+  Destination:       led<1> (PAD)
+
+  Data Path: switch<7> to led<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.825   0.551  switch_7_IBUF (switch_7_IBUF)
+     LUT3:I2->O            1   0.439   0.517  led_1_not00001 (led_1_OBUF)
+     OBUF:I->O                 4.361          led_1_OBUF (led<1>)
+    ----------------------------------------
+    Total                      6.694ns (5.625ns logic, 1.069ns route)
+                                       (84.0% logic, 16.0% route)
+
+=========================================================================
 
 
 Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 3.81 secs
+Total CPU time to Xst completion: 4.23 secs
  
 --> 
 
 
-Total memory usage is 450816 kilobytes
+Total memory usage is 453752 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  331 (   0 filtered)
+Number of warnings :  322 (   0 filtered)
 Number of infos    :   10 (   0 filtered)
 

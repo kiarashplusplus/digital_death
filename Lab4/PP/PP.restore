@@ -842,6 +842,7 @@ proc restore { { project_dir "" } } {
       "../full_debounce.v" 
       "../labkit.v" 
       "Divider.v" 
+      "FSMtester.v" 
       "FuelLogic.v" 
       "debounce.v" 
       "debounceTester.v" 

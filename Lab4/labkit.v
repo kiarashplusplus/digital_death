@@ -337,8 +337,10 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   assign Time_parameter_selector=switch[5:4];
   assign Time_value=switch[3:0];
   assign noisy_reprogram=~button_enter;
-  assign status=~led[0];
-  assign fuelPower=~led[1];
+
+  assign led[1]=~fuelPower;
+  assign led[0]=~status;
+
   assign siren=user1[0];
   assign noisy_reset=~button_down;
   
@@ -352,7 +354,15 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								
 							
   FuelLogic f1 (.brake(brake), .hidden(hidden), .ignit(ignit), .power(fuelPower));
+  /*
+  wire [1:0] interval;
+  wire [3:0] value;
   
-  
+  timeParam tp1 (.clk(clk), .Time_Parameter_Selector(Time_parameter_selector),
+						.Time_Value( Time_Value),.Reprogram(reprogram),.reset(rst),
+						.interval(interval), .value(value));
+
+  wire oneHz_enable;
+  */
   
 endmodule
