@@ -1,0 +1,111 @@
+--------------------------------------------------------------------------------
+Release 10.1.03 Trace  (lin64)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+
+/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/bin/lin64/unwrapped/trce -ise
+/afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab3/project/lab3_proj/lab3_proj.ise
+-intstyle ise -v 3 -s 4 -xml lab3 lab3.ncd -o lab3.twr lab3.pcf -ucf labkit.ucf
+
+Design file:              lab3.ncd
+Physical constraint file: lab3.pcf
+Device,package,speed:     xc2v6000,bf957,-4 (PRODUCTION 1.121 2008-07-25, STEPPING level 0)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clock_27mhz
+------------+------------+------------+------------------+--------+
+            |  Setup to  |  Hold to   |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+button_down |    2.249(R)|    0.674(R)|clock_65mhz       |   0.000|
+button_enter|    1.929(R)|    0.754(R)|clock_65mhz       |   0.000|
+button_up   |    2.417(R)|    1.116(R)|clock_65mhz       |   0.000|
+switch<0>   |    7.553(R)|   -2.464(R)|clock_65mhz       |   0.000|
+switch<1>   |    6.625(R)|   -2.525(R)|clock_65mhz       |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock clock_27mhz to Pad
+----------------+------------+------------------+--------+
+                | clk (edge) |                  | Clock  |
+Destination     |   to PAD   |Internal Clock(s) | Phase  |
+----------------+------------+------------------+--------+
+led<2>          |   17.887(R)|clock_65mhz       |   0.000|
+led<3>          |   15.606(R)|clock_65mhz       |   0.000|
+led<4>          |   17.278(R)|clock_65mhz       |   0.000|
+vga_out_blank_b |   12.929(R)|clock_65mhz       |   0.000|
+vga_out_blue<0> |   13.758(R)|clock_65mhz       |   0.000|
+vga_out_blue<1> |   14.416(R)|clock_65mhz       |   0.000|
+vga_out_blue<2> |   14.285(R)|clock_65mhz       |   0.000|
+vga_out_blue<3> |   13.305(R)|clock_65mhz       |   0.000|
+vga_out_blue<4> |   13.575(R)|clock_65mhz       |   0.000|
+vga_out_blue<5> |   13.981(R)|clock_65mhz       |   0.000|
+vga_out_blue<6> |   11.708(R)|clock_65mhz       |   0.000|
+vga_out_blue<7> |   11.695(R)|clock_65mhz       |   0.000|
+vga_out_green<0>|   13.149(R)|clock_65mhz       |   0.000|
+vga_out_green<1>|   14.486(R)|clock_65mhz       |   0.000|
+vga_out_green<2>|   13.264(R)|clock_65mhz       |   0.000|
+vga_out_green<3>|   13.820(R)|clock_65mhz       |   0.000|
+vga_out_green<4>|   14.829(R)|clock_65mhz       |   0.000|
+vga_out_green<5>|   14.485(R)|clock_65mhz       |   0.000|
+vga_out_green<6>|   16.193(R)|clock_65mhz       |   0.000|
+vga_out_green<7>|   15.395(R)|clock_65mhz       |   0.000|
+vga_out_hsync   |   12.597(R)|clock_65mhz       |   0.000|
+vga_out_red<0>  |   13.615(R)|clock_65mhz       |   0.000|
+vga_out_red<1>  |   14.228(R)|clock_65mhz       |   0.000|
+vga_out_red<2>  |   14.686(R)|clock_65mhz       |   0.000|
+vga_out_red<3>  |   13.958(R)|clock_65mhz       |   0.000|
+vga_out_red<4>  |   14.694(R)|clock_65mhz       |   0.000|
+vga_out_red<5>  |   14.576(R)|clock_65mhz       |   0.000|
+vga_out_red<6>  |   14.516(R)|clock_65mhz       |   0.000|
+vga_out_red<7>  |   14.432(R)|clock_65mhz       |   0.000|
+vga_out_vsync   |   12.630(R)|clock_65mhz       |   0.000|
+----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clock_27mhz
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clock_27mhz    |   14.232|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+-------------------+---------+
+Source Pad     |Destination Pad    |  Delay  |
+---------------+-------------------+---------+
+clock_27mhz    |vga_out_pixel_clock|   11.458|
+switch<0>      |led<0>             |    6.389|
+switch<1>      |led<1>             |    7.127|
+---------------+-------------------+---------+
+
+
+Analysis completed Tue Oct  2 21:46:28 2012 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 341 MB
+
+
+

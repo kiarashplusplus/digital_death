@@ -1,0 +1,51 @@
+# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-31-generic
+# //
+# //  Copyright 1991-2008 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# do {gcd_test.fdo} 
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module gcd
+# 
+# Top level modules:
+# 	gcd
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module gcd_test
+# 
+# Top level modules:
+# 	gcd_test
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps gcd_test glbl 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: kiarash  Hostname: eecs-digital-15  ProcessID: 9410
+#           Attempting to use alternate WLF file "./wlftFTtG4l".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftFTtG4l
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftFTtG4l
+# Design is being optimized due to module recompilation...
+# Loading work.gcd_test(fast)
+# Loading work.gcd(fast)
+# ** Warning: (vsim-3009) [TSCALE] - Module 'gcd' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /gcd_test/uut
+# Loading work.glbl(fast)
+# .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
+# .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
+# .main_pane.signals.interior.cs
+restart -f
+# Loading work.gcd_test(fast)
+# Loading work.gcd(fast)
+# ** Warning: (vsim-3009) [TSCALE] - Module 'gcd' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /gcd_test/uut
+# Loading work.glbl(fast)
+run 500ns

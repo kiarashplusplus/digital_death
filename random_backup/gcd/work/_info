@@ -1,0 +1,58 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab3/project/gcd
+T_opt
+Z1 VQDg4B7Fd_zdKaB@6XB@OV2
+Z2 04 8 4 work gcd_test fast 0
+Z3 04 4 4 work glbl fast 0
+Z4 =1-f04da20f0662-506b7676-8ca90-24a9
+Z5 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
+Z6 OE;O;6.4a;39
+T_opt1
+V3HaQli;dzD^]j9EC:6aUI0
+R2
+R3
+Z7 =1-f04da20f0662-506b783c-ac2ea-24f1
+R5
+R6
+vgcd
+Z8 IW5PjX3bOlokS0z2zV9]D:1
+Z9 VDUKBS2m@ez?C7AMI1=f^m0
+Z10 w1349219586
+Z11 8gcd.v
+Z12 Fgcd.v
+L0 2
+Z13 OE;L;6.4a;39
+r1
+31
+Z14 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
+Z15 !s100 Z>YGYP_BC8:JAYDG09_]S3
+!s85 0
+vgcd_test
+Z16 IcbMjB]=RehAFATTaYEdh=0
+Z17 Vz:]fLUD68RFKM^VCGU[SO2
+Z18 w1349220405
+Z19 8gcd_test.v
+Z20 Fgcd_test.v
+L0 25
+R13
+r1
+31
+R14
+Z21 !s100 IEZbdOIN^cGmoCc^9k@kc1
+!s85 0
+vglbl
+Z22 IB;@1jEXmEfQXL`;Kf0IBZ3
+Z23 VnN]4Gon>inod6>M^M2[SV1
+Z24 w1202685744
+Z25 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z26 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+L0 5
+R13
+r1
+31
+R14
+Z27 !s100 T?5S;>bN`@zG_25]R_4A33
+!s85 0

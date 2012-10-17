@@ -1,0 +1,46 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111
+T_opt
+Z1 V5=c^GP1kb`N]Y<N4U1YCk3
+Z2 04 4 4 work test fast 0
+Z3 =1-f04da20f064d-505e20c8-626dc-13c5
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 OE;O;6.4a;39
+T_opt1
+Z6 V21J3WDB37CY3R8052L0O@1
+R2
+Z7 =1-f04da20f0662-5060c2ec-ce5bf-130a
+R4
+R5
+vLS163
+Z8 I1o_a12fEm0]XB:?DljX2C1
+Z9 VAgW8Q]Q2bzVRSkAGnWg<c3
+Z10 d/afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab2
+Z11 w1348518599
+Z12 8lab2_1.v
+Z13 Flab2_1.v
+L0 9
+Z14 OE;L;6.4a;39
+r1
+31
+Z15 o-L mtiAvm -L mtiOvm -L mtiUPF
+Z16 n@l@s163
+Z17 !s100 gOXVX[dzWIRKMNbPAf85?3
+!s85 0
+vtest
+Z18 I@8nCiZ;gFCLI?aCWUnkHa0
+Z19 Vk<3<[f=78GX=_HO53D;7>3
+R10
+R11
+R12
+R13
+L0 37
+R14
+r1
+31
+R15
+Z20 !s100 X3LZLHH1jJ0;DcTGF:0SZ2
+!s85 0
