@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.03 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab4/PP/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.03 secs
  
 --> 
 Reading design: labkit.prj
@@ -109,7 +109,13 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "labkit.v" in library work
+Compiling verilog file "debounce.v" in library work
+Compiling verilog file "FuelLogic.v" in library work
+Module <debounce> compiled
+Compiling verilog file "../full_debounce.v" in library work
+Module <FuelLogic> compiled
+Compiling verilog file "../labkit.v" in library work
+Module <full_debounce> compiled
 Module <labkit> compiled
 No errors in compilation
 Analysis of file <"labkit.prj"> succeeded.
@@ -120,6 +126,13 @@ Analysis of file <"labkit.prj"> succeeded.
 =========================================================================
 Analyzing hierarchy for module <labkit> in library <work>.
 
+Analyzing hierarchy for module <full_debounce> in library <work>.
+
+Analyzing hierarchy for module <FuelLogic> in library <work>.
+
+Analyzing hierarchy for module <debounce> in library <work> with parameters.
+	DELAY = "00000000000001000001111010110000"
+
 
 =========================================================================
 *                            HDL Analysis                               *
@@ -128,6 +141,16 @@ Analyzing top module <labkit>.
 Module <labkit> is correct for synthesis.
  
     Set user-defined property "INIT =  FFFF" for instance <reset_sr> in unit <labkit>.
+Analyzing module <full_debounce> in library <work>.
+Module <full_debounce> is correct for synthesis.
+ 
+Analyzing module <debounce> in library <work>.
+	DELAY = 32'sb00000000000001000001111010110000
+Module <debounce> is correct for synthesis.
+ 
+Analyzing module <FuelLogic> in library <work>.
+Module <FuelLogic> is correct for synthesis.
+ 
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -145,16 +168,34 @@ INFO:Xst:2561 - Always blocking tristate driving signal <daughtercard> in unit <
 INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <tv_in_i2c_data> in unit <labkit> is removed.
 
+Synthesizing Unit <FuelLogic>.
+    Related source file is "FuelLogic.v".
+Unit <FuelLogic> synthesized.
+
+
+Synthesizing Unit <debounce>.
+    Related source file is "debounce.v".
+    Found 1-bit register for signal <clean>.
+    Found 19-bit up counter for signal <count>.
+    Found 1-bit xor2 for signal <count$xor0000> created at line 18.
+    Found 1-bit register for signal <new>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   2 D-type flip-flop(s).
+Unit <debounce> synthesized.
+
+
+Synthesizing Unit <full_debounce>.
+    Related source file is "../full_debounce.v".
+Unit <full_debounce> synthesized.
+
+
 Synthesizing Unit <labkit>.
-    Related source file is "labkit.v".
+    Related source file is "../labkit.v".
 WARNING:Xst:2565 - Inout <user3<28>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<4>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<29>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<5>> is never assigned.
-WARNING:Xst:647 - Input <button0> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <button1> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <button2> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <button3> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user3<6>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<7>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<8>> is never assigned.
@@ -222,11 +263,9 @@ WARNING:Xst:2565 - Inout <user2<16>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<41>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<36>> is never assigned.
 WARNING:Xst:2565 - Inout <flash_data<8>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<0>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<3>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<17>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<22>> is never assigned.
-WARNING:Xst:647 - Input <button_enter> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <daughtercard<37>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<42>> is never assigned.
 WARNING:Xst:2565 - Inout <flash_data<9>> is never assigned.
@@ -268,7 +307,7 @@ WARNING:Xst:2565 - Inout <user1<9>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<0>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<10>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<1>> is never assigned.
-WARNING:Xst:647 - Input <switch> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <switch<6>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user4<11>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<2>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<12>> is never assigned.
@@ -427,7 +466,6 @@ WARNING:Xst:2565 - Inout <ram1_data<9>> is never assigned.
 WARNING:Xst:647 - Input <button_right> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <ram0_data<34>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<29>> is never assigned.
-WARNING:Xst:647 - Input <button_down> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <ram0_data<35>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<10>> is never assigned.
 WARNING:Xst:647 - Input <mouse_clock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -444,6 +482,7 @@ WARNING:Xst:2565 - Inout <user3<22>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<17>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<23>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<18>> is never assigned.
+WARNING:Xst:1305 - Output <led<1:0>> is never assigned. Tied to value 00.
 WARNING:Xst:2565 - Inout <user3<24>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<19>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<0>> is never assigned.
@@ -456,14 +495,31 @@ WARNING:Xst:2565 - Inout <user3<31>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<2>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<27>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<3>> is never assigned.
-WARNING:Xst:646 - Signal <reset> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <status> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <siren> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rst> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <reprogram> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <passenger> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <fuelPower> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <driver> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <Time_value> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <Time_parameter_selector> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <labkit> synthesized.
 
+WARNING:Xst:524 - All outputs of the instance <f1> of the block <FuelLogic> are unconnected in block <labkit>.
+   This instance will be removed from the design along with all underlying logic
 
 =========================================================================
 HDL Synthesis Report
 
-Found no macro
+Macro Statistics
+# Counters                                             : 6
+ 19-bit up counter                                     : 6
+# Registers                                            : 12
+ 1-bit register                                        : 12
+# Xors                                                 : 6
+ 1-bit xor2                                            : 6
+
 =========================================================================
 
 =========================================================================
@@ -471,16 +527,41 @@ Found no macro
 =========================================================================
 
 Loading device for application Rf_Device from file '2v6000.nph' in environment /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE.
+WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_brake>.
+WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_hidden>.
+WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_ignit>.
+WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_driver>.
+WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_passenger>.
+WARNING:Xst:2677 - Node <clean> of sequential type is unconnected in block <d_reprogram>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
-Found no macro
+Macro Statistics
+# Counters                                             : 6
+ 19-bit up counter                                     : 6
+# Registers                                            : 12
+ Flip-Flops                                            : 12
+# Xors                                                 : 6
+ 1-bit xor2                                            : 6
+
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:2677 - Node <db/d_brake/new> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_brake/clean> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_hidden/new> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_hidden/clean> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_ignit/new> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_ignit/clean> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_driver/new> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_driver/clean> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_passenger/new> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_passenger/clean> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_reprogram/new> of sequential type is unconnected in block <labkit>.
+WARNING:Xst:2677 - Node <db/d_reprogram/clean> of sequential type is unconnected in block <labkit>.
 
 Optimizing unit <labkit> ...
 
@@ -589,15 +670,15 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.71 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 3.81 secs
  
 --> 
 
 
-Total memory usage is 450556 kilobytes
+Total memory usage is 450816 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  310 (   0 filtered)
+Number of warnings :  331 (   0 filtered)
 Number of infos    :   10 (   0 filtered)
 

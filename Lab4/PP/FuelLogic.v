@@ -25,7 +25,7 @@ module FuelLogic(
     output power
     );
 	
-	assign power=(brake && hidden && ignit)? 1:0;
+	assign power=(brake && hidden && ignit);
 
 
 endmodule

@@ -18,7 +18,14 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module timer(
+
+//The timer counts down the number of seconds specified by the Time Parameter 
+//module. It initializes its internal counter to the specified Value when 
+//Start_Timer is asserted and decrements the counter when one_hz_enable is 
+//asserted. When the internal counter reaches zero, the Expired signal is 
+//asserted and the countdown halts until Start_Timer is once again asserted. 
+
+module timer( 
 	 input clk,
     input start_timer,
     input [3:0] value,

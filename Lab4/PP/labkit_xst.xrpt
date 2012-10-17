@@ -5,8 +5,25 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Xst" timeStamp="Tue Oct 16 21:08:17 2012">
-    <section stringID="XST_ADVANCED_HDL_SYNTHESIS_REPORTFOUND_NO_MACRO"/>
+  <application stringID="Xst" timeStamp="Wed Oct 17 15:59:34 2012">
+    <section stringID="XST_HDL_SYNTHESIS_REPORT">
+      <item dataType="int" stringID="XST_COUNTERS" value="6"></item>
+      <item dataType="int" stringID="XST_REGISTERS" value="12">
+        <item dataType="int" stringID="XST_1BIT_REGISTER" value="12"/>
+      </item>
+      <item dataType="int" stringID="XST_XORS" value="6">
+        <item dataType="int" stringID="XST_1BIT_XOR2" value="6"/>
+      </item>
+    </section>
+    <section stringID="XST_ADVANCED_HDL_SYNTHESIS_REPORT">
+      <item dataType="int" stringID="XST_COUNTERS" value="6"></item>
+      <item dataType="int" stringID="XST_REGISTERS" value="12">
+        <item dataType="int" stringID="XST_FLIPFLOPS" value="12"/>
+      </item>
+      <item dataType="int" stringID="XST_XORS" value="6">
+        <item dataType="int" stringID="XST_1BIT_XOR2" value="6"/>
+      </item>
+    </section>
     <section stringID="XST_FINAL_REGISTER_REPORTFOUND_NO_MACRO"/>
     <section stringID="XST_PARTITION_REPORT">
       <section stringID="XST_PARTITION_IMPLEMENTATION_STATUS">
@@ -55,7 +72,7 @@
     </section>
     <section stringID="XST_ERRORS_STATISTICS">
       <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_ERRORS" value="0"/>
-      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_WARNINGS" value="310"/>
+      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_WARNINGS" value="331"/>
       <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_INFOS" value="10"/>
     </section>
   </application>

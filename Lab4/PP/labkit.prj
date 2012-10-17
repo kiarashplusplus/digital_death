@@ -1,1 +1,4 @@
-verilog work "labkit.v"
+verilog work "debounce.v"
+verilog work "FuelLogic.v"
+verilog work "../full_debounce.v"
+verilog work "../labkit.v"

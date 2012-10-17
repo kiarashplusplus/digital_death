@@ -11,7 +11,7 @@ Target Device  : xc2v6000
 Target Package : bf957
 Target Speed   : -4
 Mapper Version : virtex2 -- $Revision: 1.46.12.2 $
-Mapped Date    : Tue Oct 16 21:09:54 2012
+Mapped Date    : Wed Oct 17 15:59:57 2012
 
 Mapping design into LUTs...
 Running directed packing...
@@ -31,8 +31,8 @@ Logic Distribution:
       *See NOTES below for an explanation of the effects of unrelated logic.
   Number of bonded IOBs:                575 out of     684   84%
 
-Peak Memory Usage:  476 MB
-Total REAL time to MAP completion:  3 secs 
+Peak Memory Usage:  474 MB
+Total REAL time to MAP completion:  2 secs 
 Total CPU time to MAP completion:   2 secs 
 
 NOTES:

@@ -1,1 +1,4 @@
-MO labkit NULL labkit.v vlg7B/labkit.bin 1350436097
+MO FuelLogic NULL FuelLogic.v vlg3E/_fuel_logic.bin 1350503974
+MO debounce NULL debounce.v vlg1D/debounce.bin 1350503974
+MO labkit NULL ../labkit.v vlg7B/labkit.bin 1350503974
+MO full_debounce NULL ../full_debounce.v vlg0B/full__debounce.bin 1350503974

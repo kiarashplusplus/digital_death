@@ -279,7 +279,8 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
    // disp_data_in is an input
 
    // Buttons, Switches, and Individual LEDs
-   assign led = 8'hFF;
+   assign led[7:2] = 6'b111111;
+	
    // button0, button1, button2, button3, button_enter, button_right,
    // button_left, button_down, button_up, and switches are inputs
 
@@ -323,27 +324,34 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   SRL16 reset_sr(.D(1'b0), .CLK(clock_27mhz), .Q(reset),
 	         .A0(1'b1), .A1(1'b1), .A2(1'b1), .A3(1'b1));
   defparam reset_sr.INIT = 16'hFFFF;
-
+	wire noisy_hidden,noisy_brake, noisy_driver,noisy_passenger,ignit,
+		Time_parameter_selector, Time_value, noisy_reprogram,status,
+		fuelPower, siren, noisy_reset;
+	
+	
   assign noisy_hidden=~button0;
   assign noisy_brake=~button1;
   assign noisy_driver=~button2;
   assign noisy_passenger=~button3;
   assign ignit=switch[7];
-  assign Time_parameter_selector=swith[5:4];
+  assign Time_parameter_selector=switch[5:4];
   assign Time_value=switch[3:0];
   assign noisy_reprogram=~button_enter;
-  assign status=led[0];
-  assign fuelPower=led[1];
+  assign status=~led[0];
+  assign fuelPower=~led[1];
   assign siren=user1[0];
   assign noisy_reset=~button_down;
   
-  parameter hidden, brake, driver, passenger, reprogram, reset;
+  wire hidden, brake, driver, passenger, reprogram, rst;
   assign clk = clock_27mhz;
-  
-  full_deboune db (reset, clk, noisy_brake, brake, noisy_hidden, hidden, noisy_driver, driver,
-                   noisy_passenger, passenger, noisy_reprogram, reprogram,m noisy_reset, reset);
-                   
-  FuelLogic (brake, hidden, ignit, fuelPower);
+    
+  full_debounce db   ( .reset(reset),  .clk(clk),  .brake(noisy_brake),  .clean_break(brake), 
+	 .hidden(noisy_hidden),  .clean_hidden(hidden), .rst(noisy_reset), .clean_rst(rst),
+	 .driver(noisy_driver),  .clean_driver(driver), .passenger(noisy_passenger), 
+	 .clean_passenger(passenger), .reprogram(noisy_reprogram), .clean_reprogram(reprogram));
+								
+							
+  FuelLogic f1 (.brake(brake), .hidden(hidden), .ignit(ignit), .power(fuelPower));
   
   
   
