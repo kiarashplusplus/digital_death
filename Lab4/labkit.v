@@ -280,7 +280,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 */
 
    // Buttons, Switches, and Individual LEDs
-   assign led[6:2] = 5'b11111;
+   assign led[5:2] = 5'b11111;
 	
    // button0, button1, button2, button3, button_enter, button_right,
    // button_left, button_down, button_up, and switches are inputs
@@ -326,9 +326,10 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 	         .A0(1'b1), .A1(1'b1), .A2(1'b1), .A3(1'b1));
   defparam reset_sr.INIT = 16'hFFFF;
 	wire noisy_hidden,noisy_brake, noisy_driver,noisy_passenger,ignit,
-		Time_parameter_selector, Time_value, noisy_reprogram,status,
+		noisy_reprogram,status,
 		fuelPower, siren, noisy_reset;
-	
+	wire [3:0] Time_Value; 
+	wire [1:0] Time_parameter_selector;
 	
   assign noisy_hidden=~button0;
   assign noisy_brake=~button1;
@@ -336,17 +337,20 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   assign noisy_passenger=~button3;
   assign ignit=switch[7];
   assign Time_parameter_selector=switch[5:4];
-  assign Time_value=switch[3:0];
+  assign Time_Value=switch[3:0];
   assign noisy_reprogram=~button_enter;
 
   assign led[1]=~fuelPower;
   assign led[0]=~status;
-  assign led[7]=0;
+ 
+  wire hidden, brake, driver, passenger, reprogram, rst;
+
+  assign led[6]=passenger;  
+  assign led[7]=driver;
 
   assign siren=user1[0];
   assign noisy_reset=~button_down;
   
-  wire hidden, brake, driver, passenger, reprogram, rst;
   assign clk = clock_27mhz;
     
   full_debounce db   ( .reset(reset),  .clk(clk),  .brake(noisy_brake),  .clean_break(brake), 
@@ -377,7 +381,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 	
   wire start_timer;
   wire expired;
-  wire timerCounter;
+  wire [3:0] timerCounter;
     
   timer t1 (.clk(clk),
    	.start_timer(start_timer), 
@@ -395,7 +399,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 		.speaker(speaker)
 	);	
 	
-	wire current_state;
+	wire [3:0] current_state;
 	
 	FSM fsm1 (
 		.clk(clk), 
@@ -411,15 +415,15 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 		.status(status),
 		.current_state(current_state)
 	);	
-	wire bs1,bs2,bs3,bs4,bs5,bs6;
 	wire [63:0] displayData;
 	
-	assign displayData[35:0]={3'b000,expired,Time_Value,2'b00,Time_parameter_selector,2'b00,interval,
-				ARM_DELAY,DRIVER_DELAY,PASSENGER_DELAY,ALARM_ON,1'b0,current_state };
+	assign displayData[63:0]={24'd0, timerCounter,3'b000,expired,Time_Value,2'b00,
+		Time_parameter_selector,2'b00,interval,
+		ARM_DELAY,DRIVER_DELAY,PASSENGER_DELAY,ALARM_ON,current_state };
 	
    display_16hex dsp1(.reset(reset), .clock_27mhz(clk), .data(displayData), 
-		.disp_blank(bs1), .disp_clock(bs2), .disp_rs(bs3), .disp_ce_b(bs4),
-		.disp_reset_b(bs5), .disp_data_out(bs6));
+		.disp_blank(disp_blank), .disp_clock(disp_clock), .disp_rs(disp_rs), .disp_ce_b(disp_ce_b),
+		.disp_reset_b(disp_reset_b), .disp_data_out(disp_data_out));
 		
 		
 endmodule

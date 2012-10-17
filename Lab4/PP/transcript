@@ -8,7 +8,7 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {FSMtester.fdo} 
+# do {timerTest.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module Divider
@@ -16,175 +16,39 @@
 # Top level modules:
 # 	Divider
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module sirenGen
-# -- Compiling module squareWave
+# -- Compiling module timer
 # 
 # Top level modules:
-# 	sirenGen
+# 	timer
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module FSM
-# ** Error: ../FSM.v(8): Undefined variable: state.
-# ** Error: ../FSM.v(8): Undefined variable: s_armed.
-# ** Error: ../FSM.v(9): Undefined variable: next_state.
-# ** Error: ../FSM.v(12): 's_armed' already declared in this scope.
-# ** Error: ../FSM.v(22): 'state' already declared in this scope (FSM).
-# ** Error: ../FSM.v(22): 'next_state' already declared in this scope (FSM).
-# ** Error: ../FSM.v(31): Undefined variable: reset.
-# ** Error: ../FSM.v(79): near "end": syntax error, unexpected "end", expecting ';'
-# ** Error: ../FSM.v(87): near "default": syntax error, unexpected "default"
-# ** Error: /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-# Error in macro ./FSMtester.fdo line 7
-# /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-#     while executing
-# "vlog +acc  "../FSM.v""
-do {FSMtester.fdo}
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module Divider
+# -- Compiling module timerTest
 # 
 # Top level modules:
-# 	Divider
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module sirenGen
-# -- Compiling module squareWave
-# 
-# Top level modules:
-# 	sirenGen
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module FSM
-# ** Error: ../FSM.v(9): Undefined variable: s_armed.
-# ** Error: ../FSM.v(13): 's_armed' already declared in this scope.
-# ** Error: ../FSM.v(31): Undefined variable: reset.
-# ** Error: ../FSM.v(79): near "end": syntax error, unexpected "end", expecting ';'
-# ** Error: ../FSM.v(87): near "default": syntax error, unexpected "default"
-# ** Error: /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-# Error in macro ./FSMtester.fdo line 7
-# /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-#     while executing
-# "vlog +acc  "../FSM.v""
-do {FSMtester.fdo}
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module Divider
-# 
-# Top level modules:
-# 	Divider
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module sirenGen
-# -- Compiling module squareWave
-# 
-# Top level modules:
-# 	sirenGen
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module FSM
-# ** Error: ../FSM.v(31): Undefined variable: reset.
-# ** Error: ../FSM.v(79): near "end": syntax error, unexpected "end", expecting ';'
-# ** Error: ../FSM.v(87): near "default": syntax error, unexpected "default"
-# ** Error: /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-# Error in macro ./FSMtester.fdo line 7
-# /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-#     while executing
-# "vlog +acc  "../FSM.v""
-do {FSMtester.fdo}
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module Divider
-# 
-# Top level modules:
-# 	Divider
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module sirenGen
-# -- Compiling module squareWave
-# 
-# Top level modules:
-# 	sirenGen
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module FSM
-# ** Error: ../FSM.v(79): near "end": syntax error, unexpected "end", expecting ';'
-# ** Error: ../FSM.v(87): near "default": syntax error, unexpected "default"
-# ** Error: /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-# Error in macro ./FSMtester.fdo line 7
-# /afs/csail.mit.edu/proj/redsocs/modeltech/linux/vlog failed.
-#     while executing
-# "vlog +acc  "../FSM.v""
-do {FSMtester.fdo}
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module Divider
-# 
-# Top level modules:
-# 	Divider
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module sirenGen
-# -- Compiling module squareWave
-# 
-# Top level modules:
-# 	sirenGen
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module FSM
-# 
-# Top level modules:
-# 	FSM
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module FSMtester
-# 
-# Top level modules:
-# 	FSMtester
+# 	timerTest
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps FSMtester glbl 
-# ** Note: (vsim-3812) Design is being optimized...
-# Loading work.FSMtester(fast)
-# Loading work.FSM(fast)
-# ** Warning: (vsim-3009) [TSCALE] - Module 'FSM' does not have a `timescale directive in effect, but previous modules do.
-#         Region: /FSMtester/uut
-# Loading work.squareWave(fast)
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps timerTest glbl 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: kiarash  Hostname: eecs-digital-03  ProcessID: 6028
+#           Attempting to use alternate WLF file "./wlft8r2J9N".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft8r2J9N
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft8r2J9N
+# Design is being optimized due to module recompilation...
+# Loading work.timerTest(fast)
+# Loading work.timer(fast)
 # Loading work.Divider(fast)
 # Loading work.glbl(fast)
-# .main_pane.mdi.interior.cs.vm.paneset.cli_1.wf.clip.cs.pw.wf
+# .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
-do {FSMtester.fdo}
-# ** Warning: (vlib-34) Library already exists at "work".
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module Divider
-# 
-# Top level modules:
-# 	Divider
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module sirenGen
-# -- Compiling module squareWave
-# 
-# Top level modules:
-# 	sirenGen
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module FSM
-# 
-# Top level modules:
-# 	FSM
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module FSMtester
-# 
-# Top level modules:
-# 	FSMtester
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module glbl
-# 
-# Top level modules:
-# 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps FSMtester glbl 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading work.FSMtester(fast)
-# Loading work.FSM(fast)
-# ** Warning: (vsim-3009) [TSCALE] - Module 'FSM' does not have a `timescale directive in effect, but previous modules do.
-#         Region: /FSMtester/uut
-# Loading work.squareWave(fast)
+restart -f
+# Loading work.timerTest(fast)
+# Loading work.timer(fast)
 # Loading work.Divider(fast)
 # Loading work.glbl(fast)
-# .main_pane.mdi.interior.cs.vm.paneset.cli_1.wf.clip.cs.pw.wf
-# .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
-# .main_pane.signals.interior.cs
-run 1000ns
+run 4000ns

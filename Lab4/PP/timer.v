@@ -43,11 +43,12 @@ module timer #(parameter mgh=25'd26999999)(
 	always @(posedge clk) begin
 	   if (reset) begin
 			pause<=1;
-			counter<=value;
+			counter<=0;
 			
 		end else if (start_timer) begin
 			counter<=value;
 			pause<=1;
+			
 		end else
 			pause <= 0;
 			
