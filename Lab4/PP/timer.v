@@ -30,12 +30,13 @@ module timer(
     input start_timer,
     input [3:0] value,
 	 input reset,
-    output expired
+    output expired,
+	 output reg [3:0] counter
     );
 	 
+	 initial counter=0;
 	 
 	 reg pause=1'b0;
-	 reg [3:0] counter=0;
 	 wire pulse;
 	 Divider #(.clock_27mhz(25'd10)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
 	
