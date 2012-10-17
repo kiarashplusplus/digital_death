@@ -4,26 +4,26 @@ K3
 cModel Technology
 Z0 d/afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab4/PP
 T_opt
-Z1 V@lJJKb>oleJN]DR0zalAa0
-Z2 04 11 4 work DividerTest fast 0
-Z3 04 4 4 work glbl fast 0
-Z4 =1-f04da20f0662-507e08d7-43746-13a3
-Z5 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
-Z6 OE;O;6.4a;39
+VPEW_zc7oTEBID^Y`mI`]m2
+04 9 4 work timerTest fast 0
+Z1 04 4 4 work glbl fast 0
+Z2 =1-002564b50972-507e4b3f-2abc9-4929
+Z3 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
+Z4 OE;O;6.4a;39
 T_opt1
-Z7 VI>hen>=Lj0_X`3li4U:9D3
-Z8 04 9 4 work sirenTest fast 0
+Z5 VI>hen>=Lj0_X`3li4U:9D3
+Z6 04 9 4 work sirenTest fast 0
+R1
+Z7 =1-f04da20f0662-507e0a36-a1dcb-13e1
 R3
-Z9 =1-f04da20f0662-507e0a36-a1dcb-13e1
-R5
-R6
+R4
 T_opt2
-VQDnYbX7Y>=AEDkmzcL;Ll0
-04 13 4 work timeParamTest fast 0
-R3
+Z8 VQDnYbX7Y>=AEDkmzcL;Ll0
+Z9 04 13 4 work timeParamTest fast 0
+R1
 Z10 =1-f04da20f0662-507e2619-aa970-1631
-R5
-R6
+R3
+R4
 vDivider
 Z11 I9YX1nU_ZG[ke0[P5Rhh?@0
 Z12 VFWNjFHG`XD?CNh4<LjVmf1
@@ -134,4 +134,31 @@ r1
 R17
 Z61 ntime@param@test
 Z62 !s100 9YSb89>QTkXo1kgi2<Oem2
+!s85 0
+vtimer
+Z63 I0Difg1cdZWJPWC[WoMWSe0
+Z64 V]calmh=OZl^3FD418PzP`0
+Z65 w1350454074
+Z66 8timer.v
+Z67 Ftimer.v
+L0 21
+R16
+r1
+31
+R17
+Z68 !s100 :IZC6gBi1[UWhbgKFZZ2k1
+!s85 0
+vtimerTest
+Z69 IS^iVn3zA[2cg0CiNoikmd0
+Z70 VQ8;]lUiGKhmHHCg^5_bb11
+Z71 w1350443977
+Z72 8timerTest.v
+Z73 FtimerTest.v
+L0 25
+R16
+r1
+31
+R17
+Z74 ntimer@test
+Z75 !s100 Qn@Ym`mOjAFDJo1PHGWQB3
 !s85 0

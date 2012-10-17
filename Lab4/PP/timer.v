@@ -30,7 +30,7 @@ module timer(
 	 reg pause=1'b0;
 	 reg [3:0] counter=0;
 	 wire pulse;
-	 Divider #(.clock_27mhz25'd27000000)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
+	 Divider #(.clock_27mhz(25'd27000000)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
 	
 	always @(posedge clk) begin
 
