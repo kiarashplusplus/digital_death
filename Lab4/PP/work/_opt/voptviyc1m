@@ -1,0 +1,11 @@
+library verilog;
+use verilog.vl_types.all;
+entity timer is
+    port(
+        clk             : in     vl_logic;
+        start_timer     : in     vl_logic;
+        value           : in     vl_logic_vector(3 downto 0);
+        reset           : in     vl_logic;
+        expired         : out    vl_logic
+    );
+end timer;
