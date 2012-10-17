@@ -25,7 +25,7 @@
 //asserted. When the internal counter reaches zero, the Expired signal is 
 //asserted and the countdown halts until Start_Timer is once again asserted. 
 
-module timer( 
+module timer #(parameter mgh=25'd26999999)( 
 	 input clk,
     input start_timer,
     input [3:0] value,
@@ -38,7 +38,7 @@ module timer(
 	 
 	 reg pause=1'b0;
 	 wire pulse;
-	 Divider #(.clock_27mhz(25'd10)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
+	 Divider #(.clock_27mhz(mgh)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
 	
 	always @(posedge clk) begin
 	   if (reset) begin

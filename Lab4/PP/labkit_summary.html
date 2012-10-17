@@ -2,12 +2,12 @@
 <BODY TEXT='#000000' BGCOLOR='#FFFFFF' LINK='#0000EE' VLINK='#551A8B' ALINK='#FF0000'>
 <TABLE BORDER CELLSPACING=0 WIDTH='100%'>
 <TR ALIGN=CENTER BGCOLOR='#99CCFF'>
-<TD COLSPAN='4'><B>PP Project Status (10/17/2012 - 16:57:37)</B></TD></TR>
+<TD COLSPAN='4'><B>PP Project Status (10/17/2012 - 18:15:36)</B></TD></TR>
 <TR ALIGN=LEFT>
 <TD BGCOLOR='#FFFF99'><B>Project File:</B></TD>
 <TD>PP.ise</TD>
 <TD BGCOLOR='#FFFF99'><B>Current State:</B></TD>
-<TD>Mapped</TD>
+<TD>Synthesized</TD>
 </TR>
 <TR ALIGN=LEFT>
 <TD BGCOLOR='#FFFF99'><B>Module Name:</B></TD>
@@ -20,7 +20,7 @@ No Errors</TD>
 <TD BGCOLOR='#FFFF99'><B>Target Device:</B></TD>
 <TD>xc2v6000-4bf957</TD>
 <TD BGCOLOR='#FFFF99'><UL><LI><B>Warnings:</B></LI></UL></TD>
-<TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/*.xmsgs'>933 Warnings</A></TD>
+<TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/*.xmsgs'>465 Warnings</A></TD>
 </TR>
 <TR ALIGN=LEFT>
 <TD BGCOLOR='#FFFF99'><B>Product Version:</B></TD>
@@ -53,79 +53,33 @@ No Errors</TD>
 
 
 &nbsp;<BR><TABLE BORDER CELLSPACING=0 WIDTH='100%'>
-<TBODY><TR ALIGN=CENTER BGCOLOR='#99CCFF'><TD ALIGN=CENTER width=90% COLSPAN='5'><B>Device Utilization Summary</B></TD><TD ALIGN=RIGHT  width=10% COLSPAN=1> <A HREF_DISABLED="?&ExpandedTable=DeviceUtilizationSummary"><B>[-]</B></a></TD></TR></TBODY></TD></TR>
+<TBODY><TR ALIGN=CENTER BGCOLOR='#99CCFF'><TD ALIGN=CENTER width=90% COLSPAN='4'><B>Device Utilization Summary (estimated values)</B></TD><TD ALIGN=RIGHT  width=10% COLSPAN=1> <A HREF_DISABLED="?&ExpandedTable=DeviceUtilizationSummary(estimatedvalues)"><B>[-]</B></a></TD></TR></TBODY></TD></TR>
 <TR ALIGN=CENTER BGCOLOR='#FFFF99'>
-<TD ALIGN=LEFT><B>Logic Utilization</B></TD><TD><B>Used</B></TD><TD><B>Available</B></TD><TD><B>Utilization</B></TD><TD COLSPAN='2'><B>Note(s)</B></TD>
+<TD ALIGN=LEFT><B>Logic Utilization</B></TD><TD><B>Used</B></TD><TD><B>Available</B></TD><TD COLSPAN='2'><B>Utilization</B></TD></TR>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of Slices</TD>
+<TD ALIGN=RIGHT>152</TD>
+<TD ALIGN=RIGHT>33792</TD>
+<TD ALIGN=RIGHT COLSPAN='2'>0%</TD>
 </TR>
 <TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of Slice Flip Flops</TD>
-<TD ALIGN=RIGHT>42</TD>
-<TD ALIGN=RIGHT>67,584</TD>
-<TD ALIGN=RIGHT>1%</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
+<TD ALIGN=RIGHT>200</TD>
+<TD ALIGN=RIGHT>67584</TD>
+<TD ALIGN=RIGHT COLSPAN='2'>0%</TD>
 </TR>
 <TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of 4 input LUTs</TD>
-<TD ALIGN=RIGHT>22</TD>
-<TD ALIGN=RIGHT>67,584</TD>
-<TD ALIGN=RIGHT>1%</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
+<TD ALIGN=RIGHT>294</TD>
+<TD ALIGN=RIGHT>67584</TD>
+<TD ALIGN=RIGHT COLSPAN='2'>0%</TD>
 </TR>
-<TR ALIGN=CENTER BGCOLOR='#FFFF99'>
-<TD ALIGN=LEFT><B>Logic Distribution </B></TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD COLSPAN='2'>&nbsp;</TD>
-</TR>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of occupied Slices</TD>
-<TD ALIGN=RIGHT>34</TD>
-<TD ALIGN=RIGHT>33,792</TD>
-<TD ALIGN=RIGHT>1%</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
-</TR>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number of Slices containing only related logic</TD>
-<TD ALIGN=RIGHT>34</TD>
-<TD ALIGN=RIGHT>34</TD>
-<TD ALIGN=RIGHT>100%</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
-</TR>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number of Slices containing unrelated logic</TD>
-<TD ALIGN=RIGHT>0</TD>
-<TD ALIGN=RIGHT>34</TD>
-<TD ALIGN=RIGHT>0%</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
-</TR>
-<TR ALIGN=RIGHT BGCOLOR='#FFFF99'><TD ALIGN=LEFT><B>Total Number of 4 input LUTs</B></TD>
-<TD ALIGN=RIGHT>58</TD>
-<TD ALIGN=RIGHT>67,584</TD>
-<TD ALIGN=RIGHT>1%</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
-</TR>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number used as logic</TD>
-<TD ALIGN=RIGHT>21</TD>
-<TD>&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
-</TR>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number used as a route-thru</TD>
-<TD ALIGN=RIGHT>36</TD>
-<TD>&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
-</TR>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>&nbsp;&nbsp;&nbsp;&nbsp;Number used as Shift registers</TD>
-<TD ALIGN=RIGHT>1</TD>
-<TD>&nbsp;</TD>
-<TD>&nbsp;</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
-</TR>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of bonded <A HREF_DISABLED='labkit_map.mrp?&DataKey=IOBProperties'>IOBs</A></TD>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of bonded </TD>
-<TD ALIGN=RIGHT>576</TD>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of bonded IOBs</TD>
+<TD ALIGN=RIGHT>242</TD>
 <TD ALIGN=RIGHT>684</TD>
-<TD ALIGN=RIGHT>84%</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
+<TD ALIGN=RIGHT COLSPAN='2'>35%</TD>
 </TR>
-<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of BUFGMUXs</TD>
+<TR ALIGN=RIGHT><TD ALIGN=LEFT>Number of GCLKs</TD>
 <TD ALIGN=RIGHT>1</TD>
 <TD ALIGN=RIGHT>16</TD>
-<TD ALIGN=RIGHT>6%</TD>
-<TD COLSPAN='2'>&nbsp;</TD>
+<TD ALIGN=RIGHT COLSPAN='2'>6%</TD>
 </TR>
 </TABLE>
 
@@ -139,14 +93,14 @@ No Errors</TD>
 <TBODY><TR ALIGN=CENTER BGCOLOR='#99CCFF'><TD ALIGN=CENTER width=90% COLSPAN='6'><B>Detailed Reports</B></TD><TD ALIGN=RIGHT  width=10% COLSPAN=1> <A HREF_DISABLED="?&ExpandedTable=DetailedReports"><B>[-]</B></a></TD></TR></TBODY></TD></TR>
 <TR BGCOLOR='#FFFF99'><TD><B>Report Name</B></TD><TD><B>Status</B></TD><TD><B>Generated</B></TD>
 <TD ALIGN=LEFT><B>Errors</B></TD><TD ALIGN=LEFT><B>Warnings</B></TD><TD ALIGN=LEFT COLSPAN='2'><B>Infos</B></TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.syr'>Synthesis Report</A></TD><TD>Current</TD><TD>Wed Oct 17 16:56:49 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/xst.xmsgs'>322 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/xst.xmsgs'>10 Infos</A></TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.bld'>Translation Report</A></TD><TD>Current</TD><TD>Wed Oct 17 16:57:04 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/ngdbuild.xmsgs'>277 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/ngdbuild.xmsgs'>1 Info</A></TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit_map.mrp'>Map Report</A></TD><TD>Current</TD><TD>Wed Oct 17 16:57:20 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/map.xmsgs'>334 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/map.xmsgs'>2 Infos</A></TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.par'>Place and Route Report</A></TD><TD>Out of Date</TD><TD>Wed Oct 17 16:56:39 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/par.xmsgs'>334 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/par.xmsgs'>2 Infos</A></TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.twr'>Static Timing Report</A></TD><TD>Out of Date</TD><TD>Wed Oct 17 16:56:42 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/trce.xmsgs'>3 Infos</A></TD></TR>
-<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.bgn'>Bitgen Report</A></TD><TD>Current</TD><TD>Wed Oct 17 16:57:36 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/bitgen.xmsgs'>332 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/bitgen.xmsgs'>1 Info</A></TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.syr'>Synthesis Report</A></TD><TD>Current</TD><TD>Wed Oct 17 18:15:35 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/xst.xmsgs'>465 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/xst.xmsgs'>20 Infos</A></TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.bld'>Translation Report</A></TD><TD>Out of Date</TD><TD>Wed Oct 17 18:02:06 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/ngdbuild.xmsgs'>277 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/ngdbuild.xmsgs'>1 Info</A></TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit_map.mrp'>Map Report</A></TD><TD>Out of Date</TD><TD>Wed Oct 17 18:02:22 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/map.xmsgs'>336 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/map.xmsgs'>2 Infos</A></TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.par'>Place and Route Report</A></TD><TD>Out of Date</TD><TD>Wed Oct 17 18:02:53 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/par.xmsgs'>337 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/par.xmsgs'>2 Infos</A></TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.twr'>Static Timing Report</A></TD><TD>Out of Date</TD><TD>Wed Oct 17 18:02:56 2012</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT>0</TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/trce.xmsgs'>3 Infos</A></TD></TR>
+<TR ALIGN=LEFT><TD><A HREF_DISABLED='labkit.bgn'>Bitgen Report</A></TD><TD>Out of Date</TD><TD>Wed Oct 17 18:02:58 2012</TD><TD ALIGN=LEFT><font color="red"; face="Arial"><b>X </b></font><A HREF_DISABLED='_xmsgs/bitgen.xmsgs'>13 Errors</A></TD><TD ALIGN=LEFT><A HREF_DISABLED='_xmsgs/bitgen.xmsgs'>328 Warnings</A></TD><TD ALIGN=LEFT COLSPAN='2'><A HREF_DISABLED='_xmsgs/bitgen.xmsgs'>1 Info</A></TD></TR>
 </TABLE>
 
 
-<br><center><b>Date Generated:</b> 10/17/2012 - 16:57:37</center>
+<br><center><b>Date Generated:</b> 10/17/2012 - 18:15:36</center>
 </BODY></HTML>

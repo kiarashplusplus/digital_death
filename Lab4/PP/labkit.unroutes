@@ -1,19 +1,24 @@
 Release 10.1.03 - par K.39 (lin64)
 Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
 
-Wed Oct 17 16:56:39 2012
+Wed Oct 17 18:02:52 2012
 
 All signals are completely routed.
 
-WARNING:ParHelpers:361 - There are 332 loadless signals in this design. This design will cause Bitgen to issue DRC
+WARNING:ParHelpers:362 - There are 6 sourceless signals in this design. This design will not pass the DRC check run by
+   Bitgen.
+
+   disp_blank_OBUF
+   disp_ce_b_OBUF
+   disp_clock_OBUF
+   disp_data_out_OBUF
+   disp_reset_b_OBUF
+   disp_rs_OBUF
+WARNING:ParHelpers:361 - There are 327 loadless signals in this design. This design will cause Bitgen to issue DRC
    warnings.
 
    ac97_bit_clock_IBUF
    ac97_sdata_in_IBUF
-   button2_IBUF
-   button3_IBUF
-   button_down_IBUF
-   button_enter_IBUF
    button_left_IBUF
    button_right_IBUF
    button_up_IBUF
@@ -164,7 +169,6 @@ WARNING:ParHelpers:361 - There are 332 loadless signals in this design. This des
    switch<1>_IBUF
    switch<2>_IBUF
    switch<3>_IBUF
-   switch<4>_IBUF
    switch<5>_IBUF
    switch<6>_IBUF
    systemace_data<0>_IBUF

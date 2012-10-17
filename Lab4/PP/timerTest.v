@@ -35,7 +35,7 @@ module timerTest;
 	wire [3:0] counter;
 	
 	// Instantiate the Unit Under Test (UUT)
-	timer uut (
+	timer #(25'd40)uut (
 		.clk(clk), 
 		.start_timer(start_timer), 
 		.value(value), 

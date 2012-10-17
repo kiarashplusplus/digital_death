@@ -31,16 +31,18 @@ module FSMtester;
 	reg passenger;
 	reg reprogram;
 	reg expired;
-
+	reg reset;
 	// Outputs
 	wire [1:0] interval;
 	wire start_timer;
 	wire siren;
 	wire status;
-
+	wire [2:0] current_state;
+	
 	// Instantiate the Unit Under Test (UUT)
 	FSM uut (
 		.clk(clk), 
+		.reset(reset),
 		.ignit(ignit), 
 		.driver(driver), 
 		.passenger(passenger), 
@@ -49,9 +51,10 @@ module FSMtester;
 		.interval(interval), 
 		.start_timer(start_timer), 
 		.siren(siren), 
-		.status(status)
+		.status(status),
+		.current_state(current_state)
 	);
-
+	always #5 clk=!clk;
 	initial begin
 		// Initialize Inputs
 		clk = 0;
@@ -60,11 +63,23 @@ module FSMtester;
 		passenger = 0;
 		reprogram = 0;
 		expired = 0;
+		reset=0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
         
 		// Add stimulus here
+		driver=1;
+		#400;
+		ignit=1;
+		#100;
+		ignit=0;
+		#100;
+		driver=0;
+		#400;
+		reset=1;
+		#50;
+		reset=0;
 
 	end
       

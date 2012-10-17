@@ -268,7 +268,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 
    // PS/2 Ports
    // mouse_clock, mouse_data, keyboard_clock, and keyboard_data are inputs
-
+/*
    // LED Displays
    assign disp_blank = 1'b1;
    assign disp_clock = 1'b0;
@@ -277,9 +277,10 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
    assign disp_reset_b = 1'b0;
    assign disp_data_out = 1'b0;
    // disp_data_in is an input
+*/
 
    // Buttons, Switches, and Individual LEDs
-   assign led[7:2] = 6'b111111;
+   assign led[6:2] = 5'b11111;
 	
    // button0, button1, button2, button3, button_enter, button_right,
    // button_left, button_down, button_up, and switches are inputs
@@ -340,6 +341,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 
   assign led[1]=~fuelPower;
   assign led[0]=~status;
+  assign led[7]=0;
 
   assign siren=user1[0];
   assign noisy_reset=~button_down;
@@ -354,15 +356,70 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 								
 							
   FuelLogic f1 (.brake(brake), .hidden(hidden), .ignit(ignit), .power(fuelPower));
-  /*
+  
   wire [1:0] interval;
   wire [3:0] value;
-  
-  timeParam tp1 (.clk(clk), .Time_Parameter_Selector(Time_parameter_selector),
-						.Time_Value( Time_Value),.Reprogram(reprogram),.reset(rst),
-						.interval(interval), .value(value));
-
-  wire oneHz_enable;
-  */
-  
+  wire [3:0] ARM_DELAY,DRIVER_DELAY,PASSENGER_DELAY,ALARM_ON;
+	timeParam tp1 (
+		.clk(clk), 
+		.Time_Parameter_Selector(Time_Parameter_Selector), 
+		.Time_Value(Time_Value), 
+		.Reprogram(reprogram), 
+		.reset(rst), 
+		.interval(interval), 
+		.value(value),
+		.ARM_DELAY(ARM_DELAY),
+		.DRIVER_DELAY(DRIVER_DELAY),
+		.PASSENGER_DELAY(PASSENGER_DELAY),
+		.ALARM_ON(ALARM_ON)
+	);
+	
+	
+  wire start_timer;
+  wire expired;
+  wire timerCounter;
+    
+  timer t1 (.clk(clk),
+   	.start_timer(start_timer), 
+		.value(value), 
+		.reset(rst), 
+		.expired(expired),
+		.counter(timerCounter)
+	);
+	wire sirenOn;
+	wire speaker;
+	
+	sirenGen s1 (
+		.clk(clk), 
+		.on(sirenOn), 
+		.speaker(speaker)
+	);	
+	
+	wire current_state;
+	
+	FSM fsm1 (
+		.clk(clk), 
+		.reset(rst),
+		.ignit(ignit), 
+		.driver(driver), 
+		.passenger(passenger), 
+		.reprogram(reprogram), 
+		.expired(expired), 
+		.interval(interval), 
+		.start_timer(start_timer), 
+		.siren(sirenOn), 
+		.status(status),
+		.current_state(current_state)
+	);	
+	wire bs1,bs2,bs3,bs4,bs5,bs6;
+	wire [63:0] displayData;
+	
+	assign displayData[35:0]={3'b000,expired,Time_Value,2'b00,Time_parameter_selector,2'b00,interval,
+				ARM_DELAY,DRIVER_DELAY,PASSENGER_DELAY,ALARM_ON,1'b0,current_state };
+	
+   display_16hex dsp1(.reset(reset), .clock_27mhz(clk), .data(displayData), 
+		.disp_blank(bs1), .disp_clock(bs2), .disp_rs(bs3), .disp_ce_b(bs4),
+		.disp_reset_b(bs5), .disp_data_out(bs6));
+		
+		
 endmodule
