@@ -1,74 +1,111 @@
-module FSM (input clk, input ignit, input driver, input passenger, 
-            input reprogram, input expired, output [1:0] interval, 
-            output start_timer, output siren, output status);
-	        
-             
-    parameter s_armed=0;   
-    parameter s_driver_CD=1;
-    parameter s_passenger_CD=2;
-    parameter s_siren=3;
-    parameter s_door_closed_CD=4;
-    parameter s_disarmed=5;
-    parameter s_tran1=6;    
-    parameter s_tran2=7;
-    parameter s_tran3_CD=8;
-    
+module FSM (input clk, input reset, input ignit, input driver, input passenger, 
+            input reprogram, input expired, output reg [1:0] interval, 
+            output reg start_timer, output siren, output status, output [2:0] current_state);
     reg [3:0] state, next_state;
+	        
+	 
+    parameter s_armed=0;   
+    parameter s_triggered_CD=1;
+    parameter s_siren=2;
+    parameter s_door_closed_CD=3;
+    parameter s_disarmed=4;
+    parameter s_tran1=5;    
+    parameter s_tran2=6;
+    parameter s_tran3_CD=7;
 
+	 assign current_state = state;
+	 
+    initial begin
+		interval=0;
+		start_timer=0;
+		state=s_armed;
+		next_state=s_armed;
+	 end
+	 
     wire blink;
     squareWave blink_wave (.clk(clk), .square(blink));
     
     
-    always @(posedge clk) begin
-    
-        if (reset) next_state=s_armed;
-        else case (state)
+    always @(*) begin
+ 
+        if (reset) begin 
+            next_state=s_armed;
+            start_timer=0;
+            interval=0;            
+        end else case (state)
         
             s_armed: begin
                 
-                if (ignit) next_state<=s_disarmed;
+                if (ignit) next_state=s_disarmed;
                 else if (passenger) begin 
-                    
+                    interval=2'b10;
+						  start_timer=1;
+						  next_state=s_triggered_CD;
                 
                 end else if (driver) begin
+                    interval=2'b01;
+						  start_timer=1;					 
+						  next_state=s_triggered_CD;
+                end 
                 
-                end else next_state<=state;
-                
             end
-            
-            s_passenger_CD: begin   // count down T_PASSENGER_DELAY before going to triggered.
-                if (ignit) next_state<=s_disarmed;
-            
-            end
-            
-            s_driver_CD: begin // count down T_DRIVER_DELAY before going to triggered.
-                if (ignit) next_state<=s_disarmed;
-            
-            end
-            
-            s_siren: next_state <= (ignit)?  s_disarmed : (passenger && driver) ? s_door_closed_CD : s_siren;
-            
-            s_door_closed_CD: begin  // count down T_ALARM_ON before going to armed.
-                if (ignit) next_state<=s_disarmed;
-            end
-            
-            s_disarmed: (~ignit) ? next_state<=s_tran1: next_state<=state;
-          
-            s_tran1: (driver) ? (next_state<=s_tran2) : next_state<=state;
-            s_tran2: (~driver) ? (next_state<=s_tran3_CD) : next_state<=state;
-            
-            s_tran3_CD: begin  // count down T_ARM_DELAY before going to armed.
-            
-            end
-            
-        endcase 
-        
-    
-    end
-    
 
-    assign siren= ( (state==s_siren) || (state==s_door_closed_CD) ? 1 : 0; 
-    assign status = (state==s_armed) ?  blink: (state==s_passenger_CD || state==s_driver_CD || state==s_siren || state==s_door_closed_CD) ? 1 : 0;
+            s_triggered_CD: begin 
+                    if (ignit) begin
+                        next_state=s_disarmed;
+                        start_time=0;
+                     else if (~start_timer && expired) next_state=s_siren;
+                     else: start_timer=0;
+				end
+            
+            s_siren: begin
+                if (ignit) next_state=s_disarmed;
+					 else if (~passenger && ~driver) begin
+                    interval=2'b11;
+						  start_timer=1;	
+						  next_state=s_door_closed_CD;
+					 end
+				end
+				            
+            s_door_closed_CD: begin  
+			       start_timer=0;
+                if (ignit) begin
+                        next_state=s_disarmed;
+                        start_timer=0;
+                    end
+					 else if (~start_timer && expired) next_state=s_armed;
+                     else: start_timer=0;
+            end
+            
+            s_disarmed: if(~ignit) next_state=s_tran1;
+          
+            s_tran1: if(driver) next_state=s_tran2;
+            s_tran2: begin 
+					if (~driver) begin
+					   interval=2'b00;
+					   start_timer=1;							
+						next_state=s_tran3_CD;
+					end
+				end
+            
+            s_tran3_CD:begin
+				  if(~start_timer && expired)next_state=s_armed;
+                   else: start_timer=0;
+				end
+				/*
+				default: begin
+					start_timer<=0;
+					next_state<=s_armed;
+				end
+				*/
+        endcase 
+    end
+    always @(posedge clk) state<=next_state;
+
+
+    assign siren= ( (state==s_siren) || (state==s_door_closed_CD)); 
+    assign status = (state==s_armed) ?  blink: 
+	 (state==s_triggered_CD || state==s_siren || state==s_door_closed_CD);
              
              
 endmodule

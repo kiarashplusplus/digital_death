@@ -18,28 +18,40 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module timer(
+
+//The timer counts down the number of seconds specified by the Time Parameter 
+//module. It initializes its internal counter to the specified Value when 
+//Start_Timer is asserted and decrements the counter when one_hz_enable is 
+//asserted. When the internal counter reaches zero, the Expired signal is 
+//asserted and the countdown halts until Start_Timer is once again asserted. 
+
+module timer #(parameter mgh=25'd26999999)( 
 	 input clk,
     input start_timer,
     input [3:0] value,
 	 input reset,
-    output expired
+    output expired,
+	 output reg [3:0] counter
     );
 	 
-	 
+	 initial begin
+        counter=0;
+	 end
+     
 	 reg pause=1'b0;
-	 reg [3:0] counter=0;
 	 wire pulse;
-	 Divider #(.clock_27mhz(25'd10)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
+     
+	 Divider #(.clock_27mhz(mgh)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
 	
 	always @(posedge clk) begin
-	   if (reset) begin
+	    if (reset) begin
 			pause<=1;
-			counter<=value;
+			counter<=0;
 			
 		end else if (start_timer) begin
 			counter<=value;
 			pause<=1;
+			
 		end else
 			pause <= 0;
 			

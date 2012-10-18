@@ -25,19 +25,25 @@ module timeParam(
     input Reprogram,
 	 input reset,
     input [1:0] interval,
-    output reg [3:0] value
+    output reg [3:0] value,
+	 output reg [3:0] ARM_DELAY,
+	 output reg [3:0] DRIVER_DELAY,
+	 output reg [3:0] PASSENGER_DELAY,
+	 output reg [3:0] ALARM_ON	 
     );
-
+	 
 	parameter T_ARM_DELAY=4'b0110;
 	parameter T_DRIVER_DELAY=4'b1000;
 	parameter T_PASSENGER_DELAY=4'b1111;
 	parameter T_ALARM_ON=4'b1010;
-
-	reg ARM_DELAY=4'b0110;
-	reg DRIVER_DELAY=4'b1000;
-	reg PASSENGER_DELAY=4'b1111;
-	reg ALARM_ON=4'b1010;
-
+	
+	initial begin
+		ARM_DELAY=T_ARM_DELAY;
+		DRIVER_DELAY=T_DRIVER_DELAY;
+		PASSENGER_DELAY=T_PASSENGER_DELAY;
+		ALARM_ON=T_ALARM_ON;
+	end
+	
 	always @(posedge clk) begin
 	
 		if (reset) begin 

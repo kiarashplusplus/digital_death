@@ -34,7 +34,11 @@ module timeParamTest;
 
 	// Outputs
 	wire [3:0] value;
-
+	wire [3:0] ARM_DELAY;
+	wire [3:0] DRIVER_DELAY;
+	wire [3:0] PASSENGER_DELAY;
+	wire [3:0] ALARM_ON;
+	
 	// Instantiate the Unit Under Test (UUT)
 	timeParam uut (
 		.clk(clk), 
@@ -43,10 +47,15 @@ module timeParamTest;
 		.Reprogram(Reprogram), 
 		.reset(reset), 
 		.interval(interval), 
-		.value(value)
+		.value(value),
+		.ARM_DELAY(ARM_DELAY),
+		.DRIVER_DELAY(DRIVER_DELAY),
+		.PASSENGER_DELAY(PASSENGER_DELAY),
+		.ALARM_ON(ALARM_ON)
 	);
 	
 	always #10 clk= !clk;
+
 
 	initial begin
 		// Initialize Inputs
@@ -78,6 +87,10 @@ module timeParamTest;
 		Time_Value=4'b0001;	
 		#100;
 		reset=1;
+		#100;
+		reset=0;
+		Reprogram=0;
+		interval=2'b11;
 		
 
 	end

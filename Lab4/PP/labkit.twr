@@ -29,18 +29,71 @@ INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on
 
 Data Sheet report:
 -----------------
-No constraints were found to generate data for the Data Sheet Report section.
-Use the Advanced Analysis (-a) option or generate global constraints for each
-clock, its pad to setup and clock to pad paths, and a pad to pad constraint.
+All values displayed in nanoseconds (ns)
 
-Analysis completed Tue Oct 16 21:10:34 2012 
+Setup/Hold to clock clock_27mhz
+------------+------------+------------+------------------+--------+
+            |  Setup to  |  Hold to   |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+button0     |    1.663(R)|   -0.277(R)|clock_27mhz_BUFGP |   0.000|
+button1     |    2.828(R)|   -0.877(R)|clock_27mhz_BUFGP |   0.000|
+button2     |    1.914(R)|   -0.161(R)|clock_27mhz_BUFGP |   0.000|
+button3     |    2.963(R)|   -0.855(R)|clock_27mhz_BUFGP |   0.000|
+button_down |    2.240(R)|   -0.370(R)|clock_27mhz_BUFGP |   0.000|
+button_enter|    2.693(R)|   -0.849(R)|clock_27mhz_BUFGP |   0.000|
+switch<0>   |    1.828(R)|   -1.556(R)|clock_27mhz_BUFGP |   0.000|
+switch<1>   |    1.766(R)|   -1.494(R)|clock_27mhz_BUFGP |   0.000|
+switch<2>   |    2.509(R)|   -2.237(R)|clock_27mhz_BUFGP |   0.000|
+switch<3>   |    1.316(R)|   -1.044(R)|clock_27mhz_BUFGP |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock clock_27mhz to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+disp_clock  |    8.765(R)|clock_27mhz_BUFGP |   0.000|
+led<0>      |   14.176(R)|clock_27mhz_BUFGP |   0.000|
+led<1>      |   14.487(R)|clock_27mhz_BUFGP |   0.000|
+led<6>      |   11.611(R)|clock_27mhz_BUFGP |   0.000|
+led<7>      |   11.570(R)|clock_27mhz_BUFGP |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clock_27mhz
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clock_27mhz    |    5.990|         |         |         |
+switch<7>      |         |    2.318|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock switch<7>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clock_27mhz    |         |         |    6.882|         |
+switch<7>      |         |         |   -1.322|   -1.322|
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+switch<7>      |led<1>         |   13.697|
+---------------+---------------+---------+
+
+
+Analysis completed Wed Oct 17 19:52:59 2012 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 331 MB
+Peak Memory Usage: 346 MB
 
 
 
