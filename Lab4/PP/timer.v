@@ -40,7 +40,7 @@ module timer #(parameter mgh=25'd26999999)(
      
 	 reg pause=1'b0;
 	 wire pulse;
-     
+
 	 Divider #(.clock_27mhz(mgh)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
 	
 	always @(posedge clk) begin

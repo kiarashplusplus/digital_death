@@ -422,6 +422,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 		ARM_DELAY,DRIVER_DELAY,PASSENGER_DELAY,ALARM_ON,current_state };
         
     assign analyzer3_data = {current_state,interval, driver, ignit, timerCounter, expired, value, start_timer, clk};
+
 	
    display_16hex dsp1(.reset(reset), .clock_27mhz(clk), .data(displayData), 
 		.disp_blank(disp_blank), .disp_clock(disp_clock), .disp_rs(disp_rs), .disp_ce_b(disp_ce_b),

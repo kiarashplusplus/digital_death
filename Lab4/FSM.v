@@ -13,6 +13,7 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
     parameter s_tran2=6;
     parameter s_tran3_CD=7;
 
+
 	 assign current_state = state;
 	 
     initial begin
@@ -33,6 +34,7 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
             start_timer=0;
             interval=0;            
         end else case (state)
+
         
             s_armed: begin
                 
@@ -41,6 +43,7 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
                     interval=2'b10;
 						  start_timer=1;
 						  next_state=s_triggered_CD;
+
                 
                 end else if (driver) begin
                     interval=2'b01;
@@ -56,6 +59,7 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
                         start_time=0;
                      else if (~start_timer && expired) next_state=s_siren;
                      else: start_timer=0;
+
 				end
             
             s_siren: begin
@@ -75,6 +79,7 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
                     end
 					 else if (~start_timer && expired) next_state=s_armed;
                      else: start_timer=0;
+
             end
             
             s_disarmed: if(~ignit) next_state=s_tran1;
@@ -91,6 +96,7 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
             s_tran3_CD:begin
 				  if(~start_timer && expired)next_state=s_armed;
                    else: start_timer=0;
+
 				end
 				/*
 				default: begin
