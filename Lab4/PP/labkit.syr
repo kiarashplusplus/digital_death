@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab4/PP/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: labkit.prj
@@ -158,14 +158,14 @@ Analyzing hierarchy for module <sirenGen> in library <work> with parameters.
 	f2 = "00000000000000001001011010101011"
 
 Analyzing hierarchy for module <FSM> in library <work> with parameters.
-	s_armed = "0000"
-	s_disarmed = "0100"
-	s_door_closed_CD = "0011"
-	s_siren = "0010"
-	s_tran1 = "0101"
+	s_armed = "00000000000000000000000000000000"
+	s_disarmed = "00000000000000000000000000000100"
+	s_door_closed_CD = "00000000000000000000000000000011"
+	s_siren = "00000000000000000000000000000010"
+	s_tran1 = "00000000000000000000000000000101"
 	s_tran2 = "00000000000000000000000000000110"
 	s_tran3_CD = "00000000000000000000000000000111"
-	s_triggered_CD = "0001"
+	s_triggered_CD = "00000000000000000000000000000001"
 
 Analyzing hierarchy for module <display_16hex> in library <work>.
 
@@ -182,7 +182,7 @@ Analyzing hierarchy for module <squareWave> in library <work> with parameters.
 	mhz = "00000000000000001001011010101011"
 
 Analyzing hierarchy for module <squareWave> in library <work> with parameters.
-	mhz = "00000000000000110011110010101110"
+	mhz = "1100110111111110011000000"
 
 Analyzing hierarchy for module <squareWave> in library <work> with parameters.
 	mhz = "1100110111111110011000000"
@@ -192,9 +192,6 @@ Analyzing hierarchy for module <Divider> in library <work> with parameters.
 
 Analyzing hierarchy for module <Divider> in library <work> with parameters.
 	clock_27mhz = "00000000000000001001011010101011"
-
-Analyzing hierarchy for module <Divider> in library <work> with parameters.
-	clock_27mhz = "00000000000000110011110010101110"
 
 Analyzing hierarchy for module <Divider> in library <work> with parameters.
 	clock_27mhz = "1100110111111110011000000"
@@ -256,31 +253,27 @@ Analyzing module <Divider.3> in library <work>.
 Module <Divider.3> is correct for synthesis.
  
 Analyzing module <squareWave.3> in library <work>.
-	mhz = 32'sb00000000000000110011110010101110
+	mhz = 25'b1100110111111110011000000
 Module <squareWave.3> is correct for synthesis.
  
 Analyzing module <Divider.4> in library <work>.
-	clock_27mhz = 32'sb00000000000000110011110010101110
+	clock_27mhz = 25'b1100110111111110011000000
 Module <Divider.4> is correct for synthesis.
  
 Analyzing module <FSM> in library <work>.
-	s_armed = 4'b0000
-	s_disarmed = 4'b0100
-	s_door_closed_CD = 4'b0011
-	s_siren = 4'b0010
-	s_tran1 = 4'b0101
+	s_armed = 32'sb00000000000000000000000000000000
+	s_disarmed = 32'sb00000000000000000000000000000100
+	s_door_closed_CD = 32'sb00000000000000000000000000000011
+	s_siren = 32'sb00000000000000000000000000000010
+	s_tran1 = 32'sb00000000000000000000000000000101
 	s_tran2 = 32'sb00000000000000000000000000000110
 	s_tran3_CD = 32'sb00000000000000000000000000000111
-	s_triggered_CD = 4'b0001
+	s_triggered_CD = 32'sb00000000000000000000000000000001
 Module <FSM> is correct for synthesis.
  
 Analyzing module <squareWave.4> in library <work>.
 	mhz = 25'b1100110111111110011000000
 Module <squareWave.4> is correct for synthesis.
- 
-Analyzing module <Divider.5> in library <work>.
-	clock_27mhz = 25'b1100110111111110011000000
-Module <Divider.5> is correct for synthesis.
  
 Analyzing module <display_16hex> in library <work>.
 INFO:Xst:1433 - Contents of array <dots> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
@@ -294,7 +287,6 @@ Module <display_16hex> is correct for synthesis.
 Performing bidirectional port resolution...
 INFO:Xst:2561 - Always blocking tristate driving signal <flash_data> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <ram0_data> in unit <labkit> is removed.
-INFO:Xst:2561 - Always blocking tristate driving signal <user1> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <user2> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <user3> in unit <labkit> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <user4> in unit <labkit> is removed.
@@ -414,16 +406,6 @@ Synthesizing Unit <Divider_4>.
 Unit <Divider_4> synthesized.
 
 
-Synthesizing Unit <Divider_5>.
-    Related source file is "Divider.v".
-    Found 1-bit register for signal <one_hz_enable>.
-    Found 26-bit up counter for signal <counter>.
-    Summary:
-	inferred   1 Counter(s).
-	inferred   1 D-type flip-flop(s).
-Unit <Divider_5> synthesized.
-
-
 Synthesizing Unit <full_debounce>.
     Related source file is "../full_debounce.v".
 Unit <full_debounce> synthesized.
@@ -481,15 +463,25 @@ Unit <sirenGen> synthesized.
 Synthesizing Unit <FSM>.
     Related source file is "../FSM.v".
 WARNING:Xst:647 - Input <reprogram> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:737 - Found 4-bit latch for signal <next_state>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found finite state machine <FSM_1> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 8                                              |
+    | Transitions        | 25                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 8                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | reset (positive)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 2-bit latch for signal <interval>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 1-bit latch for signal <start_timer>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-WARNING:Xst:737 - Found 2-bit latch for signal <interval>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 4-bit register for signal <state>.
     Summary:
-	inferred   4 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
 Unit <FSM> synthesized.
 
 
@@ -555,8 +547,8 @@ WARNING:Xst:2565 - Inout <daughtercard<34>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<29>> is never assigned.
 WARNING:Xst:2565 - Inout <flash_data<6>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<1>> is never assigned.
-WARNING:Xst:2565 - Inout <user2<15>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<20>> is never assigned.
+WARNING:Xst:2565 - Inout <user2<15>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<40>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<35>> is never assigned.
 WARNING:Xst:2565 - Inout <flash_data<7>> is never assigned.
@@ -567,46 +559,37 @@ WARNING:Xst:2565 - Inout <daughtercard<41>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<36>> is never assigned.
 WARNING:Xst:2565 - Inout <flash_data<8>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<3>> is never assigned.
-WARNING:Xst:2565 - Inout <user2<17>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<22>> is never assigned.
+WARNING:Xst:2565 - Inout <user2<17>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<37>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<42>> is never assigned.
 WARNING:Xst:2565 - Inout <flash_data<9>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<1>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<4>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<23>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<18>> is never assigned.
 WARNING:Xst:647 - Input <keyboard_clock> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <daughtercard<38>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<43>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<2>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<5>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<24>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<19>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<39>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<3>> is never assigned.
 WARNING:Xst:2565 - Inout <tv_in_i2c_data> is never assigned.
 WARNING:Xst:2565 - Inout <user4<6>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<30>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<25>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<4>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<7>> is never assigned.
-WARNING:Xst:2565 - Inout <user2<26>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<31>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<5>> is never assigned.
+WARNING:Xst:2565 - Inout <user2<26>> is never assigned.
 WARNING:Xst:647 - Input <flash_sts> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user4<8>> is never assigned.
-WARNING:Xst:647 - Input <rs232_rxd> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user2<27>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<6>> is never assigned.
+WARNING:Xst:647 - Input <rs232_rxd> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user4<9>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<28>> is never assigned.
 WARNING:Xst:647 - Input <mouse_data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2565 - Inout <user1<7>> is never assigned.
 WARNING:Xst:647 - Input <rs232_cts> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <user2<29>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<8>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<9>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<0>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<10>> is never assigned.
 WARNING:Xst:2565 - Inout <daughtercard<1>> is never assigned.
@@ -667,101 +650,79 @@ WARNING:Xst:2565 - Inout <systemace_data<4>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<17>> is never assigned.
 WARNING:Xst:647 - Input <tv_in_hff> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <ram0_data<8>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<10>> is never assigned.
 WARNING:Xst:2565 - Inout <user4<29>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<23>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<5>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<18>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<9>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<0>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<11>> is never assigned.
 WARNING:Xst:647 - Input <tv_in_ycrcb> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <ram0_data<10>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<24>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<6>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<19>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<1>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<12>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<11>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<7>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<25>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<30>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<13>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<2>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<12>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<31>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<8>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<26>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<3>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<14>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<13>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<32>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<9>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<27>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<4>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<15>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<20>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<14>> is never assigned.
 WARNING:Xst:647 - Input <tv_in_line_clock1> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <ram1_data<28>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<33>> is never assigned.
 WARNING:Xst:647 - Input <tv_in_line_clock2> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <ram1_data<0>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<16>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<5>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<21>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<20>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<15>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<29>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<34>> is never assigned.
 WARNING:Xst:647 - Input <keyboard_data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <ram1_data<1>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<17>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<6>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<22>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<21>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<16>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<35>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<2>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<18>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<7>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<23>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<22>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<17>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<3>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<10>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<24>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<8>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<19>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<23>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<18>> is never assigned.
 WARNING:Xst:647 - Input <ac97_sdata_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2565 - Inout <ram1_data<4>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<11>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<25>> is never assigned.
 WARNING:Xst:2565 - Inout <user2<9>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<30>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<24>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<19>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<5>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<12>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<26>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<31>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<25>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<30>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<6>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<13>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<27>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<31>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<26>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<7>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<14>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<28>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<32>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<27>> is never assigned.
 WARNING:Xst:2565 - Inout <ram1_data<8>> is never assigned.
 WARNING:Xst:2565 - Inout <systemace_data<15>> is never assigned.
-WARNING:Xst:2565 - Inout <user1<29>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<28>> is never assigned.
 WARNING:Xst:2565 - Inout <ram0_data<33>> is never assigned.
 WARNING:Xst:647 - Input <systemace_mpbrdy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -792,14 +753,12 @@ WARNING:Xst:647 - Input <button_up> is never used. This port will be preserved a
 WARNING:Xst:2565 - Inout <user3<30>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<25>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<1>> is never assigned.
-WARNING:Xst:2565 - Inout <user3<26>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<31>> is never assigned.
+WARNING:Xst:2565 - Inout <user3<26>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<2>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<27>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<3>> is never assigned.
 WARNING:Xst:653 - Signal <time_parameter_selector_rnm0> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:646 - Signal <speaker> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <siren> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <labkit> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
@@ -818,15 +777,14 @@ Macro Statistics
  26-bit up counter                                     : 5
  5-bit up counter                                      : 1
  8-bit down counter                                    : 1
-# Registers                                            : 38
+# Registers                                            : 37
  1-bit register                                        : 28
  10-bit register                                       : 1
  32-bit register                                       : 1
- 4-bit register                                        : 8
-# Latches                                              : 3
+ 4-bit register                                        : 7
+# Latches                                              : 2
  1-bit latch                                           : 1
  2-bit latch                                           : 1
- 4-bit latch                                           : 1
 # Multiplexers                                         : 3
  1-bit 40-to-1 multiplexer                             : 1
  4-bit 16-to-1 multiplexer                             : 1
@@ -840,6 +798,20 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <fsm1/state/FSM> on signal <state[1:8]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 00000001
+ 0100  | 00000010
+ 0001  | 00000100
+ 0010  | 00001000
+ 0011  | 00010000
+ 0101  | 00100000
+ 0110  | 01000000
+ 0111  | 10000000
+-------------------
 Analyzing FSM <FSM_0> for best encoding.
 Optimizing FSM <dsp1/state/FSM> on signal <state[1:3]> with sequential encoding.
 ----------------------
@@ -866,17 +838,6 @@ WARNING:Xst:1293 - FF/Latch <PASSENGER_DELAY_0> has a constant value of 1 in blo
 WARNING:Xst:1293 - FF/Latch <PASSENGER_DELAY_1> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PASSENGER_DELAY_2> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <PASSENGER_DELAY_3> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <state_3> has a constant value of 0 in block <fsm1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <3>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <square> of sequential type is unconnected in block <freq1>.
-WARNING:Xst:2677 - Node <one_hz_enable> of sequential type is unconnected in block <d1>.
-WARNING:Xst:2677 - Node <square> of sequential type is unconnected in block <freq2>.
-WARNING:Xst:2677 - Node <one_hz_enable> of sequential type is unconnected in block <d1>.
-WARNING:Xst:2677 - Node <square> of sequential type is unconnected in block <toggle0>.
-WARNING:Xst:2677 - Node <one_hz_enable> of sequential type is unconnected in block <d1>.
-WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <0>.
-WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <1>.
-WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <2>.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -892,12 +853,11 @@ Macro Statistics
  26-bit up counter                                     : 5
  5-bit up counter                                      : 1
  8-bit down counter                                    : 1
-# Registers                                            : 105
- Flip-Flops                                            : 105
-# Latches                                              : 3
+# Registers                                            : 109
+ Flip-Flops                                            : 109
+# Latches                                              : 2
  1-bit latch                                           : 1
  2-bit latch                                           : 1
- 4-bit latch                                           : 1
 # Multiplexers                                         : 6
  1-bit 4-to-1 multiplexer                              : 4
  1-bit 40-to-1 multiplexer                             : 1
@@ -922,17 +882,6 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ALARM_ON_3> has a c
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PASSENGER_DELAY_0> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PASSENGER_DELAY_1> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PASSENGER_DELAY_2> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <next_state_3> has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <state_3> has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1294 - Latch <next_state_0> is equivalent to a wire in block <FSM>.
-WARNING:Xst:1294 - Latch <next_state_1> is equivalent to a wire in block <FSM>.
-WARNING:Xst:1294 - Latch <next_state_2> is equivalent to a wire in block <FSM>.
-WARNING:Xst:2677 - Node <s1/toggle0/square> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <s1/toggle0/d1/one_hz_enable> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <s1/freq2/square> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <s1/freq2/d1/one_hz_enable> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <s1/freq1/square> of sequential type is unconnected in block <labkit>.
-WARNING:Xst:2677 - Node <s1/freq1/d1/one_hz_enable> of sequential type is unconnected in block <labkit>.
 
 Optimizing unit <labkit> ...
 
@@ -964,8 +913,8 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 239
- Flip-Flops                                            : 239
+# Registers                                            : 328
+ Flip-Flops                                            : 328
 # Shift Registers                                      : 4
  7-bit shift register                                  : 4
 
@@ -996,30 +945,30 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 908
+# BELS                             : 1203
 #      GND                         : 1
-#      INV                         : 30
-#      LUT1                        : 161
-#      LUT2                        : 30
+#      INV                         : 36
+#      LUT1                        : 236
+#      LUT2                        : 37
 #      LUT2_D                      : 1
-#      LUT3                        : 79
+#      LUT3                        : 82
 #      LUT3_D                      : 4
 #      LUT3_L                      : 3
-#      LUT4                        : 163
+#      LUT4                        : 191
 #      LUT4_D                      : 7
 #      LUT4_L                      : 8
-#      MUXCY                       : 209
-#      MUXF5                       : 31
+#      MUXCY                       : 305
+#      MUXF5                       : 33
 #      MUXF6                       : 5
 #      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 174
-# FlipFlops/Latches                : 259
+#      XORCY                       : 252
+# FlipFlops/Latches                : 348
 #      FDE                         : 35
-#      FDR                         : 67
+#      FDR                         : 156
 #      FDRE                        : 121
-#      FDRS                        : 17
-#      FDS                         : 1
+#      FDRS                        : 16
+#      FDS                         : 2
 #      FDSE                        : 12
 #      LD                          : 6
 # Shift Registers                  : 5
@@ -1027,9 +976,9 @@ Cell Usage :
 #      SRL16E                      : 4
 # Clock Buffers                    : 2
 #      BUFG                        : 2
-# IO Buffers                       : 254
+# IO Buffers                       : 286
 #      IBUF                        : 14
-#      OBUF                        : 240
+#      OBUF                        : 272
 =========================================================================
 
 Device utilization summary:
@@ -1037,13 +986,13 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                      255  out of  33792     0%  
- Number of Slice Flip Flops:            256  out of  67584     0%  
- Number of 4 input LUTs:                491  out of  67584     0%  
-    Number used as logic:               486
+ Number of Slices:                      318  out of  33792     0%  
+ Number of Slice Flip Flops:            345  out of  67584     0%  
+ Number of 4 input LUTs:                610  out of  67584     0%  
+    Number used as logic:               605
     Number used as Shift registers:       5
  Number of IOs:                         576
- Number of bonded IOBs:                 254  out of    684    37%  
+ Number of bonded IOBs:                 286  out of    684    41%  
     IOB Flip Flops:                       3
  Number of GCLKs:                         2  out of     16    12%  
 
@@ -1065,15 +1014,18 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
---------------------------------------------------------+-----------------------------+-------+
-Clock Signal                                            | Clock buffer(FF name)       | Load  |
---------------------------------------------------------+-----------------------------+-------+
-clock_27mhz                                             | IBUF+BUFG                   | 212   |
-dsp1/clock1                                             | BUFG                        | 45    |
-fsm1/interval_not0001(fsm1/interval_not000111:O)        | NONE(*)(fsm1/interval_1)    | 4     |
-fsm1/start_timer_not0001(fsm1/start_timer_not00011_f5:O)| NONE(*)(fsm1/start_timer)   | 2     |
-fsm1/blink_wave/d1/one_hz_enable                        | NONE(fsm1/blink_wave/square)| 1     |
---------------------------------------------------------+-----------------------------+-------+
+------------------------------------------------------+-----------------------------+-------+
+Clock Signal                                          | Clock buffer(FF name)       | Load  |
+------------------------------------------------------+-----------------------------+-------+
+clock_27mhz                                           | IBUF+BUFG                   | 298   |
+dsp1/clock1                                           | BUFG                        | 45    |
+fsm1/interval_not0001(fsm1/interval_not000133_f5:O)   | NONE(*)(fsm1/interval_1)    | 4     |
+fsm1/start_timer_not0001(fsm1/start_timer_not000150:O)| NONE(*)(fsm1/start_timer)   | 2     |
+s1/toggle0/d1/one_hz_enable                           | NONE(s1/toggle0/square)     | 1     |
+s1/freq2/d1/one_hz_enable                             | NONE(s1/freq2/square)       | 1     |
+s1/freq1/d1/one_hz_enable                             | NONE(s1/freq1/square)       | 1     |
+fsm1/blink_wave/d1/one_hz_enable                      | NONE(fsm1/blink_wave/square)| 1     |
+------------------------------------------------------+-----------------------------+-------+
 (*) These 2 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
@@ -1089,8 +1041,8 @@ Speed Grade: -4
 
    Minimum period: 10.662ns (Maximum Frequency: 93.791MHz)
    Minimum input arrival time before clock: 10.520ns
-   Maximum output required time after clock: 7.148ns
-   Maximum combinational path delay: 7.085ns
+   Maximum output required time after clock: 9.501ns
+   Maximum combinational path delay: 7.131ns
 
 Timing Detail:
 --------------
@@ -1099,7 +1051,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
   Clock period: 6.199ns (frequency: 161.314MHz)
-  Total number of paths / destination ports: 6117 / 532
+  Total number of paths / destination ports: 9295 / 700
 -------------------------------------------------------------------------
 Delay:               6.199ns (Levels of Logic = 9)
   Source:            t1/timerD/counter_5 (FF)
@@ -1159,6 +1111,69 @@ Delay:               10.662ns (Levels of Logic = 11)
                                        (54.2% logic, 45.8% route)
 
 =========================================================================
+Timing constraint: Default period analysis for Clock 's1/toggle0/d1/one_hz_enable'
+  Clock period: 1.549ns (frequency: 645.370MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               1.549ns (Levels of Logic = 0)
+  Source:            s1/toggle0/square (FF)
+  Destination:       s1/toggle0/square (FF)
+  Source Clock:      s1/toggle0/d1/one_hz_enable rising
+  Destination Clock: s1/toggle0/d1/one_hz_enable rising
+
+  Data Path: s1/toggle0/square to s1/toggle0/square
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.568   0.702  s1/toggle0/square (s1/toggle0/square)
+     FDR:R                     0.280          s1/toggle0/square
+    ----------------------------------------
+    Total                      1.549ns (0.848ns logic, 0.702ns route)
+                                       (54.7% logic, 45.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 's1/freq2/d1/one_hz_enable'
+  Clock period: 1.549ns (frequency: 645.370MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               1.549ns (Levels of Logic = 0)
+  Source:            s1/freq2/square (FF)
+  Destination:       s1/freq2/square (FF)
+  Source Clock:      s1/freq2/d1/one_hz_enable rising
+  Destination Clock: s1/freq2/d1/one_hz_enable rising
+
+  Data Path: s1/freq2/square to s1/freq2/square
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.568   0.702  s1/freq2/square (s1/freq2/square)
+     FDR:R                     0.280          s1/freq2/square
+    ----------------------------------------
+    Total                      1.549ns (0.848ns logic, 0.702ns route)
+                                       (54.7% logic, 45.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 's1/freq1/d1/one_hz_enable'
+  Clock period: 1.549ns (frequency: 645.370MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               1.549ns (Levels of Logic = 0)
+  Source:            s1/freq1/square (FF)
+  Destination:       s1/freq1/square (FF)
+  Source Clock:      s1/freq1/d1/one_hz_enable rising
+  Destination Clock: s1/freq1/d1/one_hz_enable rising
+
+  Data Path: s1/freq1/square to s1/freq1/square
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.568   0.702  s1/freq1/square (s1/freq1/square)
+     FDR:R                     0.280          s1/freq1/square
+    ----------------------------------------
+    Total                      1.549ns (0.848ns logic, 0.702ns route)
+                                       (54.7% logic, 45.3% route)
+
+=========================================================================
 Timing constraint: Default period analysis for Clock 'fsm1/blink_wave/d1/one_hz_enable'
   Clock period: 1.549ns (frequency: 645.370MHz)
   Total number of paths / destination ports: 1 / 1
@@ -1181,23 +1196,24 @@ Delay:               1.549ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 147 / 146
+  Total number of paths / destination ports: 148 / 148
 -------------------------------------------------------------------------
-Offset:              3.540ns (Levels of Logic = 2)
-  Source:            button1 (PAD)
-  Destination:       db/d_brake/count_0 (FF)
+Offset:              4.197ns (Levels of Logic = 3)
+  Source:            switch<7> (PAD)
+  Destination:       fsm1/state_FSM_FFd8 (FF)
   Destination Clock: clock_27mhz rising
 
-  Data Path: button1 to db/d_brake/count_0
+  Data Path: switch<7> to fsm1/state_FSM_FFd8
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   0.825   0.955  button1_IBUF (button1_IBUF)
-     LUT3:I1->O           20   0.439   1.041  db/d_brake/count_or00001 (db/d_brake/count_or0000)
-     FDRE:R                    0.280          db/d_brake/count_0
+     IBUF:I->O            13   0.825   1.162  switch_7_IBUF (switch_7_IBUF)
+     LUT3:I1->O            2   0.439   0.701  fsm1/start_timer_mux000023 (fsm1/N21)
+     MUXF5:S->O            1   0.699   0.000  fsm1/state_FSM_FFd8-In (fsm1/state_FSM_FFd8-In)
+     FDS:D                     0.370          fsm1/state_FSM_FFd8
     ----------------------------------------
-    Total                      3.540ns (1.544ns logic, 1.996ns route)
-                                       (43.6% logic, 56.4% route)
+    Total                      4.197ns (2.333ns logic, 1.864ns route)
+                                       (55.6% logic, 44.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'dsp1/clock1'
@@ -1231,9 +1247,9 @@ Offset:              10.520ns (Levels of Logic = 12)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'fsm1/interval_not0001'
-  Total number of paths / destination ports: 4 / 4
+  Total number of paths / destination ports: 8 / 4
 -------------------------------------------------------------------------
-Offset:              3.579ns (Levels of Logic = 3)
+Offset:              3.232ns (Levels of Logic = 3)
   Source:            switch<7> (PAD)
   Destination:       fsm1/interval_1 (LATCH)
   Destination Clock: fsm1/interval_not0001 falling
@@ -1242,19 +1258,19 @@ Offset:              3.579ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   0.825   0.949  switch_7_IBUF (switch_7_IBUF)
-     LUT4:I3->O            1   0.439   0.558  fsm1/interval_mux0000<1>_SW0 (N4)
-     LUT4:I3->O            2   0.439   0.000  fsm1/interval_mux0000<1> (fsm1/interval_mux0000<1>)
+     IBUF:I->O            13   0.825   1.162  switch_7_IBUF (switch_7_IBUF)
+     LUT3:I1->O            1   0.439   0.000  fsm1/interval_mux0000<1>1 (fsm1/interval_mux0000<1>1)
+     MUXF5:I1->O           2   0.436   0.000  fsm1/interval_mux0000<1>_f5 (fsm1/interval_mux0000<1>)
      LD:D                      0.370          fsm1/interval_1
     ----------------------------------------
-    Total                      3.579ns (2.073ns logic, 1.506ns route)
-                                       (57.9% logic, 42.1% route)
+    Total                      3.232ns (2.070ns logic, 1.162ns route)
+                                       (64.0% logic, 36.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'fsm1/start_timer_not0001'
-  Total number of paths / destination ports: 4 / 2
+  Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
-Offset:              4.658ns (Levels of Logic = 4)
+Offset:              2.796ns (Levels of Logic = 2)
   Source:            switch<7> (PAD)
   Destination:       fsm1/start_timer (LATCH)
   Destination Clock: fsm1/start_timer_not0001 falling
@@ -1263,14 +1279,12 @@ Offset:              4.658ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   0.825   1.116  switch_7_IBUF (switch_7_IBUF)
-     LUT4:I1->O            1   0.439   0.000  fsm1/interval_not00013_F (N128)
-     MUXF5:I0->O           4   0.436   1.032  fsm1/interval_not00013 (fsm1/interval_not0001_bdd2)
-     LUT3:I0->O            2   0.439   0.000  fsm1/start_timer_mux000021 (fsm1/start_timer_mux0000)
+     IBUF:I->O            13   0.825   1.162  switch_7_IBUF (switch_7_IBUF)
+     LUT4:I1->O            2   0.439   0.000  fsm1/start_timer_mux000053 (fsm1/start_timer_mux0000)
      LD:D                      0.370          fsm1/start_timer
     ----------------------------------------
-    Total                      4.658ns (2.509ns logic, 2.149ns route)
-                                       (53.9% logic, 46.1% route)
+    Total                      2.796ns (1.634ns logic, 1.162ns route)
+                                       (58.4% logic, 41.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'dsp1/clock1'
@@ -1293,23 +1307,87 @@ Offset:              5.630ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 18 / 15
+  Total number of paths / destination ports: 43 / 15
 -------------------------------------------------------------------------
-Offset:              7.148ns (Levels of Logic = 2)
-  Source:            fsm1/state_1 (FF)
+Offset:              9.501ns (Levels of Logic = 4)
+  Source:            fsm1/state_FSM_FFd1 (FF)
   Destination:       led<0> (PAD)
   Source Clock:      clock_27mhz rising
 
-  Data Path: fsm1/state_1 to led<0>
+  Data Path: fsm1/state_FSM_FFd1 to led<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             14   0.568   1.262  fsm1/state_1 (fsm1/state_1)
-     LUT4:I0->O            1   0.439   0.517  led_0_not00001 (led_0_OBUF)
+     FDR:C->Q             10   0.568   1.171  fsm1/state_FSM_FFd1 (fsm1/state_FSM_FFd1)
+     LUT4:I0->O            3   0.439   1.010  fsm1/state_or00011 (current_state<1>)
+     LUT2:I0->O            1   0.439   0.557  led_0_not000035_SW0 (N145)
+     LUT4:I3->O            1   0.439   0.517  led_0_not000035 (led_0_OBUF)
      OBUF:I->O                 4.361          led_0_OBUF (led<0>)
     ----------------------------------------
-    Total                      7.148ns (5.368ns logic, 1.780ns route)
-                                       (75.1% logic, 24.9% route)
+    Total                      9.501ns (6.246ns logic, 3.255ns route)
+                                       (65.7% logic, 34.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 's1/freq2/d1/one_hz_enable'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.231ns (Levels of Logic = 3)
+  Source:            s1/freq2/square (FF)
+  Destination:       user1<0> (PAD)
+  Source Clock:      s1/freq2/d1/one_hz_enable rising
+
+  Data Path: s1/freq2/square to user1<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.568   0.910  s1/freq2/square (s1/freq2/square)
+     LUT3:I1->O            1   0.439   0.000  s1/speaker12 (s1/speaker11)
+     MUXF5:I0->O           1   0.436   0.517  s1/speaker1_f5 (speaker)
+     OBUF:I->O                 4.361          user1_0_OBUF (user1<0>)
+    ----------------------------------------
+    Total                      7.231ns (5.804ns logic, 1.427ns route)
+                                       (80.3% logic, 19.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 's1/freq1/d1/one_hz_enable'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.231ns (Levels of Logic = 3)
+  Source:            s1/freq1/square (FF)
+  Destination:       user1<0> (PAD)
+  Source Clock:      s1/freq1/d1/one_hz_enable rising
+
+  Data Path: s1/freq1/square to user1<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.568   0.910  s1/freq1/square (s1/freq1/square)
+     LUT3:I1->O            1   0.439   0.000  s1/speaker11 (s1/speaker1)
+     MUXF5:I1->O           1   0.436   0.517  s1/speaker1_f5 (speaker)
+     OBUF:I->O                 4.361          user1_0_OBUF (user1<0>)
+    ----------------------------------------
+    Total                      7.231ns (5.804ns logic, 1.427ns route)
+                                       (80.3% logic, 19.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 's1/toggle0/d1/one_hz_enable'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              6.847ns (Levels of Logic = 2)
+  Source:            s1/toggle0/square (FF)
+  Destination:       user1<0> (PAD)
+  Source Clock:      s1/toggle0/d1/one_hz_enable rising
+
+  Data Path: s1/toggle0/square to user1<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.568   0.701  s1/toggle0/square (s1/toggle0/square)
+     MUXF5:S->O            1   0.699   0.517  s1/speaker1_f5 (speaker)
+     OBUF:I->O                 4.361          user1_0_OBUF (user1<0>)
+    ----------------------------------------
+    Total                      6.847ns (5.628ns logic, 1.219ns route)
+                                       (82.2% logic, 17.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'fsm1/interval_not0001'
@@ -1363,7 +1441,7 @@ Offset:              6.621ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDR:C->Q              2   0.568   0.735  fsm1/blink_wave/square (fsm1/blink_wave/square)
-     LUT4:I2->O            1   0.439   0.517  led_0_not00001 (led_0_OBUF)
+     LUT4:I2->O            1   0.439   0.517  led_0_not000035 (led_0_OBUF)
      OBUF:I->O                 4.361          led_0_OBUF (led<0>)
     ----------------------------------------
     Total                      6.621ns (5.368ns logic, 1.253ns route)
@@ -1373,7 +1451,7 @@ Offset:              6.621ns (Levels of Logic = 2)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 3 / 3
 -------------------------------------------------------------------------
-Delay:               7.085ns (Levels of Logic = 3)
+Delay:               7.131ns (Levels of Logic = 3)
   Source:            switch<7> (PAD)
   Destination:       led<1> (PAD)
 
@@ -1381,25 +1459,25 @@ Delay:               7.085ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   0.825   0.943  switch_7_IBUF (switch_7_IBUF)
+     IBUF:I->O            13   0.825   0.989  switch_7_IBUF (switch_7_IBUF)
      LUT3:I2->O            1   0.439   0.517  led_1_not00001 (led_1_OBUF)
      OBUF:I->O                 4.361          led_1_OBUF (led<1>)
     ----------------------------------------
-    Total                      7.085ns (5.625ns logic, 1.460ns route)
-                                       (79.4% logic, 20.6% route)
+    Total                      7.131ns (5.625ns logic, 1.506ns route)
+                                       (78.9% logic, 21.1% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 10.20 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.18 secs
  
 --> 
 
 
-Total memory usage is 471328 kilobytes
+Total memory usage is 476548 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  356 (   0 filtered)
-Number of infos    :   17 (   0 filtered)
+Number of warnings :  300 (   0 filtered)
+Number of infos    :   15 (   0 filtered)
 

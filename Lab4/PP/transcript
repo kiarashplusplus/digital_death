@@ -8,47 +8,28 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {timerTest.fdo} 
+# do {timeParamTest.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module Divider
+# -- Compiling module timeParam
 # 
 # Top level modules:
-# 	Divider
+# 	timeParam
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module timer
+# -- Compiling module timeParamTest
 # 
 # Top level modules:
-# 	timer
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module timerTest
-# 
-# Top level modules:
-# 	timerTest
+# 	timeParamTest
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps timerTest glbl 
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: kiarash  Hostname: eecs-digital-03  ProcessID: 6028
-#           Attempting to use alternate WLF file "./wlft8r2J9N".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft8r2J9N
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft8r2J9N
-# Design is being optimized due to module recompilation...
-# Loading work.timerTest(fast)
-# Loading work.timer(fast)
-# Loading work.Divider(fast)
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps timeParamTest glbl 
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.timeParamTest(fast)
+# Loading work.timeParam(fast)
 # Loading work.glbl(fast)
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
 # .main_pane.signals.interior.cs
-restart -f
-# Loading work.timerTest(fast)
-# Loading work.timer(fast)
-# Loading work.Divider(fast)
-# Loading work.glbl(fast)
-run 4000ns

@@ -29,7 +29,7 @@ module sirenGen #(parameter f1=67500, parameter f2=38571)(
 	wire toggle;
 	squareWave #(.mhz(f1)) freq1 (.clk(clk), .square(sp1));
 	squareWave #(.mhz(f2)) freq2 (.clk(clk), .square(sp2));
-	squareWave #(.mhz(2*(f1+f2))) toggle0 (.clk(clk), .square(toggle));
+	squareWave #(.mhz(25'd27000000)) toggle0 (.clk(clk), .square(toggle));
 	
 	assign speaker= on && ((toggle) ? sp1 : sp2);
 	

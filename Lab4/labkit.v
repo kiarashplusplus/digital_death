@@ -286,7 +286,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
    // button_left, button_down, button_up, and switches are inputs
 
    // User I/Os
-   assign user1 = 32'hZ;
+   //assign user1 = 32'hZ;
    assign user2 = 32'hZ;
    assign user3 = 32'hZ;
    assign user4 = 32'hZ;
@@ -327,7 +327,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   defparam reset_sr.INIT = 16'hFFFF;
 	wire noisy_hidden,noisy_brake, noisy_driver,noisy_passenger,ignit,
 		noisy_reprogram,status,
-		fuelPower, siren, noisy_reset;
+		fuelPower, noisy_reset;
 	wire [3:0] Time_Value; 
 	wire [1:0] Time_parameter_selector;
 	
@@ -345,10 +345,8 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
  
   wire hidden, brake, driver, passenger, reprogram, rst;
 
-  assign led[6]=passenger;  
-  assign led[7]=driver;
 
-  assign siren=user1[0];
+	
   assign noisy_reset=~button_down;
   
   assign clk = clock_27mhz;
@@ -395,7 +393,12 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 	);
 	wire sirenOn;
 	wire speaker;
-	
+  assign user1[0]=speaker;
+  assign user1[31:1]=0;
+  
+  assign led[6]=~sirenOn;  
+  assign led[7]=1;	
+  
 	sirenGen s1 (
 		.clk(clk), 
 		.on(sirenOn), 

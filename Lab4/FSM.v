@@ -4,24 +4,24 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
     reg [3:0] state, next_state;
 	        
 	 
-    parameter s_armed=4'd0;   
-    parameter s_triggered_CD=4'd1;
-    parameter s_siren=4'd2;
-    parameter s_door_closed_CD=4'd3;
-    parameter s_disarmed=4'd4;
-    parameter s_tran1=4'd5;    
+    parameter s_armed=0;   
+    parameter s_triggered_CD=1;
+    parameter s_siren=2;
+    parameter s_door_closed_CD=3;
+    parameter s_disarmed=4;
+    parameter s_tran1=5;    
     parameter s_tran2=6;
     parameter s_tran3_CD=7;
 
 
 	 assign current_state = state;
 	 
-    initial begin
+   /*initial begin
 		interval=0;
 		start_timer=0;
 		state=s_armed;
 		next_state=s_armed;
-	 end
+	 end*/
 	 
     wire blink;
     squareWave blink_wave (.clk(clk), .square(blink));
@@ -75,7 +75,8 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
 					 start_timer=0;
                 if (ignit) begin
                         next_state=s_disarmed;
-					 end else if (~start_timer && expired) next_state=s_armed;
+					 end else if (driver || passenger) next_state=s_siren;
+					 else if (expired) next_state=s_armed;
 
             end
             
@@ -101,14 +102,15 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
 					next_state=state;
 					start_timer=0;
 				  if(expired)next_state=s_armed;
-
+				  else if (driver) begin
+						next_state=s_tran2;
+						start_timer=1;
+				  end
 				end
-				/*
-				default: begin
-					start_timer<=0;
-					next_state<=s_armed;
-				end
-				*/
+				
+				default: next_state=s_armed;
+				
+				
         endcase 
     end
     always @(posedge clk) state<=next_state;

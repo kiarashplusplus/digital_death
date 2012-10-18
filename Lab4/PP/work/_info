@@ -11,189 +11,196 @@ Z4 =1-f04da20f0f87-507f3b8b-329a-178c
 Z5 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
 Z6 OE;O;6.4a;39
 T_opt1
-V[>eBP:GaS0`@Bd[[F`1EB1
-Z7 04 9 4 work timerTest fast 0
+Z7 V[>eBP:GaS0`@Bd[[F`1EB1
+Z8 04 9 4 work timerTest fast 0
 R3
-Z8 =1-f04da20f0f87-507f3fa4-b3a45-17ce
+Z9 =1-f04da20f0f87-507f3fa4-b3a45-17ce
 R5
 R6
 T_opt2
-Z9 V=]0_e[17i7:YFee^]A[n50
-Z10 04 13 4 work timeParamTest fast 0
+Z10 V=]0_e[17i7:YFee^]A[n50
+Z11 04 13 4 work timeParamTest fast 0
 R3
-Z11 =1-002564b50972-507e5074-99f48-4a71
+Z12 =1-002564b50972-507e5074-99f48-4a71
 R5
 R6
 T_opt3
-Z12 V=PcYWfAG9Nk06ag1DVGa<2
+Z13 V=PcYWfAG9Nk06ag1DVGa<2
 R2
 R3
-Z13 =1-f04da20f0f87-507f24cf-7736c-1652
+Z14 =1-f04da20f0f87-507f24cf-7736c-1652
+R5
+R6
+T_opt4
+VUBE5eG`mYV30l=m09OJA@0
+R11
+R3
+Z15 =1-f04da20f0f87-5080928b-69866-426f
 R5
 R6
 vDivider
-Z14 I9YX1nU_ZG[ke0[P5Rhh?@0
-Z15 VFWNjFHG`XD?CNh4<LjVmf1
-Z16 w1350439190
-Z17 8Divider.v
-Z18 FDivider.v
+Z16 I9YX1nU_ZG[ke0[P5Rhh?@0
+Z17 VFWNjFHG`XD?CNh4<LjVmf1
+Z18 w1350439190
+Z19 8Divider.v
+Z20 FDivider.v
 L0 21
-Z19 OE;L;6.4a;39
+Z21 OE;L;6.4a;39
 r1
 31
-Z20 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
-Z21 n@divider
-Z22 !s100 zTkQ2NMl9e2V1ARaF<i@[2
+Z22 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
+Z23 n@divider
+Z24 !s100 zTkQ2NMl9e2V1ARaF<i@[2
 !s85 0
 vDividerTest
-Z23 IW1RRECN8af?4NTBdA@d?X3
-Z24 V=Ve`m;3oQoU[OC9WO[;Kz3
-Z25 w1350432820
-Z26 8../DividerTest.v
-Z27 F../DividerTest.v
+Z25 IW1RRECN8af?4NTBdA@d?X3
+Z26 V=Ve`m;3oQoU[OC9WO[;Kz3
+Z27 w1350432820
+Z28 8../DividerTest.v
+Z29 F../DividerTest.v
 L0 25
-R19
+R21
 r1
 31
-R20
-Z28 n@divider@test
-Z29 !s100 _99_RL4Za1;WSOe@OE@ed1
+R22
+Z30 n@divider@test
+Z31 !s100 _99_RL4Za1;WSOe@OE@ed1
 !s85 0
 vFSM
-Z30 IEc;SCGF`kbdjQZh5kS8c51
-Z31 VokTkZ]hh9Z[2?_j7^KGkB1
-Z32 w1350513208
-Z33 8../FSM.v
-Z34 F../FSM.v
+Z32 IEc;SCGF`kbdjQZh5kS8c51
+Z33 VokTkZ]hh9Z[2?_j7^KGkB1
+Z34 w1350513208
+Z35 8../FSM.v
+Z36 F../FSM.v
 L0 1
-R19
+R21
 r1
 31
-R20
-Z35 n@f@s@m
-Z36 !s100 BBB5bQY;mF5b<K5:YbB?C0
+R22
+Z37 n@f@s@m
+Z38 !s100 BBB5bQY;mF5b<K5:YbB?C0
 !s85 0
 vFSMtester
-Z37 I=F0l?W2SI@^:_`2bUV5RX2
-Z38 V[MKh[JImdjHi>>AF1e<ff0
-Z39 w1350509770
-Z40 8FSMtester.v
-Z41 FFSMtester.v
+Z39 I=F0l?W2SI@^:_`2bUV5RX2
+Z40 V[MKh[JImdjHi>>AF1e<ff0
+Z41 w1350509770
+Z42 8FSMtester.v
+Z43 FFSMtester.v
 L0 25
-R19
+R21
 r1
 31
-R20
-Z42 n@f@s@mtester
-Z43 !s100 ]nLjU1hfJgin_Pj;PX`cR0
+R22
+Z44 n@f@s@mtester
+Z45 !s100 ]nLjU1hfJgin_Pj;PX`cR0
 !s85 0
 vglbl
-Z44 IB;@1jEXmEfQXL`;Kf0IBZ3
-Z45 VnN]4Gon>inod6>M^M2[SV1
-Z46 w1202685744
-Z47 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
-Z48 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z46 IB;@1jEXmEfQXL`;Kf0IBZ3
+Z47 VnN]4Gon>inod6>M^M2[SV1
+Z48 w1202685744
+Z49 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z50 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
 L0 5
-R19
+R21
 r1
 31
-R20
-Z49 !s100 T?5S;>bN`@zG_25]R_4A33
+R22
+Z51 !s100 T?5S;>bN`@zG_25]R_4A33
 !s85 0
 vsirenGen
-Z50 ImAIejUaiDI=O7Jjl;76CW1
-Z51 VLcBdk`K@j;YbK_ZZk>O`K2
-R16
-Z52 8sirenGen.v
-Z53 FsirenGen.v
+Z52 ImAIejUaiDI=O7Jjl;76CW1
+Z53 VLcBdk`K@j;YbK_ZZk>O`K2
+R18
+Z54 8sirenGen.v
+Z55 FsirenGen.v
 L0 21
-R19
+R21
 r1
 31
-R20
-Z54 nsiren@gen
-Z55 !s100 kcLU[`T=5am^ADT?9GEAT3
+R22
+Z56 nsiren@gen
+Z57 !s100 kcLU[`T=5am^ADT?9GEAT3
 !s85 0
 vsirenTest
-Z56 IdGnob777<1>:THMI__WWb1
-Z57 VPh`DzjL_=PG8579<d5a3B2
-R16
-Z58 8sirenTest.v
-Z59 FsirenTest.v
+Z58 IdGnob777<1>:THMI__WWb1
+Z59 VPh`DzjL_=PG8579<d5a3B2
+R18
+Z60 8sirenTest.v
+Z61 FsirenTest.v
 L0 25
-R19
+R21
 r1
 31
-R20
-Z60 nsiren@test
-Z61 !s100 G<8KU`A8cial]V93XaS>Q2
+R22
+Z62 nsiren@test
+Z63 !s100 G<8KU`A8cial]V93XaS>Q2
 !s85 0
 vsquareWave
-Z62 Ie1M4`EB30;UE`BGIzA?_k2
-Z63 VK5Yh:EljVfQOn>I0H5KBV2
-R16
-R52
-R53
+Z64 Ie1M4`EB30;UE`BGIzA?_k2
+Z65 VK5Yh:EljVfQOn>I0H5KBV2
+R18
+R54
+R55
 L0 39
-R19
+R21
 r1
 31
-R20
-Z64 nsquare@wave
-Z65 !s100 ck1hi7=@N6mlc0VF?lUbi0
+R22
+Z66 nsquare@wave
+Z67 !s100 ck1hi7=@N6mlc0VF?lUbi0
 !s85 0
 vtimeParam
-Z66 IS:@oY=Slz>e1QEFbUJ>;a2
-Z67 VSaiE7mTBG<lOZjeKk`cZ32
-Z68 w1350507807
-Z69 8timeParam.v
-Z70 FtimeParam.v
+Z68 IS:@oY=Slz>e1QEFbUJ>;a2
+Z69 VSaiE7mTBG<lOZjeKk`cZ32
+Z70 w1350508032
+Z71 8timeParam.v
+Z72 FtimeParam.v
 L0 21
-R19
+R21
 r1
 31
-R20
-Z71 ntime@param
-Z72 !s100 KHPURzKP?Z:S==fTe0DzU0
+R22
+Z73 ntime@param
+Z74 !s100 KHPURzKP?Z:S==fTe0DzU0
 !s85 0
 vtimeParamTest
-Z73 IW5RDI_hbQPR0USnc;77Gj3
-Z74 VNiKo<ofjPVeRSb4ag<0<H3
-Z75 w1350508014
-Z76 8timeParamTest.v
-Z77 FtimeParamTest.v
+Z75 IW5RDI_hbQPR0USnc;77Gj3
+Z76 VNiKo<ofjPVeRSb4ag<0<H3
+Z77 w1350508014
+Z78 8timeParamTest.v
+Z79 FtimeParamTest.v
 L0 25
-R19
+R21
 r1
 31
-R20
-Z78 ntime@param@test
-Z79 !s100 EG`O=N4G[<XAzT4ol?SR90
+R22
+Z80 ntime@param@test
+Z81 !s100 EG`O=N4G[<XAzT4ol?SR90
 !s85 0
 vtimer
-Z80 I>UcahE9VF33[^587R:_E>2
-Z81 VWZUJC@P0PmGVd<QL6D5hV0
-Z82 w1350516538
-Z83 8timer.v
-Z84 Ftimer.v
+Z82 I>UcahE9VF33[^587R:_E>2
+Z83 VWZUJC@P0PmGVd<QL6D5hV0
+Z84 w1350516538
+Z85 8timer.v
+Z86 Ftimer.v
 L0 28
-R19
+R21
 r1
 31
-R20
-Z85 !s100 MJl505Tk7fGJWT0ULV8Xc1
+R22
+Z87 !s100 MJl505Tk7fGJWT0ULV8Xc1
 !s85 0
 vtimerTest
-Z86 ISP=`TN`o>@bJfg=7LhdT_0
-Z87 VQ8;]lUiGKhmHHCg^5_bb11
-Z88 w1350508882
-Z89 8timerTest.v
-Z90 FtimerTest.v
+Z88 ISP=`TN`o>@bJfg=7LhdT_0
+Z89 VQ8;]lUiGKhmHHCg^5_bb11
+Z90 w1350508882
+Z91 8timerTest.v
+Z92 FtimerTest.v
 L0 25
-R19
+R21
 r1
 31
-R20
-Z91 ntimer@test
-Z92 !s100 JJc[G2RU^h1T]<M6VU=n;0
+R22
+Z93 ntimer@test
+Z94 !s100 JJc[G2RU^h1T]<M6VU=n;0
 !s85 0
