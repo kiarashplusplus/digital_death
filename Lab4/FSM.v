@@ -1,15 +1,15 @@
 module FSM (input clk, input reset, input ignit, input driver, input passenger, 
             input reprogram, input expired, output reg [1:0] interval, 
-            output reg start_timer, output siren, output status, output [2:0] current_state);
+            output reg start_timer, output siren, output status, output [3:0] current_state);
     reg [3:0] state, next_state;
 	        
 	 
-    parameter s_armed=0;   
-    parameter s_triggered_CD=1;
-    parameter s_siren=2;
-    parameter s_door_closed_CD=3;
-    parameter s_disarmed=4;
-    parameter s_tran1=5;    
+    parameter s_armed=4'd0;   
+    parameter s_triggered_CD=4'd1;
+    parameter s_siren=4'd2;
+    parameter s_door_closed_CD=4'd3;
+    parameter s_disarmed=4'd4;
+    parameter s_tran1=4'd5;    
     parameter s_tran2=6;
     parameter s_tran3_CD=7;
 
@@ -37,14 +37,12 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
 
         
             s_armed: begin
-                
+                next_state=state;
                 if (ignit) next_state=s_disarmed;
                 else if (passenger) begin 
                     interval=2'b10;
 						  start_timer=1;
 						  next_state=s_triggered_CD;
-
-                
                 end else if (driver) begin
                     interval=2'b01;
 						  start_timer=1;					 
@@ -54,15 +52,16 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
             end
 
             s_triggered_CD: begin 
+				        next_state = s_triggered_CD;
+						  start_timer=0;
                     if (ignit) begin
                         next_state=s_disarmed;
-                        start_time=0;
-                     else if (~start_timer && expired) next_state=s_siren;
-                     else: start_timer=0;
+                     end else if (expired) next_state=s_siren;
 
 				end
             
             s_siren: begin
+					 next_state=state;
                 if (ignit) next_state=s_disarmed;
 					 else if (~passenger && ~driver) begin
                     interval=2'b11;
@@ -71,21 +70,26 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
 					 end
 				end
 				            
-            s_door_closed_CD: begin  
-			       start_timer=0;
+            s_door_closed_CD: begin 
+					 next_state=state;
+					 start_timer=0;
                 if (ignit) begin
                         next_state=s_disarmed;
-                        start_timer=0;
-                    end
-					 else if (~start_timer && expired) next_state=s_armed;
-                     else: start_timer=0;
+					 end else if (~start_timer && expired) next_state=s_armed;
 
             end
             
-            s_disarmed: if(~ignit) next_state=s_tran1;
-          
-            s_tran1: if(driver) next_state=s_tran2;
+            s_disarmed: begin
+					next_state=s_disarmed;
+					if(~ignit) next_state=s_tran1;
+				end
+            s_tran1: begin
+					next_state=s_tran1;
+					if(driver) next_state=s_tran2;
+				end
+					
             s_tran2: begin 
+					next_state=state;
 					if (~driver) begin
 					   interval=2'b00;
 					   start_timer=1;							
@@ -94,8 +98,9 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
 				end
             
             s_tran3_CD:begin
-				  if(~start_timer && expired)next_state=s_armed;
-                   else: start_timer=0;
+					next_state=state;
+					start_timer=0;
+				  if(expired)next_state=s_armed;
 
 				end
 				/*

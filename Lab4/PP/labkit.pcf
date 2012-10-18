@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map K.39 on Wed Oct 17 19:52:14 2012
+// Written by: Map K.39 on Thu Oct 18 18:54:57 2012
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -579,7 +579,5 @@ COMP "tv_in_line_clock2" LOCATE = SITE "AD17" LEVEL 1;
 COMP "user4<9>" LOCATE = SITE "B19" LEVEL 1;
 COMP "ram0_adv_ld" LOCATE = SITE "V26" LEVEL 1;
 COMP "clock_feedback_out" LOCATE = SITE "AL28" LEVEL 1;
-NET "clock_27mhz_BUFGP/IBUFG" BEL "clock_27mhz_BUFGP/BUFG.GCLKMUX"
-        USELOCALCONNECT;
 SCHEMATIC END;
 

@@ -30,7 +30,7 @@ module timer #(parameter mgh=25'd26999999)(
     input start_timer,
     input [3:0] value,
 	 input reset,
-    output expired,
+    output reg expired,
 	 output reg [3:0] counter
     );
 	 
@@ -47,10 +47,12 @@ module timer #(parameter mgh=25'd26999999)(
 	    if (reset) begin
 			pause<=1;
 			counter<=0;
+			expired<=1;
 			
 		end else if (start_timer) begin
 			counter<=value;
 			pause<=1;
+			expired<=0;
 			
 		end else
 			pause <= 0;
@@ -58,10 +60,10 @@ module timer #(parameter mgh=25'd26999999)(
 			if (pulse) begin					
 				if (~(counter==0)) 
 					counter<=counter-1;
+				else expired<=1;
+				
 			end
 			
 	 end
-
-	assign expired = (counter == 0);
 
 endmodule

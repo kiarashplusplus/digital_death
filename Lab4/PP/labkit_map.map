@@ -11,7 +11,7 @@ Target Device  : xc2v6000
 Target Package : bf957
 Target Speed   : -4
 Mapper Version : virtex2 -- $Revision: 1.46.12.2 $
-Mapped Date    : Wed Oct 17 19:52:11 2012
+Mapped Date    : Thu Oct 18 18:54:55 2012
 
 Mapping design into LUTs...
 Running directed packing...
@@ -23,25 +23,26 @@ Design Summary
 
 Design Summary:
 Number of errors:      0
-Number of warnings:  325
+Number of warnings:  326
 Logic Utilization:
-  Total Number Slice Registers:         260 out of  67,584    1%
+  Total Number Slice Registers:         256 out of  67,584    1%
     Number used as Flip Flops:          253
-    Number used as Latches:               7
-  Number of 4 input LUTs:               339 out of  67,584    1%
+    Number used as Latches:               3
+  Number of 4 input LUTs:               317 out of  67,584    1%
 Logic Distribution:
-  Number of occupied Slices:            290 out of  33,792    1%
-    Number of Slices containing only related logic:     290 out of     290 100%
-    Number of Slices containing unrelated logic:          0 out of     290   0%
+  Number of occupied Slices:            276 out of  33,792    1%
+    Number of Slices containing only related logic:     276 out of     276 100%
+    Number of Slices containing unrelated logic:          0 out of     276   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         502 out of  67,584    1%
-    Number used as logic:               334
-    Number used as a route-thru:        163
+  Total Number of 4 input LUTs:         478 out of  67,584    1%
+    Number used as logic:               312
+    Number used as a route-thru:        161
     Number used as Shift registers:       5
   Number of bonded IOBs:                576 out of     684   84%
+    IOB Latches:                          3
   Number of BUFGMUXs:                     2 out of      16   12%
 
-Peak Memory Usage:  484 MB
+Peak Memory Usage:  483 MB
 Total REAL time to MAP completion:  3 secs 
 Total CPU time to MAP completion:   3 secs 
 
@@ -62,6 +63,3 @@ NOTES:
    and FFs are occupied.  Depending on your timing budget, increased levels of
    unrelated logic packing may adversely affect the overall timing performance
    of your design.
-
-Mapping completed.
-See MAP report file "labkit_map.mrp" for details.

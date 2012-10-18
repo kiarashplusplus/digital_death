@@ -36,37 +36,57 @@ Setup/Hold to clock clock_27mhz
             |  Setup to  |  Hold to   |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-button0     |    1.663(R)|   -0.277(R)|clock_27mhz_BUFGP |   0.000|
-button1     |    2.828(R)|   -0.877(R)|clock_27mhz_BUFGP |   0.000|
-button2     |    1.914(R)|   -0.161(R)|clock_27mhz_BUFGP |   0.000|
-button3     |    2.963(R)|   -0.855(R)|clock_27mhz_BUFGP |   0.000|
-button_down |    2.240(R)|   -0.370(R)|clock_27mhz_BUFGP |   0.000|
-button_enter|    2.693(R)|   -0.849(R)|clock_27mhz_BUFGP |   0.000|
-switch<0>   |    1.828(R)|   -1.556(R)|clock_27mhz_BUFGP |   0.000|
-switch<1>   |    1.766(R)|   -1.494(R)|clock_27mhz_BUFGP |   0.000|
-switch<2>   |    2.509(R)|   -2.237(R)|clock_27mhz_BUFGP |   0.000|
-switch<3>   |    1.316(R)|   -1.044(R)|clock_27mhz_BUFGP |   0.000|
+button0     |    3.350(R)|   -1.137(R)|clock_27mhz_IBUF  |   0.000|
+button1     |    3.459(R)|   -1.732(R)|clock_27mhz_IBUF  |   0.000|
+button2     |    3.689(R)|   -1.907(R)|clock_27mhz_IBUF  |   0.000|
+button3     |    3.400(R)|   -1.917(R)|clock_27mhz_IBUF  |   0.000|
+button_down |    4.285(R)|   -2.717(R)|clock_27mhz_IBUF  |   0.000|
+button_enter|    3.636(R)|   -1.901(R)|clock_27mhz_IBUF  |   0.000|
+switch<0>   |    0.976(R)|   -0.704(R)|clock_27mhz_IBUF  |   0.000|
+switch<1>   |    0.739(R)|   -0.467(R)|clock_27mhz_IBUF  |   0.000|
+switch<2>   |    1.077(R)|   -0.805(R)|clock_27mhz_IBUF  |   0.000|
+switch<3>   |    0.468(R)|   -0.196(R)|clock_27mhz_IBUF  |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clock_27mhz to Pad
-------------+------------+------------------+--------+
-            | clk (edge) |                  | Clock  |
-Destination |   to PAD   |Internal Clock(s) | Phase  |
-------------+------------+------------------+--------+
-disp_clock  |    8.765(R)|clock_27mhz_BUFGP |   0.000|
-led<0>      |   14.176(R)|clock_27mhz_BUFGP |   0.000|
-led<1>      |   14.487(R)|clock_27mhz_BUFGP |   0.000|
-led<6>      |   11.611(R)|clock_27mhz_BUFGP |   0.000|
-led<7>      |   11.570(R)|clock_27mhz_BUFGP |   0.000|
-------------+------------+------------------+--------+
+------------------+------------+------------------+--------+
+                  | clk (edge) |                  | Clock  |
+Destination       |   to PAD   |Internal Clock(s) | Phase  |
+------------------+------------+------------------+--------+
+analyzer3_data<2> |   15.374(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<3> |   14.674(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<4> |   13.716(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<5> |   15.633(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<6> |   13.442(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<7> |   14.229(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<9> |   14.957(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<12>|    8.620(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<13>|    8.674(R)|clock_27mhz_IBUF  |   0.000|
+analyzer3_data<14>|    8.644(R)|clock_27mhz_IBUF  |   0.000|
+disp_clock        |   10.251(R)|clock_27mhz_IBUF  |   0.000|
+led<0>            |   17.008(R)|clock_27mhz_IBUF  |   0.000|
+led<1>            |   14.247(R)|clock_27mhz_IBUF  |   0.000|
+led<6>            |   12.115(R)|clock_27mhz_IBUF  |   0.000|
+led<7>            |   11.244(R)|clock_27mhz_IBUF  |   0.000|
+------------------+------------+------------------+--------+
+
+Clock switch<7> to Pad
+------------------+------------+------------------------+--------+
+                  | clk (edge) |                        | Clock  |
+Destination       |   to PAD   |Internal Clock(s)       | Phase  |
+------------------+------------+------------------------+--------+
+analyzer3_data<1> |   17.195(F)|fsm1/start_timer_not0002|   0.000|
+analyzer3_data<10>|   16.454(F)|fsm1/interval_not0001   |   0.000|
+analyzer3_data<11>|   16.474(F)|fsm1/interval_not0001   |   0.000|
+------------------+------------+------------------------+--------+
 
 Clock to Setup on destination clock clock_27mhz
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clock_27mhz    |    5.990|         |         |         |
-switch<7>      |         |    2.318|         |         |
+clock_27mhz    |    6.171|         |         |         |
+switch<7>      |         |    7.043|         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock switch<7>
@@ -74,19 +94,21 @@ Clock to Setup on destination clock switch<7>
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clock_27mhz    |         |         |    6.882|         |
-switch<7>      |         |         |   -1.322|   -1.322|
+clock_27mhz    |         |         |   12.181|         |
+switch<7>      |         |         |    3.937|    4.078|
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
----------------+---------------+---------+
-Source Pad     |Destination Pad|  Delay  |
----------------+---------------+---------+
-switch<7>      |led<1>         |   13.697|
----------------+---------------+---------+
+---------------+-----------------+---------+
+Source Pad     |Destination Pad  |  Delay  |
+---------------+-----------------+---------+
+clock_27mhz    |analyzer3_data<0>|   12.862|
+switch<7>      |analyzer3_data<8>|   11.503|
+switch<7>      |led<1>           |   19.084|
+---------------+-----------------+---------+
 
 
-Analysis completed Wed Oct 17 19:52:59 2012 
+Analysis completed Thu Oct 18 18:48:54 2012 
 --------------------------------------------------------------------------------
 
 Trace Settings:

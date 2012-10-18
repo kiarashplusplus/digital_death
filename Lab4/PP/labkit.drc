@@ -1,3 +1,9 @@
+WARNING:PhysDesignRules:372 - Gated clock. Clock net fsm1/start_timer_not0002 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net fsm1/interval_not0001 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net fsm1/next_state_not0001 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
@@ -645,5 +651,5 @@ WARNING:PhysDesignRules:367 - The signal <tv_in_line_clock2_IBUF> is incomplete.
    The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <user4<9>_IBUF> is incomplete. The
    signal does not drive any load pins in the design.
-DRC detected 0 errors and 323 warnings.  Please see the previously displayed
+DRC detected 0 errors and 325 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

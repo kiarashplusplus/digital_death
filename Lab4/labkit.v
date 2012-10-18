@@ -382,8 +382,11 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
   wire start_timer;
   wire expired;
   wire [3:0] timerCounter;
-    
-  timer t1 (.clk(clk),
+  
+  parameter freq=27000000;  
+	
+  timer #(.mgh(freq))t1 (.clk(clk),
+  
    	.start_timer(start_timer), 
 		.value(value), 
 		.reset(rst), 
@@ -421,7 +424,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 		Time_parameter_selector,2'b00,interval,
 		ARM_DELAY,DRIVER_DELAY,PASSENGER_DELAY,ALARM_ON,current_state };
         
-    assign analyzer3_data = {current_state,interval, driver, ignit, timerCounter, expired, value, start_timer, clk};
+    assign analyzer3_data = {current_state,interval, driver, ignit, timerCounter, expired, passenger, start_timer, clk};
 
 	
    display_16hex dsp1(.reset(reset), .clock_27mhz(clk), .data(displayData), 
