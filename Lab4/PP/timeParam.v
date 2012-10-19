@@ -37,13 +37,7 @@ module timeParam(
 	parameter T_PASSENGER_DELAY=4'b1111;
 	parameter T_ALARM_ON=4'b1010;
 	
-	initial begin
-		ARM_DELAY=T_ARM_DELAY;
-		DRIVER_DELAY=T_DRIVER_DELAY;
-		PASSENGER_DELAY=T_PASSENGER_DELAY;
-		ALARM_ON=T_ALARM_ON;
-	end
-	
+		
 	always @(posedge clk) begin
 	
 		if (reset) begin 
@@ -57,17 +51,21 @@ module timeParam(
 				2'b10: PASSENGER_DELAY<=Time_Value;
 				2'b11: ALARM_ON<=Time_Value;		
 			endcase
-		end else begin
+		end 
 
+	end
+		
+	always @(interval) begin
 			case (interval)
 				2'b00: value<=ARM_DELAY;
 				2'b01: value<=DRIVER_DELAY;
 				2'b10: value<=PASSENGER_DELAY;
 				2'b11: value<=ALARM_ON;
-			endcase
-		end
-		
+			endcase	
+	
 	end
+		
+	
 	
 	
 endmodule

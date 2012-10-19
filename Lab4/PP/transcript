@@ -8,27 +8,33 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {timeParamTest.fdo} 
+# do {timerTest.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module timeParam
+# -- Compiling module Divider
 # 
 # Top level modules:
-# 	timeParam
+# 	Divider
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module timeParamTest
+# -- Compiling module timer
 # 
 # Top level modules:
-# 	timeParamTest
+# 	timer
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module timerTest
+# 
+# Top level modules:
+# 	timerTest
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps timeParamTest glbl 
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps timerTest glbl 
 # ** Note: (vsim-3812) Design is being optimized...
-# Loading work.timeParamTest(fast)
-# Loading work.timeParam(fast)
+# Loading work.timerTest(fast)
+# Loading work.timer(fast)
+# Loading work.Divider(fast)
 # Loading work.glbl(fast)
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
 # .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs

@@ -1,7 +1,7 @@
 Release 10.1.03 par K.39 (lin64)
 Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
 
-eecs-digital-03::  Thu Oct 18 19:58:23 2012
+eecs-digital-03::  Thu Oct 18 21:54:52 2012
 
 par -w -intstyle ise -ol std -t 1 labkit_map.ncd labkit.ncd labkit.pcf 
 
@@ -34,7 +34,7 @@ Device Utilization Summary:
    Number of External IOBs                 576 out of 684    84%
       Number of LOCed IOBs                 576 out of 576   100%
 
-   Number of SLICEs                        341 out of 33792   1%
+   Number of SLICEs                        358 out of 33792   1%
 
 
 Overall effort level (-ol):   Standard 
@@ -336,185 +336,60 @@ WARNING:Par:288 - The signal user4<9>_IBUF has no load.  PAR will not attempt to
 Starting Placer
 
 Phase 1.1
-Phase 1.1 (Checksum:148bc8e) REAL time: 3 secs 
+Phase 1.1 (Checksum:148fa1d) REAL time: 2 secs 
 
 Phase 2.7
-Phase 2.7 (Checksum:148bc8e) REAL time: 3 secs 
+Phase 2.7 (Checksum:148fa1d) REAL time: 3 secs 
 
 Phase 3.31
-Phase 3.31 (Checksum:148bc8e) REAL time: 3 secs 
+Phase 3.31 (Checksum:148fa1d) REAL time: 3 secs 
 
 Phase 4.2
 
 ......
-Phase 4.2 (Checksum:149d616) REAL time: 3 secs 
+Phase 4.2 (Checksum:14a13a5) REAL time: 3 secs 
 
 Phase 5.30
-Phase 5.30 (Checksum:149d616) REAL time: 3 secs 
+Phase 5.30 (Checksum:14a13a5) REAL time: 3 secs 
 
 Phase 6.3
-Phase 6.3 (Checksum:149d616) REAL time: 3 secs 
+Phase 6.3 (Checksum:14a13a5) REAL time: 3 secs 
 
 Phase 7.5
-Phase 7.5 (Checksum:149d616) REAL time: 3 secs 
+Phase 7.5 (Checksum:14a13a5) REAL time: 3 secs 
 
 Phase 8.8
 .
 .
+..
 .
-.
-.
-Phase 8.8 (Checksum:202dda2) REAL time: 7 secs 
+..
+Phase 8.8 (Checksum:207fe40) REAL time: 7 secs 
 
 Phase 9.5
-Phase 9.5 (Checksum:202dda2) REAL time: 7 secs 
+Phase 9.5 (Checksum:207fe40) REAL time: 7 secs 
 
 Phase 10.18
-Phase 10.18 (Checksum:2036132) REAL time: 8 secs 
+Phase 10.18 (Checksum:20840df) REAL time: 8 secs 
 
 Phase 11.5
-Phase 11.5 (Checksum:2036132) REAL time: 8 secs 
+Phase 11.5 (Checksum:20840df) REAL time: 8 secs 
 
 Phase 12.27
-Phase 12.27 (Checksum:2036132) REAL time: 8 secs 
+Phase 12.27 (Checksum:20840df) REAL time: 8 secs 
 
 Phase 13.24
-Phase 13.24 (Checksum:2036132) REAL time: 8 secs 
+Phase 13.24 (Checksum:20840df) REAL time: 8 secs 
 
 REAL time consumed by placer: 8 secs 
 CPU  time consumed by placer: 8 secs 
 Writing design to file labkit.ncd
 
 
-Total REAL time to Placer completion: 9 secs 
+Total REAL time to Placer completion: 8 secs 
 Total CPU time to Placer completion: 8 secs 
 
 Starting Router
 
-Phase 1: 2479 unrouted;       REAL time: 18 secs 
+Phase 1: 2588 unrouted;       REAL time: 17 secs 
 
-Phase 2: 1969 unrouted;       REAL time: 23 secs 
-
-Phase 3: 369 unrouted;       REAL time: 23 secs 
-
-Phase 4: 369 unrouted; (88551)      REAL time: 23 secs 
-
-Phase 5: 368 unrouted; (0)      REAL time: 23 secs 
-
-Phase 6: 0 unrouted; (0)      REAL time: 24 secs 
-
-Phase 7: 0 unrouted; (0)      REAL time: 24 secs 
-
-Phase 8: 0 unrouted; (0)      REAL time: 24 secs 
-
-Phase 9: 0 unrouted; (0)      REAL time: 24 secs 
-
-Phase 10: 0 unrouted; (0)      REAL time: 24 secs 
-
-
-Total REAL time to Router completion: 24 secs 
-Total CPU time to Router completion: 24 secs 
-
-Partition Implementation Status
--------------------------------
-
-  No Partitions were found in this design.
-
--------------------------------
-
-Generating "PAR" statistics.
-
-**************************
-Generating Clock Report
-**************************
-
-+---------------------+--------------+------+------+------------+-------------+
-|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
-+---------------------+--------------+------+------+------------+-------------+
-|    clock_27mhz_IBUF |     BUFGMUX3P| No   |  171 |  0.250     |  2.340      |
-+---------------------+--------------+------+------+------------+-------------+
-|          dsp1/clock |     BUFGMUX6S| No   |   33 |  0.222     |  2.250      |
-+---------------------+--------------+------+------+------------+-------------+
-|fsm1/start_timer_not |              |      |      |            |             |
-|                0001 |         Local|      |    2 |  0.873     |  2.738      |
-+---------------------+--------------+------+------+------------+-------------+
-|fsm1/interval_not000 |              |      |      |            |             |
-|                   1 |         Local|      |    4 |  1.014     |  3.056      |
-+---------------------+--------------+------+------+------------+-------------+
-|s1/freq2/d1/one_hz_e |              |      |      |            |             |
-|               nable |         Local|      |    1 |  0.000     |  0.755      |
-+---------------------+--------------+------+------+------------+-------------+
-|s1/freq1/d1/one_hz_e |              |      |      |            |             |
-|               nable |         Local|      |    1 |  0.000     |  1.387      |
-+---------------------+--------------+------+------+------------+-------------+
-|fsm1/blink_wave/d1/o |              |      |      |            |             |
-|        ne_hz_enable |         Local|      |    1 |  0.000     |  1.523      |
-+---------------------+--------------+------+------+------------+-------------+
-|s1/toggle0/d1/one_hz |              |      |      |            |             |
-|             _enable |         Local|      |    1 |  0.000     |  1.387      |
-+---------------------+--------------+------+------+------------+-------------+
-
-* Net Skew is the difference between the minimum and maximum routing
-only delays for the net. Note this is different from Clock Skew which
-is reported in TRCE timing report. Clock Skew is the difference between
-the minimum and maximum path delays which includes logic delays.
-
-Timing Score: 0
-
-INFO:Timing:2761 - N/A entries in the Constraints list may indicate that the constraint does not cover any paths or that it has no
-   requested value.
-Asterisk (*) preceding a constraint indicates it was not met.
-   This may be due to a setup or hold violation.
-
-------------------------------------------------------------------------------------------------------
-  Constraint                                |  Check  | Worst Case |  Best Case | Timing |   Timing   
-                                            |         |    Slack   | Achievable | Errors |    Score   
-------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clo | SETUP   |         N/A|     6.050ns|     N/A|           0
-  ck_27mhz_IBUF                             | HOLD    |     1.286ns|            |       0|           0
-------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net dsp | SETUP   |         N/A|     9.411ns|     N/A|           0
-  1/clock                                   | HOLD    |     1.331ns|            |       0|           0
-------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net s1/ | SETUP   |         N/A|     1.478ns|     N/A|           0
-  freq2/d1/one_hz_enable                    | HOLD    |     1.233ns|            |       0|           0
-------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net s1/ | SETUP   |         N/A|     1.480ns|     N/A|           0
-  freq1/d1/one_hz_enable                    | HOLD    |     1.235ns|            |       0|           0
-------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net fsm | SETUP   |         N/A|     1.514ns|     N/A|           0
-  1/blink_wave/d1/one_hz_enable             | HOLD    |     1.269ns|            |       0|           0
-------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net s1/ | SETUP   |         N/A|     1.478ns|     N/A|           0
-  toggle0/d1/one_hz_enable                  | HOLD    |     1.233ns|            |       0|           0
-------------------------------------------------------------------------------------------------------
-
-
-All constraints were met.
-INFO:Timing:2761 - N/A entries in the Constraints list may indicate that the 
-   constraint does not cover any paths or that it has no requested value.
-
-
-Generating Pad Report.
-
-All signals are completely routed.
-
-WARNING:Par:283 - There are 290 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
-
-Total REAL time to PAR completion: 33 secs 
-Total CPU time to PAR completion: 29 secs 
-
-Peak Memory Usage:  622 MB
-
-Placement: Completed - No errors found.
-Routing: Completed - No errors found.
-
-Number of error messages: 0
-Number of warning messages: 292
-Number of info messages: 2
-
-Writing design to file labkit.ncd
-
-
-
-PAR done!

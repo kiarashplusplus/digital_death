@@ -67,6 +67,9 @@ module FSM (input clk, input reset, input ignit, input driver, input passenger,
                     interval=2'b11;
 						  start_timer=1;	
 						  next_state=s_door_closed_CD;
+					 end else if (passenger || driver) begin
+						  interval=2'b11;
+						  start_timer=1;
 					 end
 				end
 				            

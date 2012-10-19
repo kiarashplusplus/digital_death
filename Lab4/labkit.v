@@ -303,7 +303,7 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
    // systemace_irq and systemace_mpbrdy are inputs
 
    // Logic Analyzer
-   assign analyzer1_data = 16'h0;
+   //assign analyzer1_data = 16'h0;
    assign analyzer1_clock = 1'b1;
    assign analyzer2_data = 16'h0;
    assign analyzer2_clock = 1'b1;
@@ -329,14 +329,14 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 		noisy_reprogram,status,
 		fuelPower, noisy_reset;
 	wire [3:0] Time_Value; 
-	wire [1:0] Time_parameter_selector;
+	wire [1:0] Time_Parameter_Selector;
 	
   assign noisy_hidden=~button0;
   assign noisy_brake=~button1;
   assign noisy_driver=~button2;
   assign noisy_passenger=~button3;
   assign ignit=switch[7];
-  assign Time_parameter_selector=switch[5:4];
+  assign Time_Parameter_Selector=switch[5:4];
   assign Time_Value=switch[3:0];
   assign noisy_reprogram=~button_enter;
 
@@ -423,12 +423,12 @@ module labkit (beep, audio_reset_b, ac97_sdata_out, ac97_sdata_in, ac97_synch,
 	);	
 	wire [63:0] displayData;
 	
-	assign displayData[63:0]={24'd0, timerCounter,3'b000,expired,value,2'b00,
-		Time_parameter_selector,2'b00,interval,
+	assign displayData[63:0]={16'd0,Time_Value, 3'b000,reprogram, timerCounter,3'b000,expired,value,2'b00,
+		Time_Parameter_Selector,2'b00,interval,
 		ARM_DELAY,DRIVER_DELAY,PASSENGER_DELAY,ALARM_ON,current_state };
         
     assign analyzer3_data = {current_state,interval, driver, ignit, timerCounter, expired, passenger, start_timer, clk};
-
+	assign analyzer1_data= {11'b0,passenger, value};
 	
    display_16hex dsp1(.reset(reset), .clock_27mhz(clk), .data(displayData), 
 		.disp_blank(disp_blank), .disp_clock(disp_clock), .disp_rs(disp_rs), .disp_ce_b(disp_ce_b),

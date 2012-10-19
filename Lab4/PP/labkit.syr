@@ -201,7 +201,6 @@ Analyzing hierarchy for module <Divider> in library <work> with parameters.
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <labkit>.
-WARNING:Xst:863 - "../labkit.v" line 332: Name conflict (<Time_Parameter_Selector> and <Time_parameter_selector>, renaming Time_Parameter_Selector as time_parameter_selector_rnm0).
 	freq = 32'sb00000001100110111111110011000000
 Module <labkit> is correct for synthesis.
  
@@ -221,6 +220,8 @@ Analyzing module <timeParam> in library <work>.
 	T_ARM_DELAY = 4'b0110
 	T_DRIVER_DELAY = 4'b1000
 	T_PASSENGER_DELAY = 4'b1111
+WARNING:Xst:905 - "timeParam.v" line 58: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <ARM_DELAY>, <DRIVER_DELAY>, <PASSENGER_DELAY>, <ALARM_ON>
 Module <timeParam> is correct for synthesis.
  
 Analyzing module <timer> in library <work>.
@@ -302,14 +303,13 @@ Unit <FuelLogic> synthesized.
 
 Synthesizing Unit <timeParam>.
     Related source file is "timeParam.v".
-    Found 4-bit register for signal <value>.
+    Found 4-bit 4-to-1 multiplexer for signal <value>.
     Found 4-bit register for signal <ALARM_ON>.
     Found 4-bit register for signal <PASSENGER_DELAY>.
     Found 4-bit register for signal <ARM_DELAY>.
     Found 4-bit register for signal <DRIVER_DELAY>.
-    Found 4-bit 4-to-1 multiplexer for signal <value$mux0000> created at line 62.
     Summary:
-	inferred  20 D-type flip-flop(s).
+	inferred  16 D-type flip-flop(s).
 	inferred   4 Multiplexer(s).
 Unit <timeParam> synthesized.
 
@@ -758,7 +758,6 @@ WARNING:Xst:2565 - Inout <user3<26>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<2>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<27>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<3>> is never assigned.
-WARNING:Xst:653 - Signal <time_parameter_selector_rnm0> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 Unit <labkit> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
@@ -777,11 +776,11 @@ Macro Statistics
  26-bit up counter                                     : 5
  5-bit up counter                                      : 1
  8-bit down counter                                    : 1
-# Registers                                            : 37
+# Registers                                            : 36
  1-bit register                                        : 28
  10-bit register                                       : 1
  32-bit register                                       : 1
- 4-bit register                                        : 7
+ 4-bit register                                        : 6
 # Latches                                              : 2
  1-bit latch                                           : 1
  2-bit latch                                           : 1
@@ -826,18 +825,6 @@ Optimizing FSM <dsp1/state/FSM> on signal <state[1:3]> with sequential encoding.
  00000110 | 110
 ----------------------
 Loading device for application Rf_Device from file '2v6000.nph' in environment /afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE.
-WARNING:Xst:1293 - FF/Latch <DRIVER_DELAY_0> has a constant value of 0 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <DRIVER_DELAY_1> has a constant value of 0 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <DRIVER_DELAY_2> has a constant value of 0 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <DRIVER_DELAY_3> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ALARM_ON_0> has a constant value of 0 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ALARM_ON_1> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ALARM_ON_2> has a constant value of 0 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ALARM_ON_3> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <PASSENGER_DELAY_0> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <PASSENGER_DELAY_1> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <PASSENGER_DELAY_2> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <PASSENGER_DELAY_3> has a constant value of 1 in block <tp1>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -853,8 +840,8 @@ Macro Statistics
  26-bit up counter                                     : 5
  5-bit up counter                                      : 1
  8-bit down counter                                    : 1
-# Registers                                            : 109
- Flip-Flops                                            : 109
+# Registers                                            : 105
+ Flip-Flops                                            : 105
 # Latches                                              : 2
  1-bit latch                                           : 1
  2-bit latch                                           : 1
@@ -870,20 +857,10 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <DRIVER_DELAY_3> in Unit <timeParam> is equivalent to the following FF/Latch, which will be removed : <PASSENGER_DELAY_3> 
-WARNING:Xst:1293 - FF/Latch <DRIVER_DELAY_0> has a constant value of 0 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <DRIVER_DELAY_1> has a constant value of 0 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <DRIVER_DELAY_2> has a constant value of 0 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <DRIVER_DELAY_3> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ALARM_ON_0> has a constant value of 0 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ALARM_ON_1> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ALARM_ON_2> has a constant value of 0 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ALARM_ON_3> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PASSENGER_DELAY_0> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PASSENGER_DELAY_1> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <PASSENGER_DELAY_2> has a constant value of 1 in block <timeParam>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <labkit> ...
+
+Optimizing unit <timeParam> ...
 
 Optimizing unit <display_16hex> ...
 
@@ -893,9 +870,8 @@ Optimizing unit <FSM> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block labkit, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block labkit, actual ratio is 1.
 FlipFlop dsp1/char_index_0 has been replicated 1 time(s)
-FlipFlop dsp1/char_index_1 has been replicated 1 time(s)
 Latch fsm1/interval_1 has been replicated 1 time(s) to handle iob=true attribute.
 Latch fsm1/interval_0 has been replicated 1 time(s) to handle iob=true attribute.
 Latch fsm1/start_timer has been replicated 1 time(s) to handle iob=true attribute.
@@ -913,8 +889,8 @@ Unit <labkit> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 328
- Flip-Flops                                            : 328
+# Registers                                            : 335
+ Flip-Flops                                            : 335
 # Shift Registers                                      : 4
  7-bit shift register                                  : 4
 
@@ -945,31 +921,31 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 1203
+# BELS                             : 1232
 #      GND                         : 1
-#      INV                         : 36
-#      LUT1                        : 236
-#      LUT2                        : 37
-#      LUT2_D                      : 1
-#      LUT3                        : 82
-#      LUT3_D                      : 4
-#      LUT3_L                      : 3
-#      LUT4                        : 191
-#      LUT4_D                      : 7
-#      LUT4_L                      : 8
+#      INV                         : 37
+#      LUT1                        : 234
+#      LUT2                        : 34
+#      LUT2_L                      : 1
+#      LUT3                        : 96
+#      LUT3_D                      : 5
+#      LUT3_L                      : 4
+#      LUT4                        : 196
+#      LUT4_D                      : 12
+#      LUT4_L                      : 7
 #      MUXCY                       : 305
-#      MUXF5                       : 33
+#      MUXF5                       : 41
 #      MUXF6                       : 5
 #      MUXF7                       : 1
 #      VCC                         : 1
 #      XORCY                       : 252
-# FlipFlops/Latches                : 348
-#      FDE                         : 35
+# FlipFlops/Latches                : 355
+#      FDE                         : 30
 #      FDR                         : 156
-#      FDRE                        : 121
+#      FDRE                        : 126
 #      FDRS                        : 16
 #      FDS                         : 2
-#      FDSE                        : 12
+#      FDSE                        : 19
 #      LD                          : 6
 # Shift Registers                  : 5
 #      SRL16                       : 1
@@ -986,10 +962,10 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                      318  out of  33792     0%  
- Number of Slice Flip Flops:            345  out of  67584     0%  
- Number of 4 input LUTs:                610  out of  67584     0%  
-    Number used as logic:               605
+ Number of Slices:                      329  out of  33792     0%  
+ Number of Slice Flip Flops:            352  out of  67584     0%  
+ Number of 4 input LUTs:                631  out of  67584     0%  
+    Number used as logic:               626
     Number used as Shift registers:       5
  Number of IOs:                         576
  Number of bonded IOBs:                 286  out of    684    41%  
@@ -1014,18 +990,18 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-------------------------------------------------------+-----------------------------+-------+
-Clock Signal                                          | Clock buffer(FF name)       | Load  |
-------------------------------------------------------+-----------------------------+-------+
-clock_27mhz                                           | IBUF+BUFG                   | 298   |
-dsp1/clock1                                           | BUFG                        | 45    |
-fsm1/interval_not0001(fsm1/interval_not000133_f5:O)   | NONE(*)(fsm1/interval_1)    | 4     |
-fsm1/start_timer_not0001(fsm1/start_timer_not000150:O)| NONE(*)(fsm1/start_timer)   | 2     |
-s1/toggle0/d1/one_hz_enable                           | NONE(s1/toggle0/square)     | 1     |
-s1/freq2/d1/one_hz_enable                             | NONE(s1/freq2/square)       | 1     |
-s1/freq1/d1/one_hz_enable                             | NONE(s1/freq1/square)       | 1     |
-fsm1/blink_wave/d1/one_hz_enable                      | NONE(fsm1/blink_wave/square)| 1     |
-------------------------------------------------------+-----------------------------+-------+
+-----------------------------------------------------------+-----------------------------+-------+
+Clock Signal                                               | Clock buffer(FF name)       | Load  |
+-----------------------------------------------------------+-----------------------------+-------+
+clock_27mhz                                                | IBUF+BUFG                   | 306   |
+dsp1/clock1                                                | BUFG                        | 44    |
+fsm1/interval_not0001(fsm1/interval_not00012:O)            | NONE(*)(fsm1/interval_1)    | 4     |
+fsm1/start_timer_not0001(fsm1/start_timer_not00011103_f5:O)| NONE(*)(fsm1/start_timer)   | 2     |
+s1/toggle0/d1/one_hz_enable                                | NONE(s1/toggle0/square)     | 1     |
+s1/freq2/d1/one_hz_enable                                  | NONE(s1/freq2/square)       | 1     |
+s1/freq1/d1/one_hz_enable                                  | NONE(s1/freq1/square)       | 1     |
+fsm1/blink_wave/d1/one_hz_enable                           | NONE(fsm1/blink_wave/square)| 1     |
+-----------------------------------------------------------+-----------------------------+-------+
 (*) These 2 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
@@ -1039,10 +1015,10 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 10.662ns (Maximum Frequency: 93.791MHz)
-   Minimum input arrival time before clock: 10.520ns
-   Maximum output required time after clock: 9.501ns
-   Maximum combinational path delay: 7.131ns
+   Minimum period: 11.003ns (Maximum Frequency: 90.882MHz)
+   Minimum input arrival time before clock: 10.996ns
+   Maximum output required time after clock: 8.458ns
+   Maximum combinational path delay: 7.154ns
 
 Timing Detail:
 --------------
@@ -1051,7 +1027,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
   Clock period: 6.199ns (frequency: 161.314MHz)
-  Total number of paths / destination ports: 9295 / 700
+  Total number of paths / destination ports: 9318 / 716
 -------------------------------------------------------------------------
 Delay:               6.199ns (Levels of Logic = 9)
   Source:            t1/timerD/counter_5 (FF)
@@ -1080,35 +1056,34 @@ Delay:               6.199ns (Levels of Logic = 9)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'dsp1/clock1'
-  Clock period: 10.662ns (frequency: 93.791MHz)
-  Total number of paths / destination ports: 2507 / 78
+  Clock period: 11.003ns (frequency: 90.882MHz)
+  Total number of paths / destination ports: 3067 / 77
 -------------------------------------------------------------------------
-Delay:               10.662ns (Levels of Logic = 11)
-  Source:            dsp1/char_index_0_1 (FF)
+Delay:               11.003ns (Levels of Logic = 10)
+  Source:            dsp1/char_index_1 (FF)
   Destination:       dsp1/disp_data_out (FF)
   Source Clock:      dsp1/clock1 rising
   Destination Clock: dsp1/clock1 rising
 
-  Data Path: dsp1/char_index_0_1 to dsp1/disp_data_out
+  Data Path: dsp1/char_index_1 to dsp1/disp_data_out
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              8   0.568   1.125  dsp1/char_index_0_1 (dsp1/char_index_0_1)
-     LUT1:I0->O            1   0.439   0.000  dsp1/Mmux_nibble_7_f5_0_rt (dsp1/Mmux_nibble_7_f5_0_rt)
-     MUXF5:I1->O           1   0.436   0.000  dsp1/Mmux_nibble_7_f5_0 (dsp1/Mmux_nibble_7_f51)
-     MUXF6:I0->O           5   0.447   0.811  dsp1/Mmux_nibble_5_f6_0 (dsp1/Mmux_nibble_5_f61)
-     LUT4_D:I3->O         12   0.439   0.965  dsp1/char_index<3>1_1 (dsp1/char_index<3>1)
-     LUT4:I2->O            2   0.439   0.735  dsp1/Mrom_dots1311 (dsp1/Mrom_dots12)
-     LUT3:I2->O            1   0.439   0.000  dsp1/Mmux__varindex0000_16 (dsp1/Mmux__varindex0000_16)
-     MUXF5:I0->O           1   0.436   0.000  dsp1/Mmux__varindex0000_14_f5 (dsp1/Mmux__varindex0000_14_f5)
-     MUXF6:I0->O           1   0.447   0.557  dsp1/Mmux__varindex0000_12_f6 (dsp1/Mmux__varindex0000_12_f6)
+     FDE:C->Q             19   0.568   1.075  dsp1/char_index_1 (dsp1/char_index_1)
+     LUT4_D:I3->O          2   0.439   0.736  dsp1/char_index<1>21 (dsp1/char_index<1>3)
+     LUT4:I2->O            4   0.439   0.956  dsp1/Mmux_nibble_2_f5_SW0 (N99)
+     LUT3_D:I1->O         24   0.439   1.098  dsp1/Mmux_nibble_2_f5 (dsp1/nibble<2>1)
+     LUT3:I2->O            1   0.439   0.557  dsp1/Mrom_dots132_SW0 (N118)
+     LUT4:I3->O            1   0.439   0.000  dsp1/Mmux__varindex0000_15 (dsp1/Mmux__varindex0000_15)
+     MUXF5:I0->O           1   0.436   0.000  dsp1/Mmux__varindex0000_13_f5 (dsp1/Mmux__varindex0000_13_f5)
+     MUXF6:I1->O           1   0.447   0.557  dsp1/Mmux__varindex0000_12_f6 (dsp1/Mmux__varindex0000_12_f6)
      LUT4:I3->O            1   0.439   0.558  dsp1/disp_data_out_mux000033 (dsp1/disp_data_out_mux000033)
      LUT4_L:I3->LO         1   0.439   0.134  dsp1/disp_data_out_mux000078 (dsp1/disp_data_out_mux000078)
      LUT4:I2->O            1   0.439   0.000  dsp1/disp_data_out_mux0000168 (dsp1/disp_data_out_mux0000)
      FDE:D                     0.370          dsp1/disp_data_out
     ----------------------------------------
-    Total                     10.662ns (5.777ns logic, 4.885ns route)
-                                       (54.2% logic, 45.8% route)
+    Total                     11.003ns (5.333ns logic, 5.670ns route)
+                                       (48.5% logic, 51.5% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 's1/toggle0/d1/one_hz_enable'
@@ -1196,60 +1171,59 @@ Delay:               1.549ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 148 / 148
+  Total number of paths / destination ports: 192 / 176
 -------------------------------------------------------------------------
-Offset:              4.197ns (Levels of Logic = 3)
+Offset:              3.810ns (Levels of Logic = 3)
   Source:            switch<7> (PAD)
-  Destination:       fsm1/state_FSM_FFd8 (FF)
+  Destination:       fsm1/state_FSM_FFd4 (FF)
   Destination Clock: clock_27mhz rising
 
-  Data Path: switch<7> to fsm1/state_FSM_FFd8
+  Data Path: switch<7> to fsm1/state_FSM_FFd4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   0.825   1.162  switch_7_IBUF (switch_7_IBUF)
-     LUT3:I1->O            2   0.439   0.701  fsm1/start_timer_mux000023 (fsm1/N21)
-     MUXF5:S->O            1   0.699   0.000  fsm1/state_FSM_FFd8-In (fsm1/state_FSM_FFd8-In)
-     FDS:D                     0.370          fsm1/state_FSM_FFd8
+     IBUF:I->O            14   0.825   1.012  switch_7_IBUF (switch_7_IBUF)
+     LUT3:I2->O            1   0.439   0.725  fsm1/state_FSM_FFd4-In_SW0 (N9)
+     LUT4:I1->O            1   0.439   0.000  fsm1/state_FSM_FFd4-In (fsm1/state_FSM_FFd4-In)
+     FDR:D                     0.370          fsm1/state_FSM_FFd4
     ----------------------------------------
-    Total                      4.197ns (2.333ns logic, 1.864ns route)
-                                       (55.6% logic, 44.4% route)
+    Total                      3.810ns (2.073ns logic, 1.737ns route)
+                                       (54.4% logic, 45.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'dsp1/clock1'
-  Total number of paths / destination ports: 64 / 1
+  Total number of paths / destination ports: 279 / 1
 -------------------------------------------------------------------------
-Offset:              10.520ns (Levels of Logic = 12)
-  Source:            switch<5> (PAD)
+Offset:              10.996ns (Levels of Logic = 11)
+  Source:            switch<2> (PAD)
   Destination:       dsp1/disp_data_out (FF)
   Destination Clock: dsp1/clock1 rising
 
-  Data Path: switch<5> to dsp1/disp_data_out
+  Data Path: switch<2> to dsp1/disp_data_out
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   0.825   0.726  switch_5_IBUF (switch_5_IBUF)
-     LUT3:I1->O            1   0.439   0.000  dsp1/Mmux_nibble_71 (dsp1/Mmux_nibble_71)
-     MUXF5:I1->O           1   0.436   0.000  dsp1/Mmux_nibble_6_f5_0 (dsp1/Mmux_nibble_6_f51)
-     MUXF6:I1->O           5   0.447   0.811  dsp1/Mmux_nibble_5_f6_0 (dsp1/Mmux_nibble_5_f61)
-     LUT4_D:I3->O         12   0.439   0.965  dsp1/char_index<3>1_1 (dsp1/char_index<3>1)
-     LUT4:I2->O            2   0.439   0.735  dsp1/Mrom_dots1311 (dsp1/Mrom_dots12)
-     LUT3:I2->O            1   0.439   0.000  dsp1/Mmux__varindex0000_16 (dsp1/Mmux__varindex0000_16)
-     MUXF5:I0->O           1   0.436   0.000  dsp1/Mmux__varindex0000_14_f5 (dsp1/Mmux__varindex0000_14_f5)
-     MUXF6:I0->O           1   0.447   0.557  dsp1/Mmux__varindex0000_12_f6 (dsp1/Mmux__varindex0000_12_f6)
+     IBUF:I->O             5   0.825   0.979  switch_2_IBUF (switch_2_IBUF)
+     LUT4_D:I1->O          2   0.439   0.741  dsp1/char_index<1>11 (dsp1/char_index<1>2)
+     LUT4:I3->O            4   0.439   0.781  dsp1/Mmux_nibble_2_f5_SW1 (N100)
+     LUT3_D:I2->O         24   0.439   1.098  dsp1/Mmux_nibble_2_f5 (dsp1/nibble<2>1)
+     LUT3:I2->O            1   0.439   0.557  dsp1/Mrom_dots132_SW0 (N118)
+     LUT4:I3->O            1   0.439   0.000  dsp1/Mmux__varindex0000_15 (dsp1/Mmux__varindex0000_15)
+     MUXF5:I0->O           1   0.436   0.000  dsp1/Mmux__varindex0000_13_f5 (dsp1/Mmux__varindex0000_13_f5)
+     MUXF6:I1->O           1   0.447   0.557  dsp1/Mmux__varindex0000_12_f6 (dsp1/Mmux__varindex0000_12_f6)
      LUT4:I3->O            1   0.439   0.558  dsp1/disp_data_out_mux000033 (dsp1/disp_data_out_mux000033)
      LUT4_L:I3->LO         1   0.439   0.134  dsp1/disp_data_out_mux000078 (dsp1/disp_data_out_mux000078)
      LUT4:I2->O            1   0.439   0.000  dsp1/disp_data_out_mux0000168 (dsp1/disp_data_out_mux0000)
      FDE:D                     0.370          dsp1/disp_data_out
     ----------------------------------------
-    Total                     10.520ns (6.034ns logic, 4.486ns route)
-                                       (57.4% logic, 42.6% route)
+    Total                     10.996ns (5.590ns logic, 5.406ns route)
+                                       (50.8% logic, 49.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'fsm1/interval_not0001'
-  Total number of paths / destination ports: 8 / 4
+  Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              3.232ns (Levels of Logic = 3)
+Offset:              2.872ns (Levels of Logic = 2)
   Source:            switch<7> (PAD)
   Destination:       fsm1/interval_1 (LATCH)
   Destination Clock: fsm1/interval_not0001 falling
@@ -1258,19 +1232,18 @@ Offset:              3.232ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   0.825   1.162  switch_7_IBUF (switch_7_IBUF)
-     LUT3:I1->O            1   0.439   0.000  fsm1/interval_mux0000<1>1 (fsm1/interval_mux0000<1>1)
-     MUXF5:I1->O           2   0.436   0.000  fsm1/interval_mux0000<1>_f5 (fsm1/interval_mux0000<1>)
+     IBUF:I->O            14   0.825   0.977  switch_7_IBUF (switch_7_IBUF)
+     MUXF5:S->O            2   0.699   0.000  fsm1/interval_mux0000<1>_f5 (fsm1/interval_mux0000<1>)
      LD:D                      0.370          fsm1/interval_1
     ----------------------------------------
-    Total                      3.232ns (2.070ns logic, 1.162ns route)
-                                       (64.0% logic, 36.0% route)
+    Total                      2.872ns (1.894ns logic, 0.977ns route)
+                                       (66.0% logic, 34.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'fsm1/start_timer_not0001'
   Total number of paths / destination ports: 2 / 2
 -------------------------------------------------------------------------
-Offset:              2.796ns (Levels of Logic = 2)
+Offset:              4.061ns (Levels of Logic = 3)
   Source:            switch<7> (PAD)
   Destination:       fsm1/start_timer (LATCH)
   Destination Clock: fsm1/start_timer_not0001 falling
@@ -1279,12 +1252,13 @@ Offset:              2.796ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   0.825   1.162  switch_7_IBUF (switch_7_IBUF)
-     LUT4:I1->O            2   0.439   0.000  fsm1/start_timer_mux000053 (fsm1/start_timer_mux0000)
+     IBUF:I->O            14   0.825   1.186  switch_7_IBUF (switch_7_IBUF)
+     LUT3:I1->O            1   0.439   0.803  fsm1/start_timer_mux000019 (fsm1/start_timer_mux000019)
+     LUT3:I0->O            2   0.439   0.000  fsm1/start_timer_mux000033 (fsm1/start_timer_mux0000)
      LD:D                      0.370          fsm1/start_timer
     ----------------------------------------
-    Total                      2.796ns (1.634ns logic, 1.162ns route)
-                                       (58.4% logic, 41.6% route)
+    Total                      4.061ns (2.073ns logic, 1.988ns route)
+                                       (51.0% logic, 49.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'dsp1/clock1'
@@ -1307,25 +1281,25 @@ Offset:              5.630ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
-  Total number of paths / destination ports: 43 / 15
+  Total number of paths / destination ports: 52 / 20
 -------------------------------------------------------------------------
-Offset:              9.501ns (Levels of Logic = 4)
-  Source:            fsm1/state_FSM_FFd1 (FF)
+Offset:              8.458ns (Levels of Logic = 4)
+  Source:            fsm1/state_FSM_FFd2 (FF)
   Destination:       led<0> (PAD)
   Source Clock:      clock_27mhz rising
 
-  Data Path: fsm1/state_FSM_FFd1 to led<0>
+  Data Path: fsm1/state_FSM_FFd2 to led<0>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             10   0.568   1.171  fsm1/state_FSM_FFd1 (fsm1/state_FSM_FFd1)
-     LUT4:I0->O            3   0.439   1.010  fsm1/state_or00011 (current_state<1>)
-     LUT2:I0->O            1   0.439   0.557  led_0_not000035_SW0 (N145)
-     LUT4:I3->O            1   0.439   0.517  led_0_not000035 (led_0_OBUF)
+     FDR:C->Q             12   0.568   1.139  fsm1/state_FSM_FFd2 (fsm1/state_FSM_FFd2)
+     LUT4:I1->O            1   0.439   0.000  led_0_not000021_SW01 (led_0_not000021_SW0)
+     MUXF5:I0->O           1   0.436   0.557  led_0_not000021_SW0_f5 (N159)
+     LUT4:I3->O            1   0.439   0.517  led_0_not000021 (led_0_OBUF)
      OBUF:I->O                 4.361          led_0_OBUF (led<0>)
     ----------------------------------------
-    Total                      9.501ns (6.246ns logic, 3.255ns route)
-                                       (65.7% logic, 34.3% route)
+    Total                      8.458ns (6.243ns logic, 2.214ns route)
+                                       (73.8% logic, 26.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 's1/freq2/d1/one_hz_enable'
@@ -1391,22 +1365,24 @@ Offset:              6.847ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'fsm1/interval_not0001'
-  Total number of paths / destination ports: 2 / 2
+  Total number of paths / destination ports: 14 / 6
 -------------------------------------------------------------------------
-Offset:              5.552ns (Levels of Logic = 1)
-  Source:            fsm1/interval_1_1 (LATCH)
-  Destination:       analyzer3_data<11> (PAD)
+Offset:              7.782ns (Levels of Logic = 3)
+  Source:            fsm1/interval_0 (LATCH)
+  Destination:       analyzer1_data<3> (PAD)
   Source Clock:      fsm1/interval_not0001 falling
 
-  Data Path: fsm1/interval_1_1 to analyzer3_data<11>
+  Data Path: fsm1/interval_0 to analyzer1_data<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LD:G->Q               1   0.674   0.517  fsm1/interval_1_1 (fsm1/interval_1_1)
-     OBUF:I->O                 4.361          analyzer3_data_11_OBUF (analyzer3_data<11>)
+     LD:G->Q               9   0.674   1.148  fsm1/interval_0 (fsm1/interval_0)
+     LUT3:I0->O            1   0.439   0.000  tp1/mux_3 (tp1/mux_3)
+     MUXF5:I1->O           3   0.436   0.725  tp1/mux_2_f5 (value<0>)
+     OBUF:I->O                 4.361          analyzer1_data_0_OBUF (analyzer1_data<0>)
     ----------------------------------------
-    Total                      5.552ns (5.035ns logic, 0.517ns route)
-                                       (90.7% logic, 9.3% route)
+    Total                      7.782ns (5.910ns logic, 1.872ns route)
+                                       (75.9% logic, 24.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'fsm1/start_timer_not0001'
@@ -1431,7 +1407,7 @@ Offset:              5.552ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'fsm1/blink_wave/d1/one_hz_enable'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              6.621ns (Levels of Logic = 2)
+Offset:              8.059ns (Levels of Logic = 4)
   Source:            fsm1/blink_wave/square (FF)
   Destination:       led<0> (PAD)
   Source Clock:      fsm1/blink_wave/d1/one_hz_enable rising
@@ -1440,18 +1416,20 @@ Offset:              6.621ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.568   0.735  fsm1/blink_wave/square (fsm1/blink_wave/square)
-     LUT4:I2->O            1   0.439   0.517  led_0_not000035 (led_0_OBUF)
+     FDR:C->Q              2   0.568   0.741  fsm1/blink_wave/square (fsm1/blink_wave/square)
+     LUT4:I3->O            1   0.439   0.000  led_0_not000021_SW01 (led_0_not000021_SW0)
+     MUXF5:I0->O           1   0.436   0.557  led_0_not000021_SW0_f5 (N159)
+     LUT4:I3->O            1   0.439   0.517  led_0_not000021 (led_0_OBUF)
      OBUF:I->O                 4.361          led_0_OBUF (led<0>)
     ----------------------------------------
-    Total                      6.621ns (5.368ns logic, 1.253ns route)
-                                       (81.1% logic, 18.9% route)
+    Total                      8.059ns (6.243ns logic, 1.816ns route)
+                                       (77.5% logic, 22.5% route)
 
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 3 / 3
 -------------------------------------------------------------------------
-Delay:               7.131ns (Levels of Logic = 3)
+Delay:               7.154ns (Levels of Logic = 3)
   Source:            switch<7> (PAD)
   Destination:       led<1> (PAD)
 
@@ -1459,25 +1437,25 @@ Delay:               7.131ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   0.825   0.989  switch_7_IBUF (switch_7_IBUF)
+     IBUF:I->O            14   0.825   1.011  switch_7_IBUF (switch_7_IBUF)
      LUT3:I2->O            1   0.439   0.517  led_1_not00001 (led_1_OBUF)
      OBUF:I->O                 4.361          led_1_OBUF (led<1>)
     ----------------------------------------
-    Total                      7.131ns (5.625ns logic, 1.506ns route)
-                                       (78.9% logic, 21.1% route)
+    Total                      7.154ns (5.625ns logic, 1.529ns route)
+                                       (78.6% logic, 21.4% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.18 secs
+Total CPU time to Xst completion: 11.34 secs
  
 --> 
 
 
-Total memory usage is 476548 kilobytes
+Total memory usage is 476536 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  300 (   0 filtered)
-Number of infos    :   15 (   0 filtered)
+Number of warnings :  275 (   0 filtered)
+Number of infos    :   14 (   0 filtered)
 
