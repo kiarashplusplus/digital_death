@@ -393,3 +393,128 @@ Starting Router
 
 Phase 1: 2588 unrouted;       REAL time: 17 secs 
 
+Phase 2: 2082 unrouted;       REAL time: 23 secs 
+
+Phase 3: 456 unrouted;       REAL time: 23 secs 
+
+Phase 4: 456 unrouted; (92994)      REAL time: 23 secs 
+
+Phase 5: 463 unrouted; (0)      REAL time: 23 secs 
+
+Phase 6: 0 unrouted; (0)      REAL time: 24 secs 
+
+Phase 7: 0 unrouted; (0)      REAL time: 24 secs 
+
+Phase 8: 0 unrouted; (0)      REAL time: 24 secs 
+
+Phase 9: 0 unrouted; (0)      REAL time: 24 secs 
+
+Phase 10: 0 unrouted; (0)      REAL time: 24 secs 
+
+
+Total REAL time to Router completion: 24 secs 
+Total CPU time to Router completion: 24 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|    clock_27mhz_IBUF |     BUFGMUX3P| No   |  176 |  0.220     |  2.310      |
++---------------------+--------------+------+------+------------+-------------+
+|          dsp1/clock |     BUFGMUX6S| No   |   32 |  0.209     |  2.237      |
++---------------------+--------------+------+------+------------+-------------+
+|fsm1/start_timer_not |              |      |      |            |             |
+|                0001 |         Local|      |    2 |  0.883     |  2.758      |
++---------------------+--------------+------+------+------------+-------------+
+|fsm1/interval_not000 |              |      |      |            |             |
+|                   1 |         Local|      |    4 |  0.917     |  2.954      |
++---------------------+--------------+------+------+------------+-------------+
+|s1/freq2/d1/one_hz_e |              |      |      |            |             |
+|               nable |         Local|      |    1 |  0.000     |  0.755      |
++---------------------+--------------+------+------+------------+-------------+
+|s1/freq1/d1/one_hz_e |              |      |      |            |             |
+|               nable |         Local|      |    1 |  0.000     |  0.755      |
++---------------------+--------------+------+------+------------+-------------+
+|fsm1/blink_wave/d1/o |              |      |      |            |             |
+|        ne_hz_enable |         Local|      |    1 |  0.000     |  1.080      |
++---------------------+--------------+------+------+------------+-------------+
+|s1/toggle0/d1/one_hz |              |      |      |            |             |
+|             _enable |         Local|      |    1 |  0.000     |  0.755      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+Timing Score: 0
+
+INFO:Timing:2761 - N/A entries in the Constraints list may indicate that the constraint does not cover any paths or that it has no
+   requested value.
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+------------------------------------------------------------------------------------------------------
+  Constraint                                |  Check  | Worst Case |  Best Case | Timing |   Timing   
+                                            |         |    Slack   | Achievable | Errors |    Score   
+------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net clo | SETUP   |         N/A|     5.888ns|     N/A|           0
+  ck_27mhz_IBUF                             | HOLD    |     1.390ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net dsp | SETUP   |         N/A|     9.203ns|     N/A|           0
+  1/clock                                   | HOLD    |     1.338ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net s1/ | SETUP   |         N/A|     1.480ns|     N/A|           0
+  freq2/d1/one_hz_enable                    | HOLD    |     1.235ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net s1/ | SETUP   |         N/A|     1.476ns|     N/A|           0
+  freq1/d1/one_hz_enable                    | HOLD    |     1.231ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net fsm | SETUP   |         N/A|     1.477ns|     N/A|           0
+  1/blink_wave/d1/one_hz_enable             | HOLD    |     1.232ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net s1/ | SETUP   |         N/A|     1.895ns|     N/A|           0
+  toggle0/d1/one_hz_enable                  | HOLD    |     1.650ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+INFO:Timing:2761 - N/A entries in the Constraints list may indicate that the 
+   constraint does not cover any paths or that it has no requested value.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+WARNING:Par:283 - There are 290 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+Total REAL time to PAR completion: 33 secs 
+Total CPU time to PAR completion: 30 secs 
+
+Peak Memory Usage:  625 MB
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 292
+Number of info messages: 2
+
+Writing design to file labkit.ncd
+
+
+
+PAR done!
