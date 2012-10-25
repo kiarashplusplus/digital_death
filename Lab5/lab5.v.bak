@@ -824,7 +824,7 @@ module fir31(
 	reg [5:0] countShift=31;	
 	reg start = 1;				
 	wire [4:0] index;			
-	assign index = countCalc;			
+	assign index = i;			
   always @(posedge clock) begin
 	 if (reset)	 begin
 		count32<=0;
@@ -849,7 +849,7 @@ module fir31(
 			end	else begin
 				if (countCalc<31) begin
 					accumulator <= accumulator + coeff * sample[31-i];
-					countCalc<=countCalc+1;
+					countCacl<=countCalc+1;
 				end else y<=accumulator;	
 			end
 		end	else if ((count32==32) &&(ready)) start<=1;
