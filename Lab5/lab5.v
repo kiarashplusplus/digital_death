@@ -712,58 +712,67 @@ module recorder(
   input wire filter,               // 1 when using low-pass filter
   input wire [7:0] from_ac97_data, // 8-bit PCM data from mic
   output reg [7:0] to_ac97_data    // 8-bit PCM data to headphone
-);  
-   // test: playback 750hz tone, or loopback using incoming data
-   wire [19:0] tone;
-   tone750hz xxx(.clock(clock),.ready(ready),.pcm_data(tone));
-   
-    reg [16:0] add, add_d;
+);   
+    reg [16:0] add;
         
-    reg counter;
+    reg [3:0] counter;
     parameter maxAdd=1024*64;
-    
-    initial counter=7;
-    
-    mybram  mem1 (add, clock, din, dout, we);
-               
+
+    reg toggle;
+	reg [16:0] recHigh;
+	wire signed [7:0] filterIn;
+	wire signed [17:0] filterOut;	
+	wire [7:0] memIn;
+	wire [7:0] memOut;
+    initial begin
+        counter=8;
+        toggle=0;
+    end
+		
+
+    mybram #(.LOGSIZE(16),.WIDTH(8)) bram (add, clock, memIn, memOut, ~playback);
+    fir31 fir (.clock(clock), .reset(reset), .ready(ready), .x(filterIn), .y(filterOut));           
    always @ (posedge clock) begin
         if (reset) begin
-            counter<=7;
+            counter<=8;
+            toggle<=0;
+            add<=0;
         end else if (playback) begin
-            if (add_d==0 && add==1) being
-                
+            to_ac97_data <= filter?filter_output[14:7]:mem_output;
+            if (toggle+playback) being
+                recHigh<=add;
+                toggle<=1;
+                add<=0;
+                cout<=8;
             end else if (ready) begin
                 if (add==maxAdd) begin
                     add<=0;
                 end if (~counter) begin
-                    we<=0;
-                    to_ac97_data[7:0]<=dout;    
                     counter<=8;
                 end else counter<=counter-1;
             end
         
         
         end else if (~full) begin
-            add<=0;
-            if (ready) begin
+            to_ac97_data<=memIn;
+            if (playback+toggle) begin
+                full<=0
+                toggle<=0;
+                add<=0;
+                count<=8;
+            end else if (ready) begin
                 if (add==maxAdd) begin
                     full<=1;
                 end if (~counter) begin
-                    memory(add)<=to_ac97_data[7:0];
                     counter<=8;
                 end else counter<=counter-1;
             end
-
         end
         
         
-   
-   
-   
- /*     if (ready) begin
-	 // get here when we've just received new data from the AC97
-	 to_ac97_data <= playback ? tone[19:12] : from_ac97_data;
-      end*/
+	assign filterIn = playback? (count==8) ? memOut : 0	:from_ac97_data;
+	assign memIn = filter ? filterOut[17:10] : from_ac97_data;
+       
    end
 endmodule
 
@@ -807,10 +816,46 @@ module fir31(
   input wire signed [7:0] x,
   output reg signed [17:0] y
 );
-  // for now just pass data through
+    coeffs31 xxx(.index(index),.coeff(coeff));	
+    reg signed [7:0] sample [31:0];	
+    reg signed [17:0] accumulator =0;	
+	reg [5:0] count32 =0;					
+	reg [4:0] countCalc=0;							
+	wire signed [9:0] coeff;
+	reg [5:0] countShift=31;	
+	reg start = 1;				
+	wire [4:0] index;			
+	assign index = i;			
   always @(posedge clock) begin
-    if (ready) y <= {x,10'd0};
+	 if (reset)	 begin
+		count32<=0;
+		accumulator<=0;
+		sample[0:31]=0;
+		countCalc<=0;
+	 end else if ((ready)&&(count32<32)) begin
+			sample[count32]=x;	
+			count32<=count32+1;
+		end	else if ((count32==32)&&(~ready))	begin
+			if (start)	begin
+                if (countShift<31) begin
+                    sample[countShift]=sample[countShift+1];
+                    countShift<=countShift+1;
+                end else begin
+                    sample[31]=x;
+                    countCalc<=0;			
+                    accumulator<=0;
+                    countShift<=0;
+                    start<=0;
+                end
+			end	else begin
+				if (countCalc<31) begin
+					accumulator <= accumulator + coeff * sample[31-i];
+					countCacl<=countCalc+1;
+				end else y<=accumulator;	
+			end
+		end	else if ((count32==32) &&(ready)) start<=1;
   end
+
 endmodule
 
 ///////////////////////////////////////////////////////////////////////////////
