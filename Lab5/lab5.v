@@ -716,12 +716,54 @@ module recorder(
    // test: playback 750hz tone, or loopback using incoming data
    wire [19:0] tone;
    tone750hz xxx(.clock(clock),.ready(ready),.pcm_data(tone));
-
+   
+    reg [16:0] add, add_d;
+        
+    reg counter;
+    parameter maxAdd=1024*64;
+    
+    initial counter=7;
+    
+    mybram  mem1 (add, clock, din, dout, we);
+               
    always @ (posedge clock) begin
-      if (ready) begin
+        if (reset) begin
+            counter<=7;
+        end else if (playback) begin
+            if (add_d==0 && add==1) being
+                
+            end else if (ready) begin
+                if (add==maxAdd) begin
+                    add<=0;
+                end if (~counter) begin
+                    we<=0;
+                    to_ac97_data[7:0]<=dout;    
+                    counter<=8;
+                end else counter<=counter-1;
+            end
+        
+        
+        end else if (~full) begin
+            add<=0;
+            if (ready) begin
+                if (add==maxAdd) begin
+                    full<=1;
+                end if (~counter) begin
+                    memory(add)<=to_ac97_data[7:0];
+                    counter<=8;
+                end else counter<=counter-1;
+            end
+
+        end
+        
+        
+   
+   
+   
+ /*     if (ready) begin
 	 // get here when we've just received new data from the AC97
 	 to_ac97_data <= playback ? tone[19:12] : from_ac97_data;
-      end
+      end*/
    end
 endmodule
 
