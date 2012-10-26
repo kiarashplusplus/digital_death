@@ -712,67 +712,104 @@ module recorder(
   input wire filter,               // 1 when using low-pass filter
   input wire [7:0] from_ac97_data, // 8-bit PCM data from mic
   output reg [7:0] to_ac97_data    // 8-bit PCM data to headphone
-);   
-    reg [16:0] add;
-        
-    reg [3:0] counter;
-    parameter maxAdd=1024*64;
+);  
+   // test: playback 750hz tone, or loopback using incoming data
+   wire [19:0] tone;
+	reg [15:0] addr;		//addr of memory
+	reg tog = 0;				//register indicating if switching from
+	//record to playback or vice versa
+	reg [3:0] count =8;	//counter for saving adc value
+   tone750hz xxx(.clock(clock),.ready(ready),.pcm_data(tone));
+	reg [15:0] high;		//the recording highest address
+	wire signed [7:0] filter_input;	//filter input
+	wire [7:0] mem_input;
+	wire signed [17:0] filter_output;
+	wire [7:0] mem_output;
+//	reg [3:0] zerocount = 0;
 
-    reg toggle;
-	reg [16:0] recHigh;
-	wire signed [7:0] filterIn;
-	wire signed [17:0] filterOut;	
-	wire [7:0] memIn;
-	wire [7:0] memOut;
-    initial begin
-        counter=8;
-        toggle=0;
-    end
-		
-
-    mybram #(.LOGSIZE(16),.WIDTH(8)) bram (add, clock, memIn, memOut, ~playback);
-    fir31 fir (.clock(clock), .reset(reset), .ready(ready), .x(filterIn), .y(filterOut));           
-   always @ (posedge clock) begin
-        if (reset) begin
-            counter<=8;
-            toggle<=0;
-            add<=0;
-        end else if (playback) begin
-            to_ac97_data <= filter?filterOut[14:7]:memOut;
-            if (toggle+playback) begin
-                recHigh<=add;
-                toggle<=1;
-                add<=0;
-                count<=8;
-            end else if (ready) begin
-                if (add==maxAdd) begin
-                    add<=0;
-                end if (~counter) begin
-                    counter<=8;
-                end else counter<=counter-1;
-            end
-        
-        
-        end else if (~full) begin
-            to_ac97_data<=memIn;
-            if (playback+toggle) begin
-                full<=0;
-                toggle<=0;
-                add<=0;
-                count<=8;
-            end else if (ready) begin
-                if (add==maxAdd) begin
-                    full<=1;
-                end if (~counter) begin
-                    counter<=8;
-                end else counter<=counter-1;
-            end
-        end
-        
-        
-	assign filterIn = playback? (count==8) ? memOut : 0	:from_ac97_data;
-	assign memIn = filter ? filterOut[17:10] : from_ac97_data;
-       
+	
+	
+	assign filter_input = playback? ((count==8)?mem_output : 0)
+	:from_ac97_data; //assign filter_input according to different setting
+	assign mem_input = filter ? filter_output[17:10] : from_ac97_data;
+	//assign mem_input according to different setting
+	always @ (posedge clock) begin
+		if (reset)	//when reset, setback everything
+			begin
+			count<=8;
+			tog<=0;
+			addr<=0;
+			end
+		else
+		begin
+			if (playback)	//when in play back
+			begin
+				
+				to_ac97_data <= filter?filter_output[14:7]:mem_output;
+				//assign to_ac97_data according to the setting
+				if(playback+tog)	//if just switing from recording to playback
+				begin			
+					high<=addr;	//reset everything
+					tog<=1;
+					addr<=0;
+					count<=8;
+				end
+				else
+				begin
+					if (ready)		//if a bit come
+					begin
+						if (addr<=high)	//if address is not the highest
+						begin
+							if(count==8)	//only when count = 8, addr increments
+							begin
+								addr<=addr+1;
+								count<=0;		
+							end
+							else
+								count<=count+1;
+						end
+						else				//when address is the highest, reset
+						addr<=0;
+					end
+				end
+			end
+			else							//if record
+			begin
+			to_ac97_data <= mem_input;	//set to_ac97_data according to mem_input
+				if(playback+tog)				//if just switiching from playback to record
+				begin							//reset value
+					tog<=0;
+					addr<=0;
+					count<=8;
+				end
+				else
+				begin							
+					if (ready)			//if there is a new value
+					begin
+//						
+						if (addr+1>addr)	//if not reaching max
+						begin
+							if(count==8)		//increment addr every 8 samples
+							begin
+								addr<=addr+1;
+								count<=0;
+							end
+							else
+								count<=count+1;
+						end
+					end
+				end
+			end
+		end
+						
+   end
+	
+	mybram #(.LOGSIZE(16),.WIDTH(8)) bram(.addr(addr),.clk(clock)
+	,.we(~playback),.din(mem_input),.dout(mem_output));
+	//setup mybram 64K x 8
+	fir31 fir(.clock(clock),.reset(reset),.ready(ready),.x(filter_input)
+	,.y(filter_output));
+	//setup the filter
 endmodule
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -809,51 +846,106 @@ endmodule
 // filter just divide by 2**10, ie, use Y[17:10].
 //
 ///////////////////////////////////////////////////////////////////////////////
-
 module fir31(
   input wire clock,reset,ready,
   input wire signed [7:0] x,
-  output reg signed [17:0] y
+  output reg signed [17:0] y=0
 );
-    coeffs31 xxx(.index(index),.coeff(coeff));	
-    reg signed [7:0] sample [31:0];	
-    reg signed [17:0] accumulator =0;	
-	reg [5:0] count32 =0;					
-	reg [4:0] countCalc=0;							
-	wire signed [9:0] coeff;
-	reg [5:0] countShift=31;	
-	reg start = 1;				
-	wire [4:0] index;			
-	assign index = countCalc;			
+  // for now just pass data through
+  reg signed [7:0] sample [31:0];	//sample arrays
+  reg signed [17:0] accumulator =0;	//accumulator
+	reg [5:0] count =0;					//counter for first 32 samples
+	reg [4:0] i=0;							//counter for calculation
+	wire signed [9:0] coeff;			//coeff to convolution
+	reg [5:0] iii=31;				//counter for shift sample one array
+	reg start = 1;					//indicator to start shifting
+	wire [4:0] index;				//index to find corresponding coeff
+	assign index = i;			
   always @(posedge clock) begin
-	 if (reset)	 begin
-		count32<=0;
+	 if (reset) //reset sample, count, accumulator
+	 begin
+		count<=0;
 		accumulator<=0;
-		countCalc<=0;
-	 end else if ((ready)&&(count32<32)) begin
-			sample[count32]=x;	
-			count32<=count32+1;
-		end	else if ((count32==32)&&(~ready))	begin
-			if (start)	begin
-                if (countShift<31) begin
-                    sample[countShift]=sample[countShift+1];
-                    countShift<=countShift+1;
-                end else begin
-                    sample[31]=x;
-                    countCalc<=0;			
-                    accumulator<=0;
-                    countShift<=0;
-                    start<=0;
-                end
-			end	else begin
-				if (countCalc<31) begin
-					accumulator <= accumulator + coeff * sample[31-countCalc];
-					countCalc<=countCalc+1;
-				end else y<=accumulator;	
-			end
-		end	else if ((count32==32) &&(ready)) start<=1;
-  end
+		sample[0]=0;
+		sample[1]=0;
+		sample[2]=0;
+		sample[3]=0;
+		sample[4]=0;
+		sample[5]=0;
+		sample[6]=0;
+		sample[7]=0;
+		sample[8]=0;
+		sample[9]=0;
+		sample[10]=0;
+		sample[11]=0;
+		sample[12]=0;
+		sample[13]=0;
+		sample[14]=0;
+		sample[15]=0;
+		sample[16]=0;
+		sample[17]=0;
+		sample[18]=0;
+		sample[19]=0;
+		sample[20]=0;
+		sample[21]=0;
+		sample[22]=0;
+		sample[23]=0;
+		sample[24]=0;
+		sample[25]=0;
+		sample[26]=0;
+		sample[27]=0;
+		sample[28]=0;
+		sample[29]=0;
+		sample[30]=0;
+		sample[31]=0;
+		i<=0;
+	end
+	else
+	begin
+		if ((ready)&&(count<32)) //if one sample arrive and it is the first 32 sample
+		begin
+			sample[count]=x;			//add to array
+			count<=count+1;
+		end
+		else if ((count==32)&&(~ready))
+		// if there are 32 samples and no new one comes 
+		begin
+			if (start)		//start shitfing
+				begin
+					if (iii<31)	//loop to shift
+					begin
+						sample[iii]=sample[iii+1];
+						iii<=iii+1;
+					end
+					else
+					begin
+						sample[31]=x;	//after shifting 31 samples, take in new sample
+						i<=0;			//reset values
+						accumulator<=0;
+						iii<=0;
+						start<=0;
+					end
+				end
 
+			else		//after shifting
+				begin
+				if (i<31)	//loop for calculation
+				begin
+					accumulator <= accumulator + coeff * sample[31-i];
+					i<=i+1;
+				end
+				else
+					y<=accumulator;	//set y to accumulator value
+				end
+		end
+		else if ((count==32) &&(ready))	//new sample arrives
+		begin
+			start<=1;			//enable shifting
+		end
+	end
+end
+  coeffs31 xxx(.index(index),.coeff(coeff));	
+  //initiate module for finding coeff
 endmodule
 
 ///////////////////////////////////////////////////////////////////////////////
