@@ -815,7 +815,6 @@ module fir31(
   input wire signed [7:0] x,
   output reg signed [17:0] y
 );
-    coeffs31 xxx(.index(index),.coeff(coeff));	
     reg signed [7:0] sample [31:0];	
     reg signed [17:0] accumulator =0;	
 	reg [5:0] count32 =0;					
@@ -853,6 +852,7 @@ module fir31(
 			end
 		end	else if ((count32==32) &&(ready)) start<=1;
   end
+    coeffs31 xxx(.index(index),.coeff(coeff));	
 
 endmodule
 
