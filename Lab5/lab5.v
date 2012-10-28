@@ -717,9 +717,8 @@ module recorder(
         
     reg [3:0] counter;
     parameter maxAdd=1024*64;
-
+    reg [16:0] recEnd;
     reg toggle;
-	reg [16:0] recHigh;
 	wire signed [7:0] filterIn;
 	wire signed [17:0] filterOut;	
 	wire [7:0] memIn;
@@ -727,51 +726,60 @@ module recorder(
     initial begin
         counter=8;
         toggle=0;
+        recEnd<=0;
     end
 		
 
     mybram #(.LOGSIZE(16),.WIDTH(8)) bram (add, clock, memIn, memOut, ~playback);
-    fir31 fir (.clock(clock), .reset(reset), .ready(ready), .x(filterIn), .y(filterOut));           
+    fir31 fir (.clock(clock), .reset(reset), .ready(ready), .x(filterIn), .y(filterOut));      
+
+	assign filterIn = playback? (~counter) ? memOut : 0	:from_ac97_data;
+	assign memIn = filter ? filterOut[17:10] : from_ac97_data;
+
+    
    always @ (posedge clock) begin
         if (reset) begin
             counter<=8;
             toggle<=0;
             add<=0;
+            recEnd<=0;
         end else if (playback) begin
             to_ac97_data <= filter?filterOut[14:7]:memOut;
-            if (toggle+playback) begin
-                recHigh<=add;
-                toggle<=1;
+            if (toggle) begin
+                toggle<=0;
                 add<=0;
-                count<=8;
+                counter<=7;
             end else if (ready) begin
-                if (add==maxAdd) begin
+                if (add==recEnd) begin
                     add<=0;
-                end if (~counter) begin
-                    counter<=8;
+                end if (counter==0) begin
+                    counter<=7;
+                    add<=add+1;
                 end else counter<=counter-1;
             end
         
         
         end else if (~full) begin
             to_ac97_data<=memIn;
-            if (playback+toggle) begin
+            if (~toggle) begin
                 full<=0;
-                toggle<=0;
+                toggle<=1;
                 add<=0;
-                count<=8;
+                counter<=7;
+                recEnd<=0;
             end else if (ready) begin
                 if (add==maxAdd) begin
                     full<=1;
-                end if (~counter) begin
-                    counter<=8;
+                end if (counter==0) begin
+                    counter<=7;
+                    add<=add+1;
+                    recEnd<=recEnd+1;
                 end else counter<=counter-1;
             end
         end
         
         
-	assign filterIn = playback? (count==8) ? memOut : 0	:from_ac97_data;
-	assign memIn = filter ? filterOut[17:10] : from_ac97_data;
+
        
 endmodule
 
