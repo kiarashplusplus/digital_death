@@ -21,7 +21,7 @@ module fir31_test();
 
   initial begin
     // open input/output files
-    fin = $fopen("fir31.samples","r");
+    fin = $fopen("fir31.waveform","r");
     fout = $fopen("fir31.output","w");
     if (fin == 0 || fout == 0) begin
       $display("can't open file...");

@@ -1,0 +1,182 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab5/blah
+T_opt
+Z1 Vm3J;Ld>h^SPABfjhHkV2d0
+Z2 04 10 4 work fir31_test fast 0
+Z3 04 4 4 work glbl fast 0
+Z4 =1-f04da20f064e-508a02b8-5431a-20cb
+Z5 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
+Z6 OE;O;6.4a;39
+T_opt1
+Z7 VMRNn?Ljn2=azOo2X?@]da3
+R2
+R3
+Z8 =1-f04da20f0680-508d962d-cfbf-56a5
+R5
+R6
+T_opt2
+Z9 V3[GdFemH?Y9>1m?c6VaZ>1
+R2
+R3
+Z10 =1-f04da20f0680-508d967d-b8872-56ef
+R5
+R6
+vac97
+Z11 INgdMImHOejYCl]W:FSOHL2
+Z12 VYXk6kHT]QSF:^OA@:mF2J1
+Z13 w1351455921
+Z14 8../lab5.v
+Z15 F../lab5.v
+Z16 L0 109
+Z17 OE;L;6.4a;39
+r1
+31
+Z18 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
+Z19 !s100 lNjgUb@9=L@WWUR=JhkgB3
+!s85 0
+vac97commands
+Z20 I`@7MLXmTL6_T36ULo3H[W1
+Z21 VfgQQb6>bl@1HVOemOfkS92
+R13
+R14
+R15
+Z22 L0 220
+R17
+r1
+31
+R18
+Z23 !s100 <Yi^<;bY4f28F4]D1cTlN2
+!s85 0
+vcoeffs31
+Z24 IWWAkYY[GMkD4LPF1=0D3d1
+Z25 V?D@h_E>QDQk0Z_?cj99J20
+R13
+R14
+R15
+Z26 L0 863
+R17
+r1
+31
+R18
+Z27 !s100 a32LfA^zOcNG@3W7D9;1e0
+!s85 0
+vdebounce
+Z28 IKX;k1PLnk7RYDam_SnVUn2
+Z29 VnlDBH;]395Ea:=dmAZD@M2
+R13
+R14
+R15
+L0 9
+R17
+r1
+31
+R18
+Z30 !s100 5zC^oOfFKjX=KFSiQcQaf3
+!s85 0
+vfir31
+Z31 I5:bR]XinRn1j[d<5J:nAm1
+Z32 Vnanfn15dTah0^V<Jd`dNC2
+R13
+R14
+R15
+Z33 L0 820
+R17
+r1
+31
+R18
+Z34 !s100 K@Gl066YWT6JJ0IgQ8MGk2
+!s85 0
+vfir31_test
+Z35 IzBc0@JRNAb31AJ91nG3^[0
+Z36 VMg>TDO5Ef75kilNM7cOQ61
+Z37 w1351456369
+Z38 8fir31_test.v
+Z39 Ffir31_test.v
+L0 14
+R17
+r1
+31
+R18
+Z40 !s100 AnQ2ah@Oc`AoHbFdB@3J20
+!s85 0
+vglbl
+Z41 IB;@1jEXmEfQXL`;Kf0IBZ3
+Z42 VnN]4Gon>inod6>M^M2[SV1
+Z43 w1202685744
+Z44 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z45 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+L0 5
+R17
+r1
+31
+R18
+Z46 !s100 T?5S;>bN`@zG_25]R_4A33
+!s85 0
+vlab5
+Z47 Id64Na]3H44=bZLRzeGlgQ3
+Z48 V5POK^=lQ2>Y9JOP:ZQ;C[0
+R13
+R14
+R15
+Z49 L0 383
+R17
+r1
+31
+R18
+Z50 !s100 z[UTkGd[1nhRWNg<3jFJX3
+!s85 0
+vlab5audio
+Z51 Il9<VXoJci5EUWC@4eDn`n0
+Z52 V>6;O4:[B[bV_BAmCmPcmg1
+R13
+R14
+R15
+L0 42
+R17
+r1
+31
+R18
+Z53 !s100 ]Vo:Nc5S=SL1`9=KcZT=Q1
+!s85 0
+vmybram
+Z54 I6AmgmVJd`=zZaRWCQjIzB0
+Z55 VGM9]TZo^RUBWUlL>G2B`40
+R13
+R14
+R15
+Z56 L0 793
+R17
+r1
+31
+R18
+Z57 !s100 80`]0^=g9bR3QCk7X_A?91
+!s85 0
+vrecorder
+Z58 I;4b7@Wb;@dd?[58G7U77c1
+Z59 VkWPGkM0AghL8c7ZCz0mSH2
+R13
+R14
+R15
+Z60 L0 707
+R17
+r1
+31
+R18
+Z61 !s100 1g]fY0cZgYZ8Re]AJc?Pz0
+!s85 0
+vtone750hz
+Z62 IFcYT3zN:eBKz]3GJe36je1
+Z63 V_miH[zKPGGdQYg5`n1Z[X3
+R13
+R14
+R15
+Z64 L0 284
+R17
+r1
+31
+R18
+Z65 !s100 RGAlU72;fO_NlmPImg9<A2
+!s85 0

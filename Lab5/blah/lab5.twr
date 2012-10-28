@@ -36,7 +36,7 @@ Setup/Hold to clock ac97_bit_clock
              |  Setup to  |  Hold to   |                    | Clock  |
 Source       | clk (edge) | clk (edge) |Internal Clock(s)   | Phase  |
 -------------+------------+------------+--------------------+--------+
-ac97_sdata_in|    0.094(F)|    0.455(F)|analyzer1_clock_OBUF|   0.000|
+ac97_sdata_in|    0.154(F)|    0.395(F)|analyzer1_clock_OBUF|   0.000|
 -------------+------------+------------+--------------------+--------+
 
 Setup/Hold to clock clock_27mhz
@@ -44,10 +44,10 @@ Setup/Hold to clock clock_27mhz
             |  Setup to  |  Hold to   |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-button_down |    3.665(R)|   -0.974(R)|clock_27mhz_BUFGP |   0.000|
-button_enter|    5.111(R)|   -1.157(R)|clock_27mhz_BUFGP |   0.000|
-button_up   |    5.712(R)|   -1.642(R)|clock_27mhz_BUFGP |   0.000|
-switch<0>   |    4.743(R)|   -1.791(R)|clock_27mhz_BUFGP |   0.000|
+button_down |    4.190(R)|   -1.981(R)|clock_27mhz_BUFGP |   0.000|
+button_enter|    4.537(R)|   -2.789(R)|clock_27mhz_BUFGP |   0.000|
+button_up   |    4.574(R)|   -2.276(R)|clock_27mhz_BUFGP |   0.000|
+switch<0>   |    5.005(R)|   -2.223(R)|clock_27mhz_BUFGP |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock ac97_bit_clock to Pad
@@ -55,18 +55,18 @@ Clock ac97_bit_clock to Pad
                   | clk (edge) |                    | Clock  |
 Destination       |   to PAD   |Internal Clock(s)   | Phase  |
 ------------------+------------+--------------------+--------+
-ac97_sdata_out    |   14.291(R)|analyzer1_clock_OBUF|   0.000|
-ac97_synch        |   14.532(R)|analyzer1_clock_OBUF|   0.000|
-analyzer1_data<1> |   18.218(R)|analyzer1_clock_OBUF|   0.000|
-analyzer1_data<3> |   18.055(R)|analyzer1_clock_OBUF|   0.000|
-analyzer3_data<8> |   16.376(F)|analyzer1_clock_OBUF|   0.000|
-analyzer3_data<9> |   16.727(F)|analyzer1_clock_OBUF|   0.000|
-analyzer3_data<10>|   16.419(F)|analyzer1_clock_OBUF|   0.000|
-analyzer3_data<11>|   16.225(F)|analyzer1_clock_OBUF|   0.000|
-analyzer3_data<12>|   16.347(F)|analyzer1_clock_OBUF|   0.000|
-analyzer3_data<13>|   16.621(F)|analyzer1_clock_OBUF|   0.000|
-analyzer3_data<14>|   16.502(F)|analyzer1_clock_OBUF|   0.000|
-analyzer3_data<15>|   16.759(F)|analyzer1_clock_OBUF|   0.000|
+ac97_sdata_out    |   14.049(R)|analyzer1_clock_OBUF|   0.000|
+ac97_synch        |   13.584(R)|analyzer1_clock_OBUF|   0.000|
+analyzer1_data<1> |   18.246(R)|analyzer1_clock_OBUF|   0.000|
+analyzer1_data<3> |   18.297(R)|analyzer1_clock_OBUF|   0.000|
+analyzer3_data<8> |   17.358(F)|analyzer1_clock_OBUF|   0.000|
+analyzer3_data<9> |   16.993(F)|analyzer1_clock_OBUF|   0.000|
+analyzer3_data<10>|   16.464(F)|analyzer1_clock_OBUF|   0.000|
+analyzer3_data<11>|   16.922(F)|analyzer1_clock_OBUF|   0.000|
+analyzer3_data<12>|   15.539(F)|analyzer1_clock_OBUF|   0.000|
+analyzer3_data<13>|   16.932(F)|analyzer1_clock_OBUF|   0.000|
+analyzer3_data<14>|   17.760(F)|analyzer1_clock_OBUF|   0.000|
+analyzer3_data<15>|   17.264(F)|analyzer1_clock_OBUF|   0.000|
 ------------------+------------+--------------------+--------+
 
 Clock clock_27mhz to Pad
@@ -74,25 +74,25 @@ Clock clock_27mhz to Pad
                  | clk (edge) |                  | Clock  |
 Destination      |   to PAD   |Internal Clock(s) | Phase  |
 -----------------+------------+------------------+--------+
-analyzer1_data<0>|   13.313(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_clock  |   17.173(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_data<0>|   13.099(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_data<1>|   12.446(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_data<2>|   12.989(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_data<3>|   13.257(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_data<4>|   13.538(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_data<5>|   13.992(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_data<6>|   12.943(R)|clock_27mhz_BUFGP |   0.000|
-analyzer3_data<7>|   13.084(R)|clock_27mhz_BUFGP |   0.000|
-audio_reset_b    |   12.988(R)|clock_27mhz_BUFGP |   0.000|
-led<0>           |   18.523(R)|clock_27mhz_BUFGP |   0.000|
-led<1>           |   15.950(R)|clock_27mhz_BUFGP |   0.000|
-led<2>           |   16.801(R)|clock_27mhz_BUFGP |   0.000|
-led<3>           |   15.422(R)|clock_27mhz_BUFGP |   0.000|
-led<4>           |   16.054(R)|clock_27mhz_BUFGP |   0.000|
-led<5>           |   13.247(R)|clock_27mhz_BUFGP |   0.000|
-led<6>           |   12.774(R)|clock_27mhz_BUFGP |   0.000|
-led<7>           |   11.460(R)|clock_27mhz_BUFGP |   0.000|
+analyzer1_data<0>|   13.736(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_clock  |   16.808(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_data<0>|   12.803(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_data<1>|   13.558(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_data<2>|   12.749(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_data<3>|   13.259(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_data<4>|   13.814(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_data<5>|   13.071(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_data<6>|   13.328(R)|clock_27mhz_BUFGP |   0.000|
+analyzer3_data<7>|   13.560(R)|clock_27mhz_BUFGP |   0.000|
+audio_reset_b    |   12.688(R)|clock_27mhz_BUFGP |   0.000|
+led<0>           |   16.791(R)|clock_27mhz_BUFGP |   0.000|
+led<1>           |   16.485(R)|clock_27mhz_BUFGP |   0.000|
+led<2>           |   15.369(R)|clock_27mhz_BUFGP |   0.000|
+led<3>           |   16.426(R)|clock_27mhz_BUFGP |   0.000|
+led<4>           |   17.056(R)|clock_27mhz_BUFGP |   0.000|
+led<5>           |   13.506(R)|clock_27mhz_BUFGP |   0.000|
+led<6>           |   12.756(R)|clock_27mhz_BUFGP |   0.000|
+led<7>           |   11.211(R)|clock_27mhz_BUFGP |   0.000|
 -----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock ac97_bit_clock
@@ -100,8 +100,8 @@ Clock to Setup on destination clock ac97_bit_clock
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-ac97_bit_clock |    7.923|         |    7.743|    3.283|
-clock_27mhz    |    3.188|         |         |         |
+ac97_bit_clock |    7.497|         |    7.221|    3.283|
+clock_27mhz    |    2.933|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clock_27mhz
@@ -109,8 +109,8 @@ Clock to Setup on destination clock clock_27mhz
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-ac97_bit_clock |    2.229|    5.247|         |         |
-clock_27mhz    |   15.938|         |         |         |
+ac97_bit_clock |    3.071|    6.615|         |         |
+clock_27mhz    |   15.222|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
@@ -122,14 +122,14 @@ ac97_sdata_in  |analyzer1_data<2>|   14.661|
 ---------------+-----------------+---------+
 
 
-Analysis completed Thu Oct 25 23:43:36 2012 
+Analysis completed Sun Oct 28 16:59:28 2012 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 345 MB
+Peak Memory Usage: 350 MB
 
 
 

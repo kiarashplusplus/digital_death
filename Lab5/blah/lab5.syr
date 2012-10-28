@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab5/blah/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: lab5.prj
@@ -109,7 +109,7 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "lab5.v" in library work
+Compiling verilog file "../lab5.v" in library work
 Module <debounce> compiled
 Module <lab5audio> compiled
 Module <ac97> compiled
@@ -218,12 +218,9 @@ INFO:Xst:2561 - Always blocking tristate driving signal <ram1_data> in unit <lab
 INFO:Xst:2561 - Always blocking tristate driving signal <daughtercard> in unit <lab5> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit <lab5> is removed.
 INFO:Xst:2561 - Always blocking tristate driving signal <tv_in_i2c_data> in unit <lab5> is removed.
-INFO:Xst:2679 - Register <add> in unit <recorder> has a constant value of 00000000000000000 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <recHigh> in unit <recorder> has a constant value of 00000000000000000 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <full> in unit <recorder> has a constant value of 0 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <debounce>.
-    Related source file is "lab5.v".
+    Related source file is "../lab5.v".
     Found 1-bit register for signal <clean>.
     Found 19-bit up counter for signal <count>.
     Found 1-bit xor2 for signal <count$xor0000> created at line 22.
@@ -235,7 +232,7 @@ Unit <debounce> synthesized.
 
 
 Synthesizing Unit <ac97>.
-    Related source file is "lab5.v".
+    Related source file is "../lab5.v".
     Register <l_right_v> equivalent to <l_left_v> has been removed
     Found 20-bit register for signal <left_in_data>.
     Found 1-bit register for signal <ac97_synch>.
@@ -281,7 +278,7 @@ Unit <ac97> synthesized.
 
 
 Synthesizing Unit <ac97commands>.
-    Related source file is "lab5.v".
+    Related source file is "../lab5.v".
     Found 1-bit register for signal <command_valid>.
     Found 24-bit register for signal <command>.
     Found 4-bit up counter for signal <state>.
@@ -294,7 +291,7 @@ Unit <ac97commands> synthesized.
 
 
 Synthesizing Unit <mybram>.
-    Related source file is "lab5.v".
+    Related source file is "../lab5.v".
     Found 65536x8-bit single-port RAM <Mram_mem> for signal <mem>.
     Found 8-bit register for signal <dout>.
     Summary:
@@ -304,7 +301,7 @@ Unit <mybram> synthesized.
 
 
 Synthesizing Unit <coeffs31>.
-    Related source file is "lab5.v".
+    Related source file is "../lab5.v".
     Found 31x10-bit ROM for signal <coeff>.
     Summary:
 	inferred   1 ROM(s).
@@ -312,7 +309,7 @@ Unit <coeffs31> synthesized.
 
 
 Synthesizing Unit <lab5audio>.
-    Related source file is "lab5.v".
+    Related source file is "../lab5.v".
 WARNING:Xst:646 - Signal <right_in_data> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <left_in_data<11:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 1-bit register for signal <audio_reset_b>.
@@ -326,14 +323,14 @@ Unit <lab5audio> synthesized.
 
 
 Synthesizing Unit <fir31>.
-    Related source file is "lab5.v".
+    Related source file is "../lab5.v".
 WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 32x8-bit dual-port RAM <Mram_sample> for signal <sample>.
     Found 18-bit register for signal <y>.
     Found 18-bit up accumulator for signal <accum>.
-    Found 5-bit comparator lessequal for signal <accum$cmp_le0000> created at line 834.
-    Found 10x8-bit multiplier for signal <accum$mult0000> created at line 836.
-    Found 5-bit adder carry out for signal <add0000$addsub0000> created at line 832.
+    Found 5-bit comparator lessequal for signal <accum$cmp_le0000> created at line 846.
+    Found 10x8-bit multiplier for signal <accum$mult0000> created at line 848.
+    Found 5-bit adder carry out for signal <add0000$addsub0000> created at line 844.
     Found 5-bit up counter for signal <index>.
     Found 5-bit up counter for signal <offset>.
     Summary:
@@ -348,21 +345,27 @@ Unit <fir31> synthesized.
 
 
 Synthesizing Unit <recorder>.
-    Related source file is "lab5.v".
-WARNING:Xst:646 - Signal <recHigh> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Related source file is "../lab5.v".
 WARNING:Xst:646 - Signal <filterOut<6:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 8-bit register for signal <to_ac97_data>.
+    Found 17-bit up counter for signal <add>.
+    Found 17-bit comparator equal for signal <add$cmp_eq0000> created at line 755.
     Found 4-bit register for signal <counter>.
     Found 4-bit subtractor for signal <counter$share0000>.
+    Found 1-bit register for signal <full>.
+    Found 17-bit up counter for signal <recEnd>.
     Found 1-bit register for signal <toggle>.
+    Found 8-bit register for signal <zero_expanded_memOut>.
     Summary:
-	inferred  13 D-type flip-flop(s).
+	inferred   2 Counter(s).
+	inferred  22 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
 Unit <recorder> synthesized.
 
 
 Synthesizing Unit <lab5>.
-    Related source file is "lab5.v".
+    Related source file is "../lab5.v".
 WARNING:Xst:2565 - Inout <user3<28>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<4>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<29>> is never assigned.
@@ -694,8 +697,9 @@ Macro Statistics
  5-bit adder carry out                                 : 1
  5-bit subtractor                                      : 1
  9-bit adder                                           : 3
-# Counters                                             : 10
+# Counters                                             : 12
  10-bit up counter                                     : 1
+ 17-bit up counter                                     : 2
  19-bit up counter                                     : 4
  4-bit up counter                                      : 1
  5-bit up counter                                      : 2
@@ -703,15 +707,16 @@ Macro Statistics
  8-bit up counter                                      : 1
 # Accumulators                                         : 1
  18-bit up accumulator                                 : 1
-# Registers                                            : 31
- 1-bit register                                        : 18
+# Registers                                            : 33
+ 1-bit register                                        : 19
  18-bit register                                       : 1
  20-bit register                                       : 6
  24-bit register                                       : 1
  3-bit register                                        : 1
  4-bit register                                        : 1
- 8-bit register                                        : 3
-# Comparators                                          : 20
+ 8-bit register                                        : 4
+# Comparators                                          : 21
+ 17-bit comparator equal                               : 1
  5-bit comparator lessequal                            : 1
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 4
@@ -859,8 +864,9 @@ Macro Statistics
  5-bit adder                                           : 4
  5-bit adder carry out                                 : 1
  5-bit subtractor                                      : 1
-# Counters                                             : 10
+# Counters                                             : 12
  10-bit up counter                                     : 1
+ 17-bit up counter                                     : 2
  19-bit up counter                                     : 4
  4-bit up counter                                      : 1
  5-bit up counter                                      : 2
@@ -868,9 +874,10 @@ Macro Statistics
  8-bit up counter                                      : 1
 # Accumulators                                         : 1
  18-bit up accumulator                                 : 1
-# Registers                                            : 177
- Flip-Flops                                            : 177
-# Comparators                                          : 20
+# Registers                                            : 186
+ Flip-Flops                                            : 186
+# Comparators                                          : 21
+ 17-bit comparator equal                               : 1
  5-bit comparator lessequal                            : 1
  8-bit comparator greatequal                           : 5
  8-bit comparator greater                              : 4
@@ -888,8 +895,6 @@ Macro Statistics
 =========================================================================
 INFO:Xst:2261 - The FF/Latch <l_right_data_0> in Unit <ac97> is equivalent to the following 11 FFs/Latches, which will be removed : <l_right_data_1> <l_right_data_2> <l_right_data_3> <l_right_data_4> <l_right_data_5> <l_right_data_6> <l_right_data_7> <l_right_data_8> <l_right_data_9> <l_right_data_10> <l_right_data_11> 
 WARNING:Xst:1710 - FF/Latch <l_right_data_0> (without init value) has a constant value of 0 in block <ac97>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <inst_LPM_FF_1> (without init value) has a constant value of 0 in block <recorder>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <inst_LPM_FF_0> (without init value) has a constant value of 0 in block <recorder>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <lab5> ...
 
@@ -933,22 +938,6 @@ WARNING:Xst:2677 - Node <r/fir/y_3> of sequential type is unconnected in block <
 WARNING:Xst:2677 - Node <r/fir/y_4> of sequential type is unconnected in block <lab5>.
 WARNING:Xst:2677 - Node <r/fir/y_5> of sequential type is unconnected in block <lab5>.
 WARNING:Xst:2677 - Node <r/fir/y_6> of sequential type is unconnected in block <lab5>.
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem32>, <r/bram/Mram_mem31> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem32>, <r/bram/Mram_mem30> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem27>, <r/bram/Mram_mem26> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem27>, <r/bram/Mram_mem28> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem24>, <r/bram/Mram_mem23> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem24>, <r/bram/Mram_mem22> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem20>, <r/bram/Mram_mem19> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem20>, <r/bram/Mram_mem18> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem16>, <r/bram/Mram_mem15> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem16>, <r/bram/Mram_mem14> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem12>, <r/bram/Mram_mem10> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem12>, <r/bram/Mram_mem11> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem8>, <r/bram/Mram_mem7> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem8>, <r/bram/Mram_mem6> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem4>, <r/bram/Mram_mem2> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <r/bram/Mram_mem4>, <r/bram/Mram_mem3> are equivalent, second RAM is removed
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -970,8 +959,8 @@ Unit <lab5> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 245
- Flip-Flops                                            : 245
+# Registers                                            : 290
+ Flip-Flops                                            : 290
 # Shift Registers                                      : 2
  13-bit shift register                                 : 1
  2-bit shift register                                  : 1
@@ -1003,32 +992,32 @@ Design Statistics
 # IOs                              : 576
 
 Cell Usage :
-# BELS                             : 658
+# BELS                             : 824
 #      GND                         : 1
-#      INV                         : 21
-#      LUT1                        : 88
-#      LUT2                        : 59
+#      INV                         : 22
+#      LUT1                        : 120
+#      LUT2                        : 69
 #      LUT2_D                      : 1
-#      LUT3                        : 85
-#      LUT4                        : 112
+#      LUT3                        : 109
+#      LUT4                        : 128
 #      LUT4_L                      : 5
-#      MUXCY                       : 129
-#      MUXF5                       : 34
+#      MUXCY                       : 170
+#      MUXF5                       : 42
 #      MUXF6                       : 4
 #      MUXF7                       : 1
 #      VCC                         : 1
-#      XORCY                       : 117
-# FlipFlops/Latches                : 247
-#      FD                          : 17
-#      FDE                         : 89
+#      XORCY                       : 151
+# FlipFlops/Latches                : 292
+#      FD                          : 19
+#      FDE                         : 98
 #      FDE_1                       : 8
 #      FDR                         : 7
-#      FDRE                        : 119
+#      FDRE                        : 153
 #      FDS                         : 5
 #      FDSE                        : 2
-# RAMS                             : 16
+# RAMS                             : 40
 #      RAM32X1D                    : 8
-#      RAMB16_S1                   : 8
+#      RAMB16_S1                   : 32
 # Shift Registers                  : 3
 #      SRL16                       : 2
 #      SRL16E_1                    : 1
@@ -1047,15 +1036,15 @@ Device utilization summary:
 
 Selected Device : 2v6000bf957-4 
 
- Number of Slices:                      215  out of  33792     0%  
- Number of Slice Flip Flops:            247  out of  67584     0%  
- Number of 4 input LUTs:                406  out of  67584     0%  
-    Number used as logic:               371
+ Number of Slices:                      259  out of  33792     0%  
+ Number of Slice Flip Flops:            292  out of  67584     0%  
+ Number of 4 input LUTs:                489  out of  67584     0%  
+    Number used as logic:               454
     Number used as Shift registers:       3
     Number used as RAMs:                 32
  Number of IOs:                         576
  Number of bonded IOBs:                 247  out of    684    36%  
- Number of BRAMs:                         8  out of    144     5%  
+ Number of BRAMs:                        32  out of    144    22%  
  Number of MULT18X18s:                    1  out of    144     0%  
  Number of GCLKs:                         2  out of     16    12%  
 
@@ -1080,7 +1069,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clock_27mhz                        | BUFGP                  | 194   |
+clock_27mhz                        | BUFGP                  | 239   |
 ac97_bit_clock                     | IBUF+BUFG              | 64    |
 -----------------------------------+------------------------+-------+
 
@@ -1094,7 +1083,7 @@ Speed Grade: -4
 
    Minimum period: 16.729ns (Maximum Frequency: 59.776MHz)
    Minimum input arrival time before clock: 3.540ns
-   Maximum output required time after clock: 7.535ns
+   Maximum output required time after clock: 7.568ns
    Maximum combinational path delay: 5.887ns
 
 Timing Detail:
@@ -1104,7 +1093,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock_27mhz'
   Clock period: 16.729ns (frequency: 59.776MHz)
-  Total number of paths / destination ports: 59771 / 570
+  Total number of paths / destination ports: 61310 / 692
 -------------------------------------------------------------------------
 Delay:               16.729ns (Levels of Logic = 10)
   Source:            r/fir/index_0 (FF)
@@ -1218,7 +1207,7 @@ Offset:              5.700ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock_27mhz'
   Total number of paths / destination ports: 25 / 19
 -------------------------------------------------------------------------
-Offset:              7.535ns (Levels of Logic = 2)
+Offset:              7.568ns (Levels of Logic = 2)
   Source:            a/ready_sync_1 (FF)
   Destination:       analyzer3_clock (PAD)
   Source Clock:      clock_27mhz rising
@@ -1227,12 +1216,12 @@ Offset:              7.535ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               4   0.568   1.032  a/ready_sync_1 (a/ready_sync_1)
-     LUT2:I0->O           50   0.439   1.134  a/ready1 (analyzer3_clock_OBUF)
+     FD:C->Q               5   0.568   1.056  a/ready_sync_1 (a/ready_sync_1)
+     LUT2:I0->O           54   0.439   1.145  a/ready1 (analyzer3_clock_OBUF)
      OBUF:I->O                 4.361          analyzer3_clock_OBUF (analyzer3_clock)
     ----------------------------------------
-    Total                      7.535ns (5.368ns logic, 2.167ns route)
-                                       (71.2% logic, 28.8% route)
+    Total                      7.568ns (5.368ns logic, 2.200ns route)
+                                       (70.9% logic, 29.1% route)
 
 =========================================================================
 Timing constraint: Default path analysis
@@ -1255,15 +1244,15 @@ Delay:               5.887ns (Levels of Logic = 2)
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.40 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.22 secs
  
 --> 
 
 
-Total memory usage is 471228 kilobytes
+Total memory usage is 473020 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  415 (   0 filtered)
-Number of infos    :   48 (   0 filtered)
+Number of warnings :  412 (   0 filtered)
+Number of infos    :   29 (   0 filtered)
 

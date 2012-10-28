@@ -1,4 +1,4 @@
-`default_nettype none
+//`default_nettype none
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -716,6 +716,7 @@ module recorder(
     reg [16:0] add;
         
     reg [3:0] counter;
+	 reg full=0;
     parameter maxAdd=1024*64;
     reg [16:0] recEnd;
     reg toggle;
@@ -723,8 +724,9 @@ module recorder(
 	wire signed [17:0] filterOut;	
 	wire [7:0] memIn;
 	wire [7:0] memOut;
+	reg [7:0] zero_expanded_memOut=0;
     initial begin
-        counter=8;
+        counter=7;
         toggle=0;
         recEnd<=0;
     end
@@ -733,7 +735,7 @@ module recorder(
     mybram #(.LOGSIZE(16),.WIDTH(8)) bram (add, clock, memIn, memOut, ~playback);
     fir31 fir (.clock(clock), .reset(reset), .ready(ready), .x(filterIn), .y(filterOut));      
 
-	assign filterIn = playback? (~counter) ? memOut : 0	:from_ac97_data;
+	assign filterIn = playback? (filter) ? zero_expanded_memOut : 0	:from_ac97_data;
 	assign memIn = filter ? filterOut[17:10] : from_ac97_data;
 
     
@@ -753,9 +755,13 @@ module recorder(
                 if (add==recEnd) begin
                     add<=0;
                 end if (counter==0) begin
+							zero_expanded_memOut<=memOut;
                     counter<=7;
                     add<=add+1;
-                end else counter<=counter-1;
+                end else begin
+						counter<=counter-1;
+						zero_expanded_memOut<=0;
+					end
             end
         
         
@@ -777,10 +783,8 @@ module recorder(
                 end else counter<=counter-1;
             end
         end
-        
-        
-
-       
+	end
+         
 endmodule
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -824,7 +828,7 @@ module fir31(
   output reg signed [17:0] y
 );
     reg signed [7:0] sample [31:0];	
-    reg [4:0] index=0
+    reg [4:0] index=0;
 	 reg [4:0]	offset=0;
     reg signed [17:0] accum=0;
     wire signed [9:0] coeff;
