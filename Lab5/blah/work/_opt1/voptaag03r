@@ -1,0 +1,175 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab5/blah
+T_opt
+Z1 Vm3J;Ld>h^SPABfjhHkV2d0
+Z2 04 10 4 work fir31_test fast 0
+Z3 04 4 4 work glbl fast 0
+Z4 =1-f04da20f064e-508a02b8-5431a-20cb
+Z5 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
+Z6 OE;O;6.4a;39
+T_opt1
+Z7 VWFbHQZ;c<i0cRX1;`2HaJ2
+R2
+R3
+Z8 =1-f04da20f064e-508a0396-c6aa0-2161
+R5
+R6
+vac97
+Z9 INgdMImHOejYCl]W:FSOHL2
+Z10 VYXk6kHT]QSF:^OA@:mF2J1
+Z11 w1351222146
+Z12 8lab5.v
+Z13 Flab5.v
+Z14 L0 109
+Z15 OE;L;6.4a;39
+r1
+31
+Z16 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
+Z17 !s100 lNjgUb@9=L@WWUR=JhkgB3
+!s85 0
+vac97commands
+Z18 I`@7MLXmTL6_T36ULo3H[W1
+Z19 VfgQQb6>bl@1HVOemOfkS92
+R11
+R12
+R13
+Z20 L0 220
+R15
+r1
+31
+R16
+Z21 !s100 <Yi^<;bY4f28F4]D1cTlN2
+!s85 0
+vcoeffs31
+Z22 IR26O[2QQ<b@PnHkG;95AO1
+Z23 V?D@h_E>QDQk0Z_?cj99J20
+R11
+R12
+R13
+Z24 L0 856
+R15
+r1
+31
+R16
+Z25 !s100 7i6CTQnHU[;]dlib;3eY82
+!s85 0
+vdebounce
+Z26 IKX;k1PLnk7RYDam_SnVUn2
+Z27 VnlDBH;]395Ea:=dmAZD@M2
+R11
+R12
+R13
+L0 9
+R15
+r1
+31
+R16
+Z28 !s100 5zC^oOfFKjX=KFSiQcQaf3
+!s85 0
+vfir31
+Z29 I]o`2JC`9eAQXFZ]bQ8ei51
+Z30 Vnanfn15dTah0^V<Jd`dNC2
+R11
+R12
+R13
+Z31 L0 813
+R15
+r1
+31
+R16
+Z32 !s100 f:dn9g<GNR>mOTU:<dK=M3
+!s85 0
+vfir31_test
+Z33 I]9gRf73?Sh:i`34A@n?G@3
+Z34 VMg>TDO5Ef75kilNM7cOQ61
+Z35 w1351206689
+Z36 8fir31_test.v
+Z37 Ffir31_test.v
+L0 14
+R15
+r1
+31
+R16
+Z38 !s100 5SVB:XgFM4_WMgP2cO;1g3
+!s85 0
+vglbl
+Z39 IB;@1jEXmEfQXL`;Kf0IBZ3
+Z40 VnN]4Gon>inod6>M^M2[SV1
+Z41 w1202685744
+Z42 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z43 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+L0 5
+R15
+r1
+31
+R16
+Z44 !s100 T?5S;>bN`@zG_25]R_4A33
+!s85 0
+vlab5
+Z45 Id64Na]3H44=bZLRzeGlgQ3
+Z46 V5POK^=lQ2>Y9JOP:ZQ;C[0
+R11
+R12
+R13
+Z47 L0 383
+R15
+r1
+31
+R16
+Z48 !s100 z[UTkGd[1nhRWNg<3jFJX3
+!s85 0
+vlab5audio
+Z49 Il9<VXoJci5EUWC@4eDn`n0
+Z50 V>6;O4:[B[bV_BAmCmPcmg1
+R11
+R12
+R13
+L0 42
+R15
+r1
+31
+R16
+Z51 !s100 ]Vo:Nc5S=SL1`9=KcZT=Q1
+!s85 0
+vmybram
+Z52 I>nBC4[lGMJkolEkk=?h]a3
+Z53 VGM9]TZo^RUBWUlL>G2B`40
+R11
+R12
+R13
+Z54 L0 786
+R15
+r1
+31
+R16
+Z55 !s100 ajezeLIDQX?dBRQY<NoIn2
+!s85 0
+vrecorder
+Z56 Ib_>Pea>oc1TV:On]U3oWe0
+Z57 VkWPGkM0AghL8c7ZCz0mSH2
+R11
+R12
+R13
+Z58 L0 707
+R15
+r1
+31
+R16
+Z59 !s100 4AF3QZT@zVOW]oXJFNG241
+!s85 0
+vtone750hz
+Z60 IFcYT3zN:eBKz]3GJe36je1
+Z61 V_miH[zKPGGdQYg5`n1Z[X3
+R11
+R12
+R13
+Z62 L0 284
+R15
+r1
+31
+R16
+Z63 !s100 RGAlU72;fO_NlmPImg9<A2
+!s85 0

@@ -1,0 +1,119 @@
+# //  ModelSim SE 6.4a Aug 28 2008 Linux 3.2.0-32-generic
+# //
+# //  Copyright 1991-2008 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# do {fir31_test.fdo} 
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module debounce
+# -- Compiling module lab5audio
+# -- Compiling module ac97
+# -- Compiling module ac97commands
+# -- Compiling module tone750hz
+# -- Compiling module lab5
+# -- Compiling module recorder
+# -- Compiling module mybram
+# -- Compiling module fir31
+# -- Compiling module coeffs31
+# 
+# Top level modules:
+# 	tone750hz
+# 	lab5
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module fir31_test
+# 
+# Top level modules:
+# 	fir31_test
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps fir31_test glbl 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: kiarash  Hostname: eecs-digital-20  ProcessID: 8395
+#           Attempting to use alternate WLF file "./wlftyZxScJ".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftyZxScJ
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftyZxScJ
+# Design is being optimized due to module recompilation...
+# Loading work.fir31_test(fast)
+# Loading work.fir31(fast)
+# ** Warning: (vsim-3009) [TSCALE] - Module 'fir31' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /fir31_test/dut
+# Loading work.coeffs31(fast)
+# ** Warning: (vsim-3009) [TSCALE] - Module 'coeffs31' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /fir31_test/dut/xxx
+# Loading work.glbl(fast)
+# .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
+# .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
+# .main_pane.signals.interior.cs
+run 100ms
+# Break in Module fir31_test at fir31_test.v line 53
+restart -f
+# Loading work.fir31_test(fast)
+# Loading work.fir31(fast)
+# ** Warning: (vsim-3009) [TSCALE] - Module 'fir31' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /fir31_test/dut
+# Loading work.coeffs31(fast)
+# ** Warning: (vsim-3009) [TSCALE] - Module 'coeffs31' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /fir31_test/dut/xxx
+# Loading work.glbl(fast)
+run 100ms
+# Break in Module fir31_test at fir31_test.v line 53
+do {fir31_test.fdo}
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module debounce
+# -- Compiling module lab5audio
+# -- Compiling module ac97
+# -- Compiling module ac97commands
+# -- Compiling module tone750hz
+# -- Compiling module lab5
+# -- Compiling module recorder
+# -- Compiling module mybram
+# -- Compiling module fir31
+# -- Compiling module coeffs31
+# 
+# Top level modules:
+# 	tone750hz
+# 	lab5
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module fir31_test
+# 
+# Top level modules:
+# 	fir31_test
+# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps fir31_test glbl 
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: kiarash  Hostname: eecs-digital-20  ProcessID: 8395
+#           Attempting to use alternate WLF file "./wlftt8s9R9".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftt8s9R9
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftt8s9R9
+# Design is being optimized due to module recompilation...
+# Loading work.fir31_test(fast)
+# Loading work.fir31(fast)
+# ** Warning: (vsim-3009) [TSCALE] - Module 'fir31' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /fir31_test/dut
+# Loading work.coeffs31(fast)
+# ** Warning: (vsim-3009) [TSCALE] - Module 'coeffs31' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /fir31_test/dut/xxx
+# Loading work.glbl(fast)
+# .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf
+# .main_pane.workspace.interior.cs.nb.canvas.notebook.cs.page2.cs
+# .main_pane.signals.interior.cs
+run 100ms
+# Break in Module fir31_test at fir31_test.v line 53

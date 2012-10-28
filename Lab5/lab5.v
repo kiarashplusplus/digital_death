@@ -816,42 +816,29 @@ module fir31(
   output reg signed [17:0] y
 );
     reg signed [7:0] sample [31:0];	
-    reg signed [17:0] accumulator =0;	
-	reg [5:0] count32 =0;					
-	reg [4:0] countCalc=0;							
-	wire signed [9:0] coeff;
-	reg [5:0] countShift=31;	
-	reg start = 1;				
-	wire [4:0] index;			
-	assign index = countCalc;			
-  always @(posedge clock) begin
-	 if (reset)	 begin
-		count32<=0;
-		accumulator<=0;
-		countCalc<=0;
-	 end else if ((ready)&&(count32<32)) begin
-			sample[count32]=x;	
-			count32<=count32+1;
-		end	else if ((count32==32)&&(~ready))	begin
-			if (start)	begin
-                if (countShift<31) begin
-                    sample[countShift]=sample[countShift+1];
-                    countShift<=countShift+1;
-                end else begin
-                    sample[31]=x;
-                    countCalc<=0;			
-                    accumulator<=0;
-                    countShift<=0;
-                    start<=0;
-                end
-			end	else begin
-				if (countCalc<31) begin
-					accumulator <= accumulator + coeff * sample[31-countCalc];
-					countCalc<=countCalc+1;
-				end else y<=accumulator;	
-			end
-		end	else if ((count32==32) &&(ready)) start<=1;
-  end
+    reg [4:0] index, offset;
+    reg signed [17:0] accum;
+    wire signed [9:0] coeff;
+    
+
+    always @(posedge clock) begin
+
+        if (ready) begin
+            accum<=0;
+            index<=0;
+            offset<=offset+1;
+
+            sample[(offset+1) & 5'b11111)]<=x;
+
+        end else if (index<30) begin
+
+            accum<=accum+coeff *sample[offset-index];
+            index<=index+1;
+
+        end else if (index==31) y<=accum;
+
+    end
+
     coeffs31 xxx(.index(index),.coeff(coeff));	
 
 endmodule

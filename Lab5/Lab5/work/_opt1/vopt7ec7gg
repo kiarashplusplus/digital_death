@@ -11,165 +11,172 @@ Z4 =1-f04da20f064e-5089d1cd-bbe3f-53d1
 Z5 o-quiet -auto_acc_if_foreign -work work -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver
 Z6 OE;O;6.4a;39
 T_opt1
-Z7 V17oH[ZM]h51O@fLfOeU:S3
+Z7 V8XAJXV:HelcgV4j6;5lgh2
 Z8 04 10 4 work fir31_test fast 0
 R3
-Z9 =1-f04da20f064e-5089d290-a6e92-5424
+Z9 =1-f04da20f064e-5089f534-168aa-1f2f
+R5
+R6
+T_opt2
+Z10 VkI^MD6YZGA4m_W>4jinTO1
+R8
+R3
+Z11 =1-f04da20f064e-5089f49b-57ff0-1f0f
 R5
 R6
 vac97
-Z10 INgdMImHOejYCl]W:FSOHL2
-Z11 VYXk6kHT]QSF:^OA@:mF2J1
-Z12 w1351209416
-Z13 8lab5.v
-Z14 Flab5.v
-Z15 L0 109
-Z16 OE;L;6.4a;39
+Z12 INgdMImHOejYCl]W:FSOHL2
+Z13 VYXk6kHT]QSF:^OA@:mF2J1
+Z14 w1351218156
+Z15 8lab5.v
+Z16 Flab5.v
+Z17 L0 109
+Z18 OE;L;6.4a;39
 r1
 31
-Z17 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
-Z18 !s100 lNjgUb@9=L@WWUR=JhkgB3
+Z19 o+acc -L mtiAvm -L mtiOvm -L mtiUPF
+Z20 !s100 lNjgUb@9=L@WWUR=JhkgB3
 !s85 0
 vac97commands
-Z19 I`@7MLXmTL6_T36ULo3H[W1
-Z20 VfgQQb6>bl@1HVOemOfkS92
-R12
-R13
+Z21 I`@7MLXmTL6_T36ULo3H[W1
+Z22 VfgQQb6>bl@1HVOemOfkS92
 R14
-Z21 L0 220
+R15
 R16
+Z23 L0 220
+R18
 r1
 31
-R17
-Z22 !s100 <Yi^<;bY4f28F4]D1cTlN2
+R19
+Z24 !s100 <Yi^<;bY4f28F4]D1cTlN2
 !s85 0
 vcoeffs31
-Z23 Ic?><h:RlCem:gj0Z1IU^G1
-Z24 V?D@h_E>QDQk0Z_?cj99J20
-R12
-R13
+Z25 IhC8L@WfInIV=mP>jRE4KI2
+Z26 V?D@h_E>QDQk0Z_?cj99J20
 R14
-Z25 L0 904
+R15
 R16
+Z27 L0 903
+R18
 r1
 31
-R17
-Z26 !s100 gC[YEWPGn8:<Zm;m3abZk0
+R19
+Z28 !s100 ]o6oU>e`c@@iWi^GJ2SJ41
 !s85 0
 vdebounce
-Z27 IKX;k1PLnk7RYDam_SnVUn2
-Z28 VnlDBH;]395Ea:=dmAZD@M2
-R12
-R13
+Z29 IKX;k1PLnk7RYDam_SnVUn2
+Z30 VnlDBH;]395Ea:=dmAZD@M2
 R14
-L0 9
+R15
 R16
+L0 9
+R18
 r1
 31
-R17
-Z29 !s100 5zC^oOfFKjX=KFSiQcQaf3
+R19
+Z31 !s100 5zC^oOfFKjX=KFSiQcQaf3
 !s85 0
 vfir31
-Z30 Il?KO<JF>M2061g9M0YET>2
-Z31 Vnanfn15dTah0^V<Jd`dNC2
-R12
-R13
+Z32 I]h>C<:b:jT>`Adf:>V1zS1
+Z33 Vnanfn15dTah0^V<Jd`dNC2
 R14
-Z32 L0 815
+R15
 R16
+Z34 L0 815
+R18
 r1
 31
-R17
-Z33 !s100 >0U:SIafCYZP1=;>FDVz72
+R19
+Z35 !s100 nh>0BRa]_5?lekWZJGIj61
 !s85 0
 vfir31_test
-Z34 I]9gRf73?Sh:i`34A@n?G@3
-Z35 VMg>TDO5Ef75kilNM7cOQ61
-Z36 w1351206689
-Z37 8fir31_test.v
-Z38 Ffir31_test.v
+Z36 I]9gRf73?Sh:i`34A@n?G@3
+Z37 VMg>TDO5Ef75kilNM7cOQ61
+Z38 w1351206689
+Z39 8fir31_test.v
+Z40 Ffir31_test.v
 L0 14
-R16
+R18
 r1
 31
-R17
-Z39 !s100 5SVB:XgFM4_WMgP2cO;1g3
+R19
+Z41 !s100 5SVB:XgFM4_WMgP2cO;1g3
 !s85 0
 vglbl
-Z40 IB;@1jEXmEfQXL`;Kf0IBZ3
-Z41 VnN]4Gon>inod6>M^M2[SV1
-Z42 w1202685744
-Z43 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
-Z44 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z42 IB;@1jEXmEfQXL`;Kf0IBZ3
+Z43 VnN]4Gon>inod6>M^M2[SV1
+Z44 w1202685744
+Z45 8/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
+Z46 F/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/verilog/src/glbl.v
 L0 5
-R16
+R18
 r1
 31
-R17
-Z45 !s100 T?5S;>bN`@zG_25]R_4A33
+R19
+Z47 !s100 T?5S;>bN`@zG_25]R_4A33
 !s85 0
 vlab5
-Z46 Id64Na]3H44=bZLRzeGlgQ3
-Z47 V5POK^=lQ2>Y9JOP:ZQ;C[0
-R12
-R13
+Z48 Id64Na]3H44=bZLRzeGlgQ3
+Z49 V5POK^=lQ2>Y9JOP:ZQ;C[0
 R14
-Z48 L0 383
+R15
 R16
+Z50 L0 383
+R18
 r1
 31
-R17
-Z49 !s100 z[UTkGd[1nhRWNg<3jFJX3
+R19
+Z51 !s100 z[UTkGd[1nhRWNg<3jFJX3
 !s85 0
 vlab5audio
-Z50 Il9<VXoJci5EUWC@4eDn`n0
-Z51 V>6;O4:[B[bV_BAmCmPcmg1
-R12
-R13
+Z52 Il9<VXoJci5EUWC@4eDn`n0
+Z53 V>6;O4:[B[bV_BAmCmPcmg1
 R14
-L0 42
+R15
 R16
+L0 42
+R18
 r1
 31
-R17
-Z52 !s100 ]Vo:Nc5S=SL1`9=KcZT=Q1
+R19
+Z54 !s100 ]Vo:Nc5S=SL1`9=KcZT=Q1
 !s85 0
 vmybram
-Z53 I[Ye26CNFQmioAnWji`4GK1
-Z54 VGM9]TZo^RUBWUlL>G2B`40
-R12
-R13
+Z55 I[Ye26CNFQmioAnWji`4GK1
+Z56 VGM9]TZo^RUBWUlL>G2B`40
 R14
-Z55 L0 788
+R15
 R16
+Z57 L0 788
+R18
 r1
 31
-R17
-Z56 !s100 Y>zDY4d]nUC3][UWDhlRX2
+R19
+Z58 !s100 Y>zDY4d]nUC3][UWDhlRX2
 !s85 0
 vrecorder
-Z57 IUiMhd3LLnfnL^;bLSV3g[3
-Z58 VkWPGkM0AghL8c7ZCz0mSH2
-R12
-R13
+Z59 IUiMhd3LLnfnL^;bLSV3g[3
+Z60 VkWPGkM0AghL8c7ZCz0mSH2
 R14
-Z59 L0 707
+R15
 R16
+Z61 L0 707
+R18
 r1
 31
-R17
-Z60 !s100 Ak:[]^7F2OZhZS5odiHjL2
+R19
+Z62 !s100 Ak:[]^7F2OZhZS5odiHjL2
 !s85 0
 vtone750hz
-Z61 IFcYT3zN:eBKz]3GJe36je1
-Z62 V_miH[zKPGGdQYg5`n1Z[X3
-R12
-R13
+Z63 IFcYT3zN:eBKz]3GJe36je1
+Z64 V_miH[zKPGGdQYg5`n1Z[X3
 R14
-Z63 L0 284
+R15
 R16
+Z65 L0 284
+R18
 r1
 31
-R17
-Z64 !s100 RGAlU72;fO_NlmPImg9<A2
+R19
+Z66 !s100 RGAlU72;fO_NlmPImg9<A2
 !s85 0
