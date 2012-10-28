@@ -824,8 +824,9 @@ module fir31(
   output reg signed [17:0] y
 );
     reg signed [7:0] sample [31:0];	
-    reg [4:0] index, offset;
-    reg signed [17:0] accum;
+    reg [4:0] index=0
+	 reg [4:0]	offset=0;
+    reg signed [17:0] accum=0;
     wire signed [9:0] coeff;
     
 
@@ -836,14 +837,14 @@ module fir31(
             index<=0;
             offset<=offset+1;
 
-            sample[(offset+1) & 5'b11111)]<=x;
+            sample[((offset+1) & 5'b11111)]<=x;
 
-        end else if (index<30) begin
+        end else if (index<=30) begin
 
-            accum<=accum+coeff *sample[offset-index];
+            accum<=accum+coeff *sample[(offset-index)&5'b11111];
             index<=index+1;
 
-        end else if (index==31) y<=accum;
+        end else y<=accum;
 
     end
 

@@ -2,11 +2,11 @@ NUM_USER_FILES
 3
 s
 user_file_1
-lab5.v
-s
-user_file_2
 labkit.ucf
 s
-user_file_3
+user_file_2
 fir31_test.v
+s
+user_file_3
+../lab5.v
 s
