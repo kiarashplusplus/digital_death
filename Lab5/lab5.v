@@ -713,46 +713,47 @@ module recorder(
   input wire [7:0] from_ac97_data, // 8-bit PCM data from mic
   output reg [7:0] to_ac97_data    // 8-bit PCM data to headphone
 );   
-    reg [16:0] add;
-        
-    reg [3:0] counter;
-	 reg full=0;
-    parameter maxAdd=1024*64;
-    reg [16:0] recEnd;
-    reg toggle;
-	wire signed [7:0] filterIn;
-	wire signed [17:0] filterOut;	
-	wire [7:0] memIn;
-	wire [7:0] memOut;
-	reg [7:0] zero_expanded_memOut=0;
-    initial begin
+    reg [16:0] add;  //address of the memory
+    reg [3:0] counter; //counter of 8 which will count from 7 to 0. 
+	reg full=0;    //to flag when the memory is full.
+    parameter maxAdd=1024*64; //max record time
+    reg [16:0] recEnd; //end of the recorded message
+    reg toggle; //toggling between record and play. used to reset values.
+	wire signed [7:0] filterIn;   //filtered sound coming in 
+	wire signed [17:0] filterOut;	//filtered sound going out
+	wire [7:0] memIn; // sound coming in from memory directly
+	wire [7:0] memOut; //sound going out from memory directly
+	reg [7:0] zero_expanded_memOut=0; //after zero expansion of the memOut
+    initial begin    //initilizing some values
         counter=7;
         toggle=0;
         recEnd<=0;
     end
 		
 
-    mybram #(.LOGSIZE(16),.WIDTH(8)) bram (add, clock, memIn, memOut, ~playback);
-    fir31 fir (.clock(clock), .reset(reset), .ready(ready), .x(filterIn), .y(filterOut));      
+    mybram #(.LOGSIZE(16),.WIDTH(8)) bram (add, clock, memIn, memOut, ~playback);   //a new instance of memory
+    fir31 fir (.clock(clock), .reset(reset), .ready(ready), .x(filterIn), .y(filterOut));       //an instance of the filter
 
-	assign filterIn = playback? (filter) ? zero_expanded_memOut : 0	:from_ac97_data;
+    
+    // assinging filterIn and memIn different values depending on their states as mentioned in the corresponding table in the assignment. 
+	assign filterIn = playback? (filter) ? zero_expanded_memOut : 0	:from_ac97_data;   
 	assign memIn = filter ? filterOut[17:10] : from_ac97_data;
 
     
    always @ (posedge clock) begin
-        if (reset) begin
-            counter<=8;
+        if (reset) begin   //counter is supposed to count down from 7 to 0. 
+            counter<=7;
             toggle<=0;
             add<=0;
             recEnd<=0;
-        end else if (playback) begin
-            to_ac97_data <= filter?filterOut[14:7]:memOut;
-            if (toggle) begin
+        end else if (playback) begin   //playback mode
+            to_ac97_data <= filter?filterOut[14:7]:memOut;  //depending on the filter flag, we get data from memory directly or after filtering. 
+            if (toggle) begin //when toggle is 1 it means we just got from record mode here so put it zero and reset add and counter. the opposite happens in record mode.
                 toggle<=0;
                 add<=0;
                 counter<=7;
             end else if (ready) begin
-                if (add==recEnd) begin
+                if (add==recEnd) begin //plays all the recorded message and resets the address to zero. 
                     add<=0;
                 end if (counter==0) begin
 							zero_expanded_memOut<=memOut;
@@ -767,14 +768,14 @@ module recorder(
         
         end else if (~full) begin
             to_ac97_data<=memIn;
-            if (~toggle) begin
+            if (~toggle) begin //when toggle is 0 it means we just got from record mode here so put it 1 and reset add and counter. the opposite happens in playback mode.
                 full<=0;
                 toggle<=1;
                 add<=0;
                 counter<=7;
                 recEnd<=0;
             end else if (ready) begin
-                if (add==maxAdd) begin
+                if (add==maxAdd) begin   //record until the memory is full.
                     full<=1;
                 end if (counter==0) begin
                     counter<=7;
@@ -829,9 +830,9 @@ module fir31(
 );
     reg signed [7:0] sample [31:0];	
     reg [4:0] index=0;
-	 reg [4:0]	offset=0;
-    reg signed [17:0] accum=0;
-    wire signed [9:0] coeff;
+	 reg [4:0]	offset=0; 
+    reg signed [17:0] accum=0; //the accumultator for the samples.
+    wire signed [9:0] coeff;   //the coefficients
     
 
     always @(posedge clock) begin
@@ -841,7 +842,7 @@ module fir31(
             index<=0;
             offset<=offset+1;
 
-            sample[((offset+1) & 5'b11111)]<=x;
+            sample[((offset+1) & 5'b11111)]<=x;  //anding with 5 ones so verilog won't think it's more digits. 
 
         end else if (index<=30) begin
 
