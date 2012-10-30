@@ -8,7 +8,7 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-# do {timerTest.fdo} 
+# do {DividerTest.fdo} 
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module Divider
@@ -16,24 +16,18 @@
 # Top level modules:
 # 	Divider
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module timer
+# -- Compiling module DividerTest
 # 
 # Top level modules:
-# 	timer
-# Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
-# -- Compiling module timerTest
-# 
-# Top level modules:
-# 	timerTest
+# 	DividerTest
 # Model Technology ModelSim SE vlog 6.4a Compiler 2008.08 Aug 28 2008
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps timerTest glbl 
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -lib work -t 1ps DividerTest glbl 
 # ** Note: (vsim-3812) Design is being optimized...
-# Loading work.timerTest(fast)
-# Loading work.timer(fast)
+# Loading work.DividerTest(fast)
 # Loading work.Divider(fast)
 # Loading work.glbl(fast)
 # .main_pane.mdi.interior.cs.vm.paneset.cli_0.wf.clip.cs.pw.wf

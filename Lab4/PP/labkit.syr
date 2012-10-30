@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/k/i/kiarash/Documents/6.111/Lab4/PP/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: labkit.prj
@@ -109,26 +109,26 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "Divider.v" in library work
-Compiling verilog file "sirenGen.v" in library work
+Compiling verilog file "../Sources/Divider.v" in library work
+Compiling verilog file "../Sources/sirenGen.v" in library work
 Module <Divider> compiled
 Module <sirenGen> compiled
-Compiling verilog file "debounce.v" in library work
+Compiling verilog file "../Sources/debounce.v" in library work
 Module <squareWave> compiled
-Compiling verilog file "timer.v" in library work
+Compiling verilog file "../Sources/timer.v" in library work
 Module <debounce> compiled
-Compiling verilog file "timeParam.v" in library work
+Compiling verilog file "../Sources/timeParam.v" in library work
 Module <timer> compiled
-Compiling verilog file "FuelLogic.v" in library work
+Compiling verilog file "../Sources/full_debounce.v" in library work
 Module <timeParam> compiled
-Compiling verilog file "display_16hex.v" in library work
-Module <FuelLogic> compiled
-Compiling verilog file "../full_debounce.v" in library work
-Module <display_16hex> compiled
-Compiling verilog file "../FSM.v" in library work
+Compiling verilog file "../Sources/FuelLogic.v" in library work
 Module <full_debounce> compiled
-Compiling verilog file "../labkit.v" in library work
+Compiling verilog file "../Sources/FSM.v" in library work
+Module <FuelLogic> compiled
+Compiling verilog file "../Sources/display_16hex.v" in library work
 Module <FSM> compiled
+Compiling verilog file "../Sources/labkit.v" in library work
+Module <display_16hex> compiled
 Module <labkit> compiled
 No errors in compilation
 Analysis of file <"labkit.prj"> succeeded.
@@ -220,7 +220,7 @@ Analyzing module <timeParam> in library <work>.
 	T_ARM_DELAY = 4'b0110
 	T_DRIVER_DELAY = 4'b1000
 	T_PASSENGER_DELAY = 4'b1111
-WARNING:Xst:905 - "timeParam.v" line 58: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:905 - "../Sources/timeParam.v" line 58: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <ARM_DELAY>, <DRIVER_DELAY>, <PASSENGER_DELAY>, <ALARM_ON>
 Module <timeParam> is correct for synthesis.
  
@@ -297,12 +297,12 @@ INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit
 INFO:Xst:2561 - Always blocking tristate driving signal <tv_in_i2c_data> in unit <labkit> is removed.
 
 Synthesizing Unit <FuelLogic>.
-    Related source file is "FuelLogic.v".
+    Related source file is "../Sources/FuelLogic.v".
 Unit <FuelLogic> synthesized.
 
 
 Synthesizing Unit <timeParam>.
-    Related source file is "timeParam.v".
+    Related source file is "../Sources/timeParam.v".
     Found 4-bit 4-to-1 multiplexer for signal <value>.
     Found 4-bit register for signal <ALARM_ON>.
     Found 4-bit register for signal <PASSENGER_DELAY>.
@@ -315,7 +315,7 @@ Unit <timeParam> synthesized.
 
 
 Synthesizing Unit <display_16hex>.
-    Related source file is "display_16hex.v".
+    Related source file is "../Sources/display_16hex.v".
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 7                                              |
@@ -355,7 +355,7 @@ Unit <display_16hex> synthesized.
 
 
 Synthesizing Unit <debounce>.
-    Related source file is "debounce.v".
+    Related source file is "../Sources/debounce.v".
     Found 1-bit register for signal <clean>.
     Found 19-bit up counter for signal <count>.
     Found 1-bit xor2 for signal <count$xor0000> created at line 18.
@@ -367,7 +367,7 @@ Unit <debounce> synthesized.
 
 
 Synthesizing Unit <Divider_1>.
-    Related source file is "Divider.v".
+    Related source file is "../Sources/Divider.v".
     Found 1-bit register for signal <one_hz_enable>.
     Found 26-bit up counter for signal <counter>.
     Summary:
@@ -377,7 +377,7 @@ Unit <Divider_1> synthesized.
 
 
 Synthesizing Unit <Divider_2>.
-    Related source file is "Divider.v".
+    Related source file is "../Sources/Divider.v".
     Found 1-bit register for signal <one_hz_enable>.
     Found 26-bit up counter for signal <counter>.
     Summary:
@@ -387,7 +387,7 @@ Unit <Divider_2> synthesized.
 
 
 Synthesizing Unit <Divider_3>.
-    Related source file is "Divider.v".
+    Related source file is "../Sources/Divider.v".
     Found 1-bit register for signal <one_hz_enable>.
     Found 26-bit up counter for signal <counter>.
     Summary:
@@ -397,7 +397,7 @@ Unit <Divider_3> synthesized.
 
 
 Synthesizing Unit <Divider_4>.
-    Related source file is "Divider.v".
+    Related source file is "../Sources/Divider.v".
     Found 1-bit register for signal <one_hz_enable>.
     Found 26-bit up counter for signal <counter>.
     Summary:
@@ -407,12 +407,12 @@ Unit <Divider_4> synthesized.
 
 
 Synthesizing Unit <full_debounce>.
-    Related source file is "../full_debounce.v".
+    Related source file is "../Sources/full_debounce.v".
 Unit <full_debounce> synthesized.
 
 
 Synthesizing Unit <timer>.
-    Related source file is "timer.v".
+    Related source file is "../Sources/timer.v".
     Found 1-bit register for signal <expired>.
     Found 4-bit register for signal <counter>.
     Found 4-bit subtractor for signal <counter$addsub0000> created at line 62.
@@ -424,7 +424,7 @@ Unit <timer> synthesized.
 
 
 Synthesizing Unit <squareWave_1>.
-    Related source file is "sirenGen.v".
+    Related source file is "../Sources/sirenGen.v".
     Found 1-bit register for signal <square>.
     Summary:
 	inferred   1 D-type flip-flop(s).
@@ -432,7 +432,7 @@ Unit <squareWave_1> synthesized.
 
 
 Synthesizing Unit <squareWave_2>.
-    Related source file is "sirenGen.v".
+    Related source file is "../Sources/sirenGen.v".
     Found 1-bit register for signal <square>.
     Summary:
 	inferred   1 D-type flip-flop(s).
@@ -440,7 +440,7 @@ Unit <squareWave_2> synthesized.
 
 
 Synthesizing Unit <squareWave_3>.
-    Related source file is "sirenGen.v".
+    Related source file is "../Sources/sirenGen.v".
     Found 1-bit register for signal <square>.
     Summary:
 	inferred   1 D-type flip-flop(s).
@@ -448,7 +448,7 @@ Unit <squareWave_3> synthesized.
 
 
 Synthesizing Unit <squareWave_4>.
-    Related source file is "sirenGen.v".
+    Related source file is "../Sources/sirenGen.v".
     Found 1-bit register for signal <square>.
     Summary:
 	inferred   1 D-type flip-flop(s).
@@ -456,12 +456,12 @@ Unit <squareWave_4> synthesized.
 
 
 Synthesizing Unit <sirenGen>.
-    Related source file is "sirenGen.v".
+    Related source file is "../Sources/sirenGen.v".
 Unit <sirenGen> synthesized.
 
 
 Synthesizing Unit <FSM>.
-    Related source file is "../FSM.v".
+    Related source file is "../Sources/FSM.v".
 WARNING:Xst:647 - Input <reprogram> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found finite state machine <FSM_1> for signal <state>.
     -----------------------------------------------------------------------
@@ -486,7 +486,7 @@ Unit <FSM> synthesized.
 
 
 Synthesizing Unit <labkit>.
-    Related source file is "../labkit.v".
+    Related source file is "../Sources/labkit.v".
 WARNING:Xst:2565 - Inout <user3<28>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<4>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<29>> is never assigned.
@@ -1447,13 +1447,13 @@ Delay:               7.154ns (Levels of Logic = 3)
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 11.34 secs
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 7.73 secs
  
 --> 
 
 
-Total memory usage is 476536 kilobytes
+Total memory usage is 472784 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  275 (   0 filtered)
