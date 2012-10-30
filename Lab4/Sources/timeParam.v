@@ -32,6 +32,8 @@ module timeParam(
 	 output reg [3:0] ALARM_ON	 
     );
 	 
+    //default values for the four delays 
+    
 	parameter T_ARM_DELAY=4'b0110;
 	parameter T_DRIVER_DELAY=4'b1000;
 	parameter T_PASSENGER_DELAY=4'b1111;
@@ -40,11 +42,11 @@ module timeParam(
 		
 	always @(posedge clk) begin
 	
-		if (reset) begin 
+		if (reset) begin   //reseting the values to the default ones.
 		{ARM_DELAY, DRIVER_DELAY, PASSENGER_DELAY,ALARM_ON}<=
 		{T_ARM_DELAY, T_DRIVER_DELAY, T_PASSENGER_DELAY,T_ALARM_ON};
 		
-		end else if (Reprogram) begin		
+		end else if (Reprogram) begin		 //programming again a particular delay
 			case(Time_Parameter_Selector)
 				2'b00: ARM_DELAY<=Time_Value;
 				2'b01: DRIVER_DELAY<=Time_Value;
@@ -55,7 +57,7 @@ module timeParam(
 
 	end
 		
-	always @(interval) begin
+	always @(interval) begin   //outputing the requested value
 			case (interval)
 				2'b00: value<=ARM_DELAY;
 				2'b01: value<=DRIVER_DELAY;

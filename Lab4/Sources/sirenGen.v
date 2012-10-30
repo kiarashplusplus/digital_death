@@ -23,7 +23,7 @@ module sirenGen #(parameter f1=67500, parameter f2=38571)(
 	 input on,
     output speaker
     );
-	 
+	 //using a square wave with low freq and toggling between two other waves, 400hz and 700hz
 	wire sp1;
 	wire sp2;
 	wire toggle;
@@ -36,6 +36,7 @@ module sirenGen #(parameter f1=67500, parameter f2=38571)(
 
 endmodule
 
+// a module to produce square waves using a divide
 module squareWave #(parameter mhz=25'd27000000)(input clk, output reg square);
 
 	initial square = 0;

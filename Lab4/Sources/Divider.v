@@ -20,8 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Divider #(parameter clock_27mhz=27000000)(input clk,input Start_Timer,
 	output reg one_hz_enable);
+//The divider converts the 27MHz master clock into an one_hz_enable signal that's asserted for just 1 cycle out of every 27,000,000 cycles
 	
-	reg [25:0] counter=0;
+	reg [25:0] counter=0;     
 	
 	always @ (posedge clk) begin	 
 		one_hz_enable<=0;		

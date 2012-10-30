@@ -44,17 +44,17 @@ module timer #(parameter mgh=25'd26999999)(
 	 Divider #(.clock_27mhz(mgh)) timerD (.clk(clk),.Start_Timer(pause), .one_hz_enable(pulse));
 	
 	always @(posedge clk) begin
-	    if (reset) begin
+	    if (reset) begin   //reseting the values to the initial value
 			pause<=1;
 			counter<=0;
 			expired<=1;
 			
-		end else if (start_timer) begin
+		end else if (start_timer) begin  //pausing the timer and  set the timer to count down from "value" 
 			counter<=value;
 			pause<=1;
 			expired<=0;
 			
-		end else
+		end else //starting to count down and "expired will be 1 when counting is done. 
 			pause <= 0;
 			
 			if (pulse) begin					
